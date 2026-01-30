@@ -101,7 +101,7 @@ get_header();
     ?>
 
     <?php if ( $nuova_titolo )  : ?>
-    <section class="py-16">
+    <section class="py-16" data-aos="fade-up">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
                 <div class="flex flex-col gap-6 justify-center order-2 lg:order-1 text-center lg:text-left">
