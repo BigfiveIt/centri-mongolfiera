@@ -12,7 +12,7 @@ get_header();
 
 <?php while ( have_posts() ): the_post(); ?>
 	<div class="container py-16">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-28">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-28" data-aos="fade-up">
 			<div>
 				<figure><?php the_post_thumbnail('full', ['class' => 'w-full h-full object-cover aspect-square']); ?></figure>
 				<div class="social-share border-t border-primary-500 pt-3 mt-5 flex gap-4 justify-between">
@@ -80,7 +80,7 @@ get_header();
 	?>
 
 	<?php if ( $altri_eventi->have_posts() ) : ?>
-		<section class="my-10 lg:my-20 altre-eventi" data-aos="fade">
+		<section class="my-10 lg:my-20 altre-eventi" data-aos="fade-up">
 			<div class="container">
 				<h2 class="mb-8 t-4 font-serif text-primary-500 font-bold text-center">Altri eventi</h2>
 				<div class="altre-eventi__carousel overflow-hidden py-6">

@@ -15,12 +15,11 @@ get_header();
 
 	<?php if ( have_posts() ): ?>
 	<div class="container mx-auto px-4">
-		<header class="page-header py-16">
+		<header class="page-header py-16" data-aos="fade-up">
 			<div class="t-1 text-primary-500 leading-none font-black font-serif">Eventi</div>
 		</header><!-- .page-header -->
 
-		
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
 			<?php while ( have_posts() ): the_post(); ?>
 				<div>
 					<?php 
@@ -50,11 +49,11 @@ get_header();
 		</div>
 		
 		<?php mongolfiera_eventi_pagination(); ?>
-		
-		<?php 
+
+		<?php
 		$stato = isset( $_GET['stato'] ) ? sanitize_text_field( $_GET['stato'] ) : '';
 		?>
-		<div class="my-6 lg:my-12 flex justify-center">
+		<div class="my-6 lg:my-12 flex justify-center" data-aos="fade-up">
 			<?php if ( $stato === 'passate' ) : ?>
 				<a href="<?php echo esc_url( get_post_type_archive_link( 'eventi' ) ); ?>" class="btn btn-primary-light">Eventi Attivi</a>
 			<?php else : ?>

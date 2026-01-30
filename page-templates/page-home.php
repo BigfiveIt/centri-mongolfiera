@@ -50,7 +50,7 @@ get_header();
             <?php endif; ?>
 
             <?php if ( $mostra_infobox_icone ) : ?>
-            <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-6">
+            <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-6" data-aos="fade-up">
                 <div class="bg-white rounded-3xl p-5 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 shadow-lg">
                     <?php if ( have_rows( 'info_box_items' ) ) : ?>
                     <div class="flex justify-between gap-4 lg:gap-12">
@@ -168,7 +168,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_numeri_icone' ) ) : ?>
-    <section class="my-16 bg-primary-500 lg:bg-transparent px-4 py-8 lg:p-0">
+    <section class="my-16 bg-primary-500 lg:bg-transparent px-4 py-8 lg:p-0" data-aos="fade-up">
         <div class="container">
             <div class="lg:bg-primary-500 lg:rounded-2xl lg:p-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <?php foreach ( $stats_items as $item ) : ?>
@@ -210,7 +210,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_griglia_wall' ) ) : ?>
-    <section class="my-16">
+    <section class="my-16" data-aos="fade-up">
         <div class="container">
             <div class="page-grid-wall">
                 <?php foreach ( $grid_items as $grid_item ) : ?>
@@ -249,7 +249,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_brand' ) ) : ?>
-    <section class="bg-white py-16 lg:py-24">
+    <section class="bg-white py-16 lg:py-24" data-aos="fade-up">
         <div class="container">
             <?php if ( $brand_titolo ) : ?>
                 <div class="t-1 text-primary-500 leading-none text-center font-black font-serif"><?php echo esc_html( $brand_titolo ); ?></div>
@@ -295,7 +295,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_divertimento' ) ) : ?>
-    <section class="bg-primary-500 py-16 lg:py-24 overflow-hidden section-divertimento">
+    <section class="bg-primary-500 py-16 lg:py-24 overflow-hidden section-divertimento" data-aos="fade-up">
         <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
             <div class="w-full lg:w-2/5 self-center">
                 <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
@@ -387,7 +387,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_servizi' ) ) : ?>
-    <section class="py-16">
+    <section class="py-16" data-aos="fade-up">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
                 <div class="flex flex-col gap-6 justify-center">
@@ -460,7 +460,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_social_wall' ) ) : ?>
-    <section class="py-16 bg-secondary-500">
+    <section class="py-16 bg-secondary-500" data-aos="fade-up">
         <div class="container">
             <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
                 <div class="text-center lg:text-left">
@@ -502,7 +502,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
-    <section class="py-16 bg-primary-50">
+    <section class="py-16 bg-primary-50" data-aos="fade-up">
         <div class="container">
             <div class="t-2 text-primary-500 leading-none text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
             <?php

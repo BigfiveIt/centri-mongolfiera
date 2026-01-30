@@ -22,7 +22,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
         if($logo || $gallery):
         ?>
 
-        <section class="negozio-gallery my-16">
+        <section class="negozio-gallery my-16" data-aos="fade-up">
             <?php
             
             if($logo):
@@ -52,7 +52,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
         </section>
         <?php endif; ?>
 
-        <section class="single-negozio__content my-16" data-aos="fade">
+        <section class="single-negozio__content my-16" data-aos="fade-up">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
                 <div class="col-span-1">
@@ -136,7 +136,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
         $the_query = new WP_Query( $args_query );
         if ( $the_query->have_posts() ) :
         ?>
-        <section class="my-6 lg:my-28 related-negozi" data-aos="fade">
+        <section class="my-6 lg:my-28 related-negozi" data-aos="fade-up">
 
             <h2 class="mb-8 t-4 font-serif text-primary-500 font-bold text-center"><?php _e('I Negozi del Centro','mongolfiera');?></h2>
             <div class="related-negozi__carousel">

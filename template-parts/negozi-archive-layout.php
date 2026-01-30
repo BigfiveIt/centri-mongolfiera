@@ -19,7 +19,7 @@ $current_category_id = isset($args['current_category_id']) ? $args['current_cate
 $archive_url = get_post_type_archive_link('negozi');
 ?>
 
-<section class="my-6 lg:my-16">
+<section class="my-6 lg:my-16" data-aos="fade-up">
     <div class="container">
         <?php get_template_part('template-parts/taxonomy-header', null, [
             'title' => $title,
@@ -39,13 +39,13 @@ $archive_url = get_post_type_archive_link('negozi');
     </div>
 </section>
 
-<section class="my-6 lg:my-28">
+<section class="my-6 lg:my-28" data-aos="fade-up">
     <div class="container">
         <?php get_template_part('template-parts/taxonomy-negozi-grid'); ?>
     </div>
 </section>
 
-<section class="my-8 lg:my-28">
+<section class="my-8 lg:my-28" data-aos="fade-up">
     <div class="container">
         <div class="flex justify-center gap-4 lg:gap-8 flex-wrap">
             <a href="<?php echo esc_url($archive_url); ?>" class="btn btn-primary-light w-full lg:w-[220px]">

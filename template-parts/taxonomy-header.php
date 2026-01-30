@@ -14,7 +14,7 @@ $description = isset($args['description']) ? $args['description'] : '';
 $search_url = isset($args['search_url']) ? $args['search_url'] : get_post_type_archive_link('negozi');
 ?>
 
-<div class="flex flex-wrap gap-4 items-center justify-between mb-8">
+<div class="flex flex-wrap gap-4 items-center justify-between mb-8" data-aos="fade-up">
     <div>
         <?php if ($title): ?>
             <h1 class="t-1 font-serif text-primary-500 font-bold leading-none"><?php echo esc_html($title); ?></h1>

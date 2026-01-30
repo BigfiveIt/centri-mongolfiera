@@ -4,7 +4,7 @@
  */
 
 if (have_posts()): ?>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:px-28">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:px-28" data-aos="fade-up">
         <?php while (have_posts()): the_post(); ?>
             <div>
                 <?php get_template_part('template-parts/teaser-negozio', null, [
@@ -16,7 +16,7 @@ if (have_posts()): ?>
         <?php endwhile; ?>
     </div>
 <?php else: ?>
-    <div class="text-center py-12">
+    <div class="text-center py-12" data-aos="fade-up">
         <p class="text-gray-500 text-lg"><?php _e('Nessun negozio trovato.', 'mongolfiera'); ?></p>
     </div>
 <?php endif; ?>
