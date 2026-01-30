@@ -74,16 +74,16 @@ get_header();
                         <?php endwhile; ?>
                     </div>
                     <?php endif; ?>
-                    <div class="flex items-center gap-4 lg:gap-6">
+                    <div class="flex items-center gap-2 lg:gap-6">
                         <?php $cta_primary = get_field( 'cta_primary' ); ?>
                         <?php if ( $cta_primary && ! empty( $cta_primary['url'] ) ) : ?>
-                            <a href="<?php echo esc_url( $cta_primary['url'] ); ?>" class="btn btn-primary-outlined" target="<?php echo esc_attr( $cta_primary['target'] ? $cta_primary['target'] : '_self' ); ?>">
+                            <a href="<?php echo esc_url( $cta_primary['url'] ); ?>" class="btn btn-primary-outlined text-center" target="<?php echo esc_attr( $cta_primary['target'] ? $cta_primary['target'] : '_self' ); ?>">
                                 <?php echo esc_html( $cta_primary['title'] ? $cta_primary['title'] : 'Virtual tour 3D' ); ?>
                             </a>
                         <?php endif; ?>
                         <?php $cta_secondary = get_field( 'cta_secondary' ); ?>
                         <?php if ( $cta_secondary && ! empty( $cta_secondary['url'] ) ) : ?>
-                            <a href="<?php echo esc_url( $cta_secondary['url'] ); ?>" class="btn btn-primary-light" target="<?php echo esc_attr( $cta_secondary['target'] ? $cta_secondary['target'] : '_self' ); ?>">
+                            <a href="<?php echo esc_url( $cta_secondary['url'] ); ?>" class="btn btn-primary-light text-center" target="<?php echo esc_attr( $cta_secondary['target'] ? $cta_secondary['target'] : '_self' ); ?>">
                                 <?php echo esc_html( $cta_secondary['title'] ? $cta_secondary['title'] : 'Mappa Negozi' ); ?>
                             </a>
                         <?php endif; ?>
@@ -106,7 +106,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_nuova_stagione' ) ) : ?>
-    <section class="py-16" data-aos="fade-up">
+    <section class="pt-16 pb-8 lg:pb-16" data-aos="fade-up">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
                 <div class="flex flex-col gap-6 justify-center order-2 lg:order-1 text-center lg:text-left">
