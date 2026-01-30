@@ -12,9 +12,12 @@ get_header();
 
 <?php while ( have_posts() ): the_post(); ?>
 
+    <?php $mostra_hero_slider = get_field( 'mostra_hero_slider' ); ?>
+    <?php $mostra_infobox_icone = get_field( 'mostra_infobox_icone' ); ?>
+
     <section class="hero">
         <div class="container">
-            <?php if ( have_rows( 'hero_slider' ) ) : ?>
+            <?php if ( $mostra_hero_slider ) : ?>
             <div class="hero-slider overflow-hidden" data-aos="fade">
                 <div class="swiper-wrapper">
                     <?php while ( have_rows( 'hero_slider' ) ) : the_row(); ?>
@@ -46,6 +49,7 @@ get_header();
             </div>
             <?php endif; ?>
 
+            <?php if ( $mostra_infobox_icone ) : ?>
             <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-6">
                 <div class="bg-white rounded-3xl p-5 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 shadow-lg">
                     <?php if ( have_rows( 'info_box_items' ) ) : ?>
@@ -86,6 +90,7 @@ get_header();
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -100,7 +105,7 @@ get_header();
     $nuova_immagine = isset( $nuova_stagione['immagine_maschera'] ) ? $nuova_stagione['immagine_maschera'] : null;
     ?>
 
-    <?php if ( $nuova_titolo )  : ?>
+    <?php if ( get_field( 'mostra_nuova_stagione' ) ) : ?>
     <section class="py-16" data-aos="fade-up">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
@@ -162,7 +167,7 @@ get_header();
     $stats_items = isset( $fascia_numeri_icone['stats_items'] ) ? $fascia_numeri_icone['stats_items'] : [];
     ?>
 
-    <?php if ( ! empty( $stats_items ) ) : ?>
+    <?php if ( get_field( 'mostra_fascia_numeri_icone' ) ) : ?>
     <section class="my-16 bg-primary-500 lg:bg-transparent px-4 py-8 lg:p-0">
         <div class="container">
             <div class="lg:bg-primary-500 lg:rounded-2xl lg:p-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -204,7 +209,7 @@ get_header();
     $grid_items = isset( $griglia_wall['grid_items'] ) ? $griglia_wall['grid_items'] : [];
     ?>
 
-    <?php if ( ! empty( $grid_items ) ) : ?>
+    <?php if ( get_field( 'mostra_griglia_wall' ) ) : ?>
     <section class="my-16">
         <div class="container">
             <div class="page-grid-wall">
@@ -243,7 +248,7 @@ get_header();
     $brand_cta_target = isset( $brand_cta['target'] ) && $brand_cta['target'] ? $brand_cta['target'] : '_self';
     ?>
 
-    <?php if ( $brand_titolo ) : ?> 
+    <?php if ( get_field( 'mostra_fascia_brand' ) ) : ?>
     <section class="bg-white py-16 lg:py-24">
         <div class="container">
             <?php if ( $brand_titolo ) : ?>
@@ -289,7 +294,7 @@ get_header();
     $divertimento_cards = isset( $fascia_divertimento['cards'] ) ? $fascia_divertimento['cards'] : [];
     ?>
 
-    <?php if ( $divertimento_titolo ) : ?>
+    <?php if ( get_field( 'mostra_fascia_divertimento' ) ) : ?>
     <section class="bg-primary-500 py-16 lg:py-24 overflow-hidden section-divertimento">
         <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
             <div class="w-full lg:w-2/5 self-center">
@@ -381,7 +386,7 @@ get_header();
     $servizi_items = isset( $fascia_servizi['servizi_items'] ) ? $fascia_servizi['servizi_items'] : [];
     ?>
 
-    <?php if ( $servizi_titolo ) : ?>
+    <?php if ( get_field( 'mostra_fascia_servizi' ) ) : ?>
     <section class="py-16">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
@@ -454,7 +459,7 @@ get_header();
     $has_social_content = $social_titolo || $social_shortcode || $social_facebook || $social_instagram;
     ?>
 
-    <?php if ( $has_social_content ) : ?>
+    <?php if ( get_field( 'mostra_social_wall' ) ) : ?>
     <section class="py-16 bg-secondary-500">
         <div class="container">
             <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
@@ -496,6 +501,7 @@ get_header();
     $news_cta_target = ( $news_cta && isset( $news_cta['target'] ) && $news_cta['target'] ) ? $news_cta['target'] : '_self';
     ?>
 
+    <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
     <section class="py-16 bg-primary-50">
         <div class="container">
             <div class="t-2 text-primary-500 leading-none text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
@@ -683,7 +689,7 @@ get_header();
             </div>
         </div>
     </section>
-
+    <?php endif; ?>
 
 <?php endwhile; ?>
 

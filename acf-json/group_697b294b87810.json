@@ -3,6 +3,27 @@
     "title": "Page: Home",
     "fields": [
         {
+            "key": "field_697c8e9643543",
+            "label": "Mostra Hero Slider",
+            "name": "mostra_hero_slider",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294b8cb83",
             "label": "Hero Slider",
             "name": "hero_slider",
@@ -10,7 +31,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c8e9643543",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -98,6 +127,27 @@
             ]
         },
         {
+            "key": "field_697c907d43544",
+            "label": "Mostra Infobox Icone",
+            "name": "mostra_infobox_icone",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294b90564",
             "label": "Info Box - Icone",
             "name": "info_box_items",
@@ -105,7 +155,15 @@
             "type": "repeater",
             "instructions": "Fascia sotto lo slider con icone e CTA.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c907d43544",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -173,7 +231,15 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c907d43544",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -190,7 +256,15 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c907d43544",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -200,14 +274,43 @@
             "allow_in_bindings": 1
         },
         {
+            "key": "field_697c90e0671f9",
+            "label": "Mostra Nuova Stagione",
+            "name": "mostra_nuova_stagione",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294b9b550",
             "label": "Nuova Stagione",
             "name": "nuova_stagione",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c90e0671f9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -301,14 +404,43 @@
             ]
         },
         {
+            "key": "field_697c9110671fa",
+            "label": "Mostra Fascia Numeri Icone",
+            "name": "mostra_fascia_numeri_icone",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294b9ef04",
             "label": "Fascia Numeri e Icone",
             "name": "fascia_numeri_icone",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c9110671fa",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -436,14 +568,43 @@
             ]
         },
         {
+            "key": "field_697c9123671fb",
+            "label": "Mostra Griglia Wall",
+            "name": "mostra_griglia_wall",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294ba28dc",
             "label": "Griglia Wall",
             "name": "griglia_wall",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c9123671fb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -521,14 +682,43 @@
             ]
         },
         {
+            "key": "field_697c9134671fc",
+            "label": "Mostra Fascia Brand",
+            "name": "mostra_fascia_brand",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294ba6246",
             "label": "Fascia Brand",
             "name": "fascia_brand",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c9134671fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -624,14 +814,43 @@
             ]
         },
         {
+            "key": "field_697c9145671fd",
+            "label": "Mostra Fascia Divertimento",
+            "name": "mostra_fascia_divertimento",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294ba9e9e",
             "label": "Fascia Divertimento",
             "name": "fascia_divertimento",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c9145671fd",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -812,14 +1031,43 @@
             ]
         },
         {
+            "key": "field_697c9159671fe",
+            "label": "Mostra Fascia Servizi",
+            "name": "mostra_fascia_servizi",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294bad827",
             "label": "Fascia Servizi",
             "name": "fascia_servizi",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c9159671fe",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -977,14 +1225,43 @@
             ]
         },
         {
+            "key": "field_697c916d671ff",
+            "label": "Mostra Social Wall",
+            "name": "mostra_social_wall",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294bb1283",
             "label": "Social Wall",
             "name": "social_wall",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c916d671ff",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1088,14 +1365,43 @@
             ]
         },
         {
+            "key": "field_697c917d67200",
+            "label": "Mostra News e Eventi",
+            "name": "mostra_news_eventi",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_697b294bb4d4a",
             "label": "News e Eventi",
             "name": "news_eventi",
             "aria-label": "",
             "type": "group",
             "instructions": "",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697c917d67200",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1185,5 +1491,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769695162
+    "modified": 1769771410
 }
