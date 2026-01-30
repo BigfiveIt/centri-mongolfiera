@@ -130,5 +130,20 @@ if ( ! function_exists( 'mongolfiera_register_taxonomy_tag_negozi' ) ) {
 		);
 		register_taxonomy( 'tag_negozi', array( 'negozi' ), $args );
 	}
-	add_action( 'init', 'mongolfiera_register_taxonomy_tag_negozi', 0 );
+		add_action( 'init', 'mongolfiera_register_taxonomy_tag_negozi', 0 );
+}
+
+/**
+ * Mostra tutti i negozi negli archivi (archivio CPT e tassonomie).
+ */
+if ( ! function_exists( 'mongolfiera_negozi_archive_show_all' ) ) {
+	function mongolfiera_negozi_archive_show_all( $query ) {
+		if ( is_admin() || ! $query->is_main_query() ) {
+			return;
+		}
+		if ( is_post_type_archive( 'negozi' ) || is_tax( 'tag_negozi' ) || is_tax( 'categoria_negozi' ) ) {
+			$query->set( 'posts_per_page', -1 );
+		}
+	}
+	add_action( 'pre_get_posts', 'mongolfiera_negozi_archive_show_all' );
 }

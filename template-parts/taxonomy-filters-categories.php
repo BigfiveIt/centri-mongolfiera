@@ -23,13 +23,13 @@ if (!empty($categorie) && !is_wp_error($categorie)): ?>
     <div class="flex flex-wrap gap-2">
         <?php if ($show_all_button): ?>
             <a href="<?php echo esc_url($archive_url); ?>" 
-               class="desc-1 px-6 py-2 bg-gray-200 rounded-full transition-colors <?php echo ($current_term_id == 0) ? 'bg-primary-400 text-white hover:bg-primary-500' : ''; ?>">
+               class="desc-1 px-6 py-2 bg-gray-200 rounded-full transition-colors no-underline <?php echo ($current_term_id == 0) ? 'bg-primary-400 text-white hover:bg-primary-500' : ''; ?>">
                 <?php _e('Tutti','mongolfiera'); ?>
             </a>
         <?php endif; ?>
         <?php foreach ($categorie as $categoria): ?>
             <a href="<?php echo esc_url(get_term_link($categoria)); ?>" 
-               class="desc-1 px-6 py-2 bg-gray-200 hover:bg-primary-400 hover:text-white rounded-full transition-colors <?php echo ($current_term_id == $categoria->term_id) ? 'bg-primary-400 text-white hover:bg-primary-500' : ''; ?>">
+               class="desc-1 px-6 py-2 bg-gray-200 hover:bg-primary-400 hover:text-white rounded-full transition-colors no-underline <?php echo ($current_term_id == $categoria->term_id) ? 'bg-primary-400 text-white hover:bg-primary-500' : ''; ?>">
                 <?php echo esc_html($categoria->name); ?>
             </a>
         <?php endforeach; ?>
