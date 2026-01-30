@@ -1,0 +1,27 @@
+.site-footer{
+    a{
+        @apply text-white no-underline transition-colors duration-200 hover:text-secondary-500;
+    }
+}
+.site-footer__menu{
+    @apply flex grid grid-cols-2 md:grid-cols-1 gap-4 lg:gap-8;
+}
+
+.site-footer__menu-title{
+    font-size: 20px;
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+.site-footer__menu-items{
+    @apply list-none flex flex-col gap-4 lg:gap-8;
+    .menu-item{
+        font-size: clamp(16px, 0.60vw + 13.75px, 18px);
+        a{
+            @apply no-underline text-white;
+            transition: color 0.3s ease;
+            &:hover{
+                @apply text-secondary-500;
+            }
+        }
+    }
+}

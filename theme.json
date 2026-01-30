@@ -1,0 +1,165 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+	  "appearanceTools": true,
+	  "color": {
+		"custom": true,
+		"link": true,
+		"palette": [
+		  {
+			"name": "primary",
+			"slug": "primary",
+			"color": "#2B463A"
+		  },
+		  {
+			"name": "primary_light",
+			"slug": "primary-light",
+			"color": "#04972A"
+		  },
+		  {
+			"name": "primary_lighten",
+			"slug": "primary-lighten",
+			"color": "#E9F6EE"
+		  },
+		  {
+			"name": "secondary",
+			"slug": "secondary",
+			"color": "#C4D220"
+		  },
+		  {
+			"name": "gray",
+			"slug": "gray",
+			"color": "#707070"
+		  },
+		  {
+			"name": "gray-dark",
+			"slug": "gray-dark",
+			"color": "#171717"
+		  },
+		  {
+			"name": "gray-light",
+			"slug": "gray-light",
+			"color": "#F5F5F5"
+		  }
+		]
+	  },
+	  "typography": {
+		"customFontSize": true,
+		"lineHeight": true,
+		"fontSizes": [
+			{
+				"name": "t-1",
+				"slug": "t-1", 
+				"size": "57px",
+				"fluid": {
+					"min": "47px",
+					"max": "57px"
+				}
+			},
+			{
+				"name": "t-2",
+				"slug": "t-2",
+				"size": "48px", 
+				"fluid": {
+					"min": "40px",
+					"max": "48px"
+				}
+			},
+			{
+				"name": "t-3",
+				"slug": "t-3",
+				"size": "38px",
+				"fluid": {
+					"min": "31px",
+					"max": "38px"
+				}
+			},
+			{
+				"name": "t-4",
+				"slug": "t-4",
+				"size": "32px",
+				"fluid": {
+					"min": "26px",
+					"max": "32px"
+				}
+			},
+			{
+				"name": "t-5",
+				"slug": "t-5",
+				"size": "23px",
+				"fluid": {
+					"min": "19px",
+					"max": "23px"
+				}
+			},
+			{
+				"name": "desc-1",
+				"slug": "desc-1",
+				"size": "18px",
+				"fluid": {
+					"min": "16px",
+					"max": "18px"
+				}
+			},
+			{
+				"name": "desc-2", 
+				"slug": "desc-2",
+				"size": "16px",
+				"fluid": {
+					"min": "15px",
+					"max": "16px"
+				}
+			},
+			{
+				"name": "desc-3",
+				"slug": "desc-3", 
+				"size": "14px",
+				"fluid": {
+					"min": "14px",
+					"max": "14px"
+				}
+			}
+		],
+		"fontFamilies": [
+		  {
+			"name": "Asap",
+			"slug": "asap",
+			"fontFamily": "Asap"
+		  },
+		  {
+			"name": "Bricolage Grotesque",
+			"slug": "bricolage-grotesque",
+			"fontFamily": "Bricolage Grotesque"
+		  }
+		],
+		"fluid": {
+		  	"minFontSize": "20px",
+		 	"minViewportWidth": "540px",
+        	"maxViewportWidth": "1200px"
+		}
+	  },
+	  "spacing": {
+		"blockGap": true,
+		"padding": true,
+		"margin": true,
+		"units": [
+		  "px",
+		  "em",
+		  "rem",
+		  "vh",
+		  "vw",
+		  "%"
+		]
+	  },
+	  "layout": {
+		"contentSize": "940px",
+		"wideSize": "1200px"
+	  }
+	},
+	"styles": {
+	  "typography": {
+		"fontSize": "16px"
+	  }
+	}
+  }

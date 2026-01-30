@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+In [functions.php](mdc:functions.php) facciamo l'include delle funzioni PHP in modo ordinato.
+Ogni modulo funzionale è separato in un file dedicato nella cartella `functions/`:
+
+```php
+@require('functions/theme-supports.php');
+@require('functions/custom-post-types.php');
+@require('functions/dashboard.php');
+// ...etc
+```
+
+Convenzioni di codice:
+1. Ogni funzione PHP deve iniziare con un controllo di esistenza:
+   ```php
+   if ( ! function_exists( 'nome_funzione' ) ) {
+       function nome_funzione() {
+           // Codice
+       }
+   }
+   ```
+
+2. Usare i prefix appropriati per evitare conflitti:
+   - `mongolfiera_` per funzioni generali del tema
+   - `acf_` per funzioni legate ad ACF
+   
+3. Documentare le funzioni con commenti che ne spiegano lo scopo
+
+4. Hooks principali utilizzati:
+   - `wp_enqueue_scripts`: per caricare CSS e JS
+   - `after_setup_theme`: per registrare feature del tema
+   - `init`: per registrare CPT e tassonomie
+   - `acf/init`: per configurare ACF
+   - `wp_head` e `wp_footer`: per aggiungere codice nell'header e footer
+
+5. Per le opzioni del tema, utilizziamo ACF Options Pages
+
+Quando crei nuove funzionalità, crea un nuovo file nella cartella `functions/` e includilo in functions.php.

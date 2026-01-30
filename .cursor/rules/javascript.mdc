@@ -1,0 +1,6 @@
+---
+globs: *.js
+alwaysApply: false
+---
+
+Quando bisogna verificare operazioni al resize, se possibile sfruttare matchMedia per ottimizzare le performance

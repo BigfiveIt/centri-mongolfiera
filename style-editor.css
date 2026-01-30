@@ -1,0 +1,99 @@
+@layer base;
+@import url("/wp-content/themes/mongolfiera/dist/theme.css") layer(base); /* CAMBIARE PERCORSO!!! */
+
+.editor-styles-wrapper {
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 1.5;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    font-family: "Asap", serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Forza le dimensioni tipografiche personalizzate sugli heading nell'editor */
+.editor-styles-wrapper h1.t-1,
+.editor-styles-wrapper h2.t-1,
+.editor-styles-wrapper h3.t-1,
+.editor-styles-wrapper h4.t-1,
+.editor-styles-wrapper h5.t-1,
+.editor-styles-wrapper h6.t-1,
+.editor-styles-wrapper .t-1 {
+    font-size: var(--wp--preset--font-size--t-1) !important;
+}
+
+.editor-styles-wrapper h1.t-2,
+.editor-styles-wrapper h2.t-2,
+.editor-styles-wrapper h3.t-2,
+.editor-styles-wrapper h4.t-2,
+.editor-styles-wrapper h5.t-2,
+.editor-styles-wrapper h6.t-2,
+.editor-styles-wrapper .t-2 {
+    font-size: var(--wp--preset--font-size--t-2) !important;
+}
+
+.editor-styles-wrapper h1.t-3,
+.editor-styles-wrapper h2.t-3,
+.editor-styles-wrapper h3.t-3,
+.editor-styles-wrapper h4.t-3,
+.editor-styles-wrapper h5.t-3,
+.editor-styles-wrapper h6.t-3,
+.editor-styles-wrapper .t-3 {
+    font-size: var(--wp--preset--font-size--t-3) !important;
+}
+
+.editor-styles-wrapper h1.t-4,
+.editor-styles-wrapper h2.t-4,
+.editor-styles-wrapper h3.t-4,
+.editor-styles-wrapper h4.t-4,
+.editor-styles-wrapper h5.t-4,
+.editor-styles-wrapper h6.t-4,
+.editor-styles-wrapper .t-4 {
+    font-size: var(--wp--preset--font-size--t-4) !important;
+}
+
+.editor-styles-wrapper h1.t-5,
+.editor-styles-wrapper h2.t-5,
+.editor-styles-wrapper h3.t-5,
+.editor-styles-wrapper h4.t-5,
+.editor-styles-wrapper h5.t-5,
+.editor-styles-wrapper h6.t-5,
+.editor-styles-wrapper .t-5 {
+    font-size: var(--wp--preset--font-size--t-5) !important;
+}
+
+.editor-styles-wrapper .desc-1 {
+    font-size: var(--wp--preset--font-size--desc-1) !important;
+}
+
+.editor-styles-wrapper .desc-2 {
+    font-size: var(--wp--preset--font-size--desc-2) !important;
+}
+
+.editor-styles-wrapper .desc-3 {
+    font-size: var(--wp--preset--font-size--desc-3) !important;
+}
+
+.editor-styles-wrapper figure {
+    margin: 0;
+}
+
+.btn.btn-primary {
+    color: white;
+    text-decoration: none;
+}
+
+[data-aos]{
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.akismet-fields-container {
+    display: none;
+}

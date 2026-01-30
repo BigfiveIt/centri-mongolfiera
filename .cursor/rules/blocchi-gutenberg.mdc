@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+I blocchi gutenberg sono creati per noi con ACF PRO e si trovano dentro la cartella /blocks/nome-blocco.
+Ogni blocco ha minimo un file .php con lo stesso nome della cartella q, e un file block.json.
+La funzione di generazione dei blocchi è in [gutenberg-blocks.php](mdc:functions/gutenberg-blocks.php)
+
+
+Struttura tipica di un blocco:
+- `block.json`: metadati del blocco
+- `nome-blocco.php`: template PHP del blocco
+- `nome-blocco.js`: script JavaScript associato (opzionale)
+- `nome-blocco.scss`: stili specifici del blocco (opzionale)
+
+I JavaScript dei blocchi vengono importati in [theme.js](mdc:src/js/theme.js) e inizializzati al caricamento del DOM. Esempio:
+
+```js
+import BlockHero from '~blocks/hero-slider/hero-slider';
+// ...
+document.addEventListener("DOMContentLoaded", function() {
+    BlockHero();
+    // ...
+});
+```

@@ -1,0 +1,24 @@
+{
+  "name": "mongolfiera-theme",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "aos": "^2.3.4",
+    "fslightbox": "^3.5.1",
+    "swiper": "^11.2.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "countup.js": "^2.9.0",
+    "rellax": "^1.12.1"
+  }
+}

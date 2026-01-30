@@ -1,0 +1,40 @@
+/* Typography utilities – dimensioni fluide desktop/mobile */
+/* Formula clamp: clamp(min, preferred, max) */
+/* Viewport da 375px (mobile) a 1380px (desktop) */
+/* Utilizzabili come classe (t-1, desc-2) o con @apply t-1 */
+
+@utility t-1 {
+    font-size: clamp(47px, 2.97vw + 35.88px, 57px);
+}
+
+@utility t-2 {
+    font-size: clamp(40px, 2.38vw + 31.05px, 48px);
+}
+
+@utility t-3 {
+    font-size: clamp(31px, 2.19vw + 22.78px, 38px);
+}
+
+@utility t-4 {
+    font-size: clamp(26px, 1.90vw + 18.88px, 32px);
+}
+
+@utility t-5 {
+    font-size: clamp(19px, 1.19vw + 14.54px, 23px);
+}
+
+@utility desc-1 {
+    font-size: clamp(16px, 0.60vw + 13.75px, 18px);
+}
+
+@utility desc-2 {
+    font-size: clamp(15px, 0.30vw + 13.88px, 16px);
+}
+
+@utility desc-3 {
+    font-size: 14px;
+}
+
+@utility desc-4 {
+    font-size: 12px;
+}

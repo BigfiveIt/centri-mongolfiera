@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+dentro la cartella acf-json, si trovano le informazioni sui campi ACF esistenti in WordPress.
+Se non sai come sono strutturati verifica lì le informazioni
+
+Quando inserisci un campo acf, usa sempre $variabile = get_field('nome_campo') e mai the_field o the_subfield.
+Metti sempre con if per verificare se il campo esiste.
+
+Invece di usare have_rows(), usa la nomenclatura ad array.
+Quindi $nome_gruppo = get_field('gruppo_1','options');
+e per accedere alle proprietà figlie -> $proprieta = $nome_gruppo['proprieta']
+Quindi sui repeater, fai i foreach invece di while have_rows().

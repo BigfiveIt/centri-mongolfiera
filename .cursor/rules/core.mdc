@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Usa un approccio DRY, KISS, YAGNI.
+Quando è richiesta una modifiografia, spaziature ecc... Ricorda che in [theme.json](mdc:theme.json) ci sonoedeve esserci consistenza con ad esempio [_typography.scss](mdc:src/sass/theme/_typography.scss) [_fonts.scss](mdc:src/sass/theme/_fonts.scss)
+
+File di configurazione principali:
+- [package.json](mdc:package.json): dipendenze e script npm
+- [vite.config.js](mdc:vite.config.js): configurazione del bundler
+- [functions.php](mdc:functions.php): include tutti i moduli funzionali del tema
+- [theme.json](mdc:theme.json): configurazione Gutenberg
+
+Struttura generale:
+- `src/`: contiene SASS e JS sorgenti
+- `dist/`: contiene file compilati
+- `functions/`: contiene funzioni PHP modulari
+- `blocks/`: contiene i blocchi Gutenberg
+- `template-parts/`: contiene parti riutilizzabili dei template

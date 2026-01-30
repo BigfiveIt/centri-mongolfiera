@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Per ottimizzare le performance del sito, segui queste linee guida per le immagini:
+
+1. **Lazy Loading** - Per le immagini sotto la piega (below the fold):
+   ```php
+   <img src="<?php echo esc_url($immagine); ?>" loading="lazy" alt="<?php echo esc_attr($alt_text); ?>">
+   ```
+
+2. **Priorità Alta** - Per immagini critiche above the fold (hero, header):
+   ```php
+   <img src="<?php echo esc_url($immagine); ?>" fetchpriority="high" alt="<?php echo esc_attr($alt_text); ?>">
+   ```
+
+3. **Immagini responsive** - Per versioni desktop e mobile usa il tag `<picture>`:
+   ```php
+   <picture>
+      <source media="(min-width: 768px)" srcset="<?php echo esc_url($immagine_desktop); ?>">
+      <source media="(max-width: 767px)" srcset="<?php echo esc_url($immagine_mobile); ?>">
+      <img src="<?php echo esc_url($immagine_fallback); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+   </picture>
+   ```
+
+4. **Attributi dimensionali** - Specifica sempre width e height per evitare layout shift:
+   ```php
+   <img src="<?php echo esc_url($immagine); ?>" width="800" height="600" alt="<?php echo esc_attr($alt_text); ?>">
+   ```
+
+5. **WebP** - Se possibile, offri immagini in formato WebP con fallback:
+   ```php
+   <picture>
+      <source srcset="<?php echo esc_url($immagine_webp); ?>" type="image/webp">
+      <img src="<?php echo esc_url($immagine_jpg); ?>" alt="<?php echo esc_attr($alt_text); ?>">
+   </picture>
+   ```
+
+Ricorda: le immagini nei blocchi hero o nell'area visibile senza scrollare dovrebbero usare `fetchpriority="high"`, mentre tutte le altre dovrebbero usare `loading="lazy"`.

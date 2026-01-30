@@ -1,0 +1,165 @@
+<?php
+/**
+ * The template for displaying all single posts
+ *
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+get_header();
+while ( have_posts() ): the_post(); 
+
+$terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
+?>
+
+<div class="container">
+    <div class="lg:px-28">
+
+        <?php 
+        $logo = get_field('logo');
+        $gallery = get_field('gallery');
+        if($logo || $gallery):
+        ?>
+
+        <section class="negozio-gallery my-16">
+            <?php
+            
+            if($logo):
+            ?>
+                <figure class="negozio-logo flex justify-center items-center">
+                    <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="max-w-[200px] lg:max-w-[400px]">
+                </figure>
+            <?php endif; ?>
+            <?php
+            
+            if($gallery):
+            ?>
+            
+                <div class="negozio-gallery__carousel overflow-hidden mt-8 lg:mt-16">
+                    <div class="swiper-wrapper">
+                        <?php foreach($gallery as $image): ?>
+                            <figure class="swiper-slide negozio-gallery__carousel__item aspect-21/9 rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                            </figure>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="swiper-pagination flex justify-center gap-2 mt-8"></div>
+                </div>
+            
+            <?php endif; ?>
+
+        </section>
+        <?php endif; ?>
+
+        <section class="single-negozio__content my-16" data-aos="fade">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+                <div class="col-span-1">
+                    <a href="<?php echo get_post_type_archive_link('negozi'); ?>" class="btn btn-link">
+                        <?php get_template_part('images/icons/arrow-left'); ?><span><?php _e('Negozi','mongolfiera'); ?></span>
+                    </a>
+                    <h1 class="t-3 my-4 font-bold font-serif text-primary-500 leading-none"><?php the_title(); ?></h1>
+                    <div class="desc-1 text-primary-500"><?php the_content(); ?></div>
+                </div>
+                <div class="col-span-1 lg:ps-16">
+                    <div class="flex flex-col gap-4">
+                        <?php if ( get_field( 'orari' ) || get_global_option('orari_negozi') ) : ?>
+                            <?php
+                            $orari = get_field( 'orari' ) ? get_field( 'orari' ) : get_global_option('orari_negozi');
+                            get_template_part( 'template-parts/icon-contact', null, [
+                                'icon'  => [
+                                    'url' => get_template_directory_uri() . '/images/clock.svg',
+                                    'alt' => 'Icona orario',
+                                ],
+                                'label' => $orari,
+                            ] );
+                            ?>
+                        <?php endif; ?>
+                        <?php if( get_field('telefono')):?>
+                            <a class="negozio-meta group" href="tel:<?php echo get_field('telefono'); ?>">
+                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/phone'); ?></span>
+                                <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('telefono'); ?></span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if( get_field('email')):?>
+                            <a class="negozio-meta group" href="mailto:<?php echo get_field('email'); ?>">
+                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/mail'); ?></span>
+                                <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('email'); ?></span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if( get_field('sito')):?>
+                            <a class="negozio-meta group" href="<?php echo get_field('sito'); ?>" target="_blank">
+                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/globe'); ?></span>
+                                <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('sito'); ?></span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if( get_field('facebook')):?>
+                            <a class="negozio-meta group" href="<?php echo get_field('facebook'); ?>" target="_blank">
+                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/socials/facebook'); ?></span>
+                                <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('facebook'); ?></span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if( get_field('instagram')):?>
+                            <a class="negozio-meta group  group-hover:text-primary-500 transition-colors duration-200" href="<?php echo get_field('instagram'); ?>" target="_blank">
+                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/socials/instagram'); ?></span>
+                                <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('instagram'); ?></span>
+                            </a>
+                        <?php endif; ?>
+                        <?php if( get_field('click_and_collect')):?>
+                            <a class="negozio-meta group" href="<?php echo get_field('click_and_collect'); ?>" target="_blank">
+                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/click_and_collect'); ?></span>
+                                <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-500 transition-colors duration-200"><?php echo get_field('click_and_collect'); ?></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <?php 
+        $term_ids = wp_list_pluck( $terms, 'term_id' );
+        $args_query = array(
+            'post_type'      => 'negozi',
+            'posts_per_page' => -1,
+            'post__not_in' => array( get_the_ID()),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'categoria_negozi',
+                    'field'    => 'term_id',
+                    'terms'    => $term_ids,
+                ),
+            ),
+        );
+
+        $the_query = new WP_Query( $args_query );
+        if ( $the_query->have_posts() ) :
+        ?>
+        <section class="my-6 lg:my-28 related-negozi" data-aos="fade">
+
+            <h2 class="mb-8 t-4 font-serif text-primary-500 font-bold text-center"><?php _e('I Negozi del Centro','mongolfiera');?></h2>
+            <div class="related-negozi__carousel">
+                <div class="swiper-wrapper">
+                    <?php while ( $the_query->have_posts() ) :$the_query->the_post(); ?>
+                        <div class="swiper-slide">
+                            <?php get_template_part('template-parts/teaser-negozio', null, [
+                                'logo' => get_field('logo'),
+                                'title' => get_the_title(),
+                                'link' => get_permalink(),
+                            ]); ?>
+                        </div>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                </div>
+                <div class="swiper-pagination flex justify-center gap-2 mt-8"></div>
+            </div>
+        
+        </section>
+        <?php endif; ?>
+    </div>
+</div>
+
+<?php
+endwhile;
+get_footer();

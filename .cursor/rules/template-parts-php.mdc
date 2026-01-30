@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+Quando crei un componente in template-parts che deve accettare parametri, usa la sintassi:
+```php
+$foto = isset($args['foto']) ? $args['foto'] : null;
+```
+
+Struttura standard di un template part:
+1. Dichiarazione delle variabili all'inizio usando `isset($args['nome_variabile'])`
+2. Controllo dell'esistenza dei dati con `if ($variabile)` prima di usarli
+3. Escape dei dati con `esc_html()`, `esc_url()`, `esc_attr()` per la sicurezza
+
+Esempio di inclusione di un template part in una pagina:
+```php
+get_template_part('template-parts/teaser-news', null, [
+    'id' => get_the_ID(),
+    'immagine' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
+    'titolo' => get_the_title(),
+    'link' => get_permalink(),
+    'data' => get_the_date('d/m/Y'),
+    'categoria' => get_the_category(),
+]);
+```
+
+Seguire la convenzione di nomenclatura: `tipo-nome.php` per nuovi template parts.

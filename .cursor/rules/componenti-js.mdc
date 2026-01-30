@@ -1,0 +1,34 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Il file principale in cui vengono caricati i JS del tema è [theme.js](mdc:src/js/theme.js)
+quando occorre creare un nuovo script javascript, controlla nella cartella components, se non trovi parti già utili in cui aggiungerlo, creane uno nuovo.
+Utilizza la sintassi:
+
+    const Common = () => {}
+    export default Common;
+
+Librerie esterne utilizzate:
+- AOS: per animazioni allo scroll
+- fsLightbox: per gallerie e lightbox
+- CountUp (countup.js): per animazioni di contatori numerici
+- Swiper: per slider e caroselli
+- Rellax: per effetti parallax
+
+Organizzazione dei componenti:
+- `src/js/components/`: contiene i componenti JS generici del tema
+- `src/js/theme.js`: punto di ingresso che importa e inizializza i componenti
+- `blocks/*/nome-blocco.js`: script specifici per blocchi Gutenberg
+
+I componenti vengono inizializzati nel DOMContentLoaded:
+```js
+document.addEventListener("DOMContentLoaded", function() {
+    Header();
+    Common();
+    // Inizializzazione dei blocchi
+    BlockHero();
+    // ...
+});
+```

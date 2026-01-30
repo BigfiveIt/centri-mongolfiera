@@ -1,0 +1,66 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Il tema utilizza Vite per la compilazione degli asset, Tailwind CSS 4 e CSS in `src/css/`.
+
+# Setup e Sviluppo
+
+## Comandi NPM
+```bash
+# Installazione dipendenze
+npm install
+
+# Sviluppo con hot reload
+npm run dev
+
+# Build produzione
+npm run build
+
+# Watch (build continua)
+npm run watch
+```
+
+## Hooks WordPress Principali
+```php
+// Enqueue assets (functions/assets.php)
+add_action('wp_enqueue_scripts', 'mongolfiera_enqueue_assets');
+
+// Setup tema
+add_action('after_setup_theme', 'mongolfiera_setup');
+
+// Custom Post Types
+add_action('init', 'mongolfiera_register_post_types');
+
+// ACF Options (pagine opzioni in functions.php o modulo dedicato)
+add_action('acf/init', 'mongolfiera_acf_options');
+```
+
+## Struttura Moduli
+```php
+// functions.php
+require_once 'functions/theme-supports.php';
+require_once 'functions/assets.php';       // CSS/JS
+require_once 'functions/custom-post-types.php';
+require_once 'functions/gutenberg-blocks.php';
+// ... altri moduli
+```
+
+## Vite e asset
+- **Entry**: `main.js` (radice tema) importa `src/css/theme.css` e `src/js/theme.js`
+- **Output**: `dist/theme.js` e `dist/theme.css`
+- **CSS**: Tailwind 4 in `src/css/theme.css`, con @import di typography, form, btn, header, footer
+- **Config**: `vite.config.js` con input `main.js`, alias ~aos, ~swiper, ~blocks
+
+## File di Configurazione
+- `package.json`: nome `mongolfiera-theme`, dipendenze e script npm
+- `vite.config.js`: Configurazione bundler Vite
+- `functions.php`: Punto di ingresso funzionalità PHP
+- `theme.json`: Configurazione Gutenberg
+
+## Nuove Funzionalità
+1. Crea moduli separati nella cartella appropriata
+2. Includi i nuovi file in functions.php
+3. Segui le convenzioni di codice esistenti
+4. Mantieni la compatibilità con Gutenberg

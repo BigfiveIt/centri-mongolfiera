@@ -1,0 +1,105 @@
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 no-underline font-bold transition-colors duration-200 cursor-pointer px-6 py-2 lg:p-4;
+        border-radius: 1rem ;
+        border: 1px solid transparent;
+        &:has(svg) {
+            @apply gap-8;
+        }
+        text-decoration: none !important;
+        
+        /* SVG prende il colore del testo */
+        svg {
+            path {
+                fill: currentColor;
+            }
+        }
+    }
+    .btn-link {
+        @apply flex items-center justify-start text-primary-400 [&_svg]:w-5 [&_svg]:h-5 hover:text-primary-500 transition-colors duration-200 no-underline p-0;
+        &:has(svg) {
+            @apply gap-2;
+        }
+        text-decoration: none !important;
+    }
+
+    /* Primary - sfondo verde chiaro, testo bianco */
+    .btn-primary {
+        @apply bg-primary-500 text-white;
+        border-color: var(--color-primary-500);
+    }
+
+    .btn-primary:hover {
+        @apply bg-primary-400 text-white;
+        border-color: var(--color-primary-400);
+    }
+
+    /* Primary Outlined - bordo verde chiaro, sfondo trasparente, testo scuro */
+    .btn-primary-outlined {
+        @apply bg-transparent text-primary-500 border border-primary-500;
+    }
+
+    .btn-primary-outlined:hover {
+        @apply bg-primary-400 text-white border-primary-400;
+    }
+
+    /* Primary Light - sfondo verde chiaro, testo bianco */
+    .btn-primary-light {
+        @apply bg-primary-400 text-white;
+        border-color: var(--color-primary-400); /* primary #2B463A */
+    }
+
+    .btn-primary-light:hover {
+        @apply bg-primary-500 text-white;
+        border-color: var(--color-primary-500); /* primary-light #04972A */
+    }
+
+
+    /* Secondary - sfondo secondary, testo bianco */
+    .btn-secondary {
+        @apply bg-secondary-500 text-primary-500 border border-secondary-500;
+    }
+
+    .btn-secondary:hover {
+        @apply bg-transparent text-secondary-500;
+    }
+
+    /* Secondary Outlined - bordo secondary, sfondo trasparente, testo secondary */
+    .btn-secondary-outlined {
+        @apply bg-transparent text-secondary-500;
+        border-color: var(--color-secondary-500); /* secondary #C4D220 */
+    }
+
+    .btn-secondary-outlined:hover {
+        @apply bg-secondary-500 text-white;
+        border-color: var(--color-secondary-500); /* secondary #C4D220 */
+    }
+
+    /* White Outlined - bordo bianco, sfondo trasparente, testo bianco */
+    .btn-white-outlined {
+        @apply bg-transparent text-white;
+        border-color: var(--color-surface-0);
+    }
+
+    .btn-white-outlined:hover {
+        @apply bg-white text-primary-500;
+        border-color: var(--color-surface-0);
+    }
+
+    /* White - sfondo bianco, testo primary */
+    .btn-white {
+        @apply bg-white text-primary-500;
+        border-color: var(--color-surface-0);
+    }
+
+    .btn-white:hover {
+        @apply bg-primary-400 text-white;
+        border-color: var(--color-primary-400); /* primary-light #04972A */
+    }
+    .btn-transparent {
+        @apply bg-transparent text-white border border-white transition-colors duration-200;
+    }
+    .btn-transparent:hover {
+        @apply bg-white text-primary-500 border-primary-500;
+    }
+}
