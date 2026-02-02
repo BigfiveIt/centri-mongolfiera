@@ -37,7 +37,11 @@ defined( 'ABSPATH' ) || exit;
                             'container' => false,
                             'depth' => 1
                         ) );?>
-                        <div class="btn btn-primary xl:px-8">Newsletter</div>
+                        <?php 
+                        $newsletter = get_global_option('newsletter');
+                        if ($newsletter) : ?>
+                            <a href="<?php echo $newsletter; ?>" class="btn btn-primary xl:px-8">Newsletter</a>
+                        <?php endif; ?>
                     </div>
                     <div class="site-header__menu-trigger xl:hidden"><?php get_template_part('images/icons/menu') ?></div>
                 </div>

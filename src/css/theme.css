@@ -275,13 +275,16 @@ figure {
 
 
     .negozio-meta{
-        @apply flex items-center border-3 border-transparent rounded-3xl overflow-hidden ;
+        @apply flex border-3 border-transparent rounded-3xl overflow-hidden ;
         .negozio-meta__icon{
-            @apply w-[75px] h-[50px] flex items-center justify-center;
+            @apply w-[75px] flex items-center justify-center;
             svg{
                 width: 30px;
                 height: 30px;
             }
+        }
+        .negozio-meta__text{
+           align-self: center;
         }
     }
 }

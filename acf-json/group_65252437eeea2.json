@@ -248,6 +248,54 @@
                     "allow_archives": 0,
                     "multiple": 0,
                     "allow_null": 0
+                },
+                {
+                    "key": "field_6980b67fd75c2",
+                    "label": "Mappa Negozi",
+                    "name": "mappa_negozi",
+                    "aria-label": "",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "post_status": "",
+                    "taxonomy": "",
+                    "allow_archives": 1,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0
+                },
+                {
+                    "key": "field_6980b693d75c3",
+                    "label": "Virtual Tour",
+                    "name": "virtual_tour",
+                    "aria-label": "",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "post_status": "",
+                    "taxonomy": "",
+                    "allow_archives": 1,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0
                 }
             ]
         },
@@ -369,5 +417,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769696965
+    "modified": 1770043053
 }

@@ -32,9 +32,9 @@ $tag = $link ? 'a' : 'div';
 		}
 		?>
 	<?php endif; ?>
-	class="negozio-meta border-primary-500 bg-white <?php echo esc_attr( $class ); ?>">
+	class="negozio-meta border-primary-500 bg-white no-underline <?php echo esc_attr( $class ); ?>">
 	<?php if ( $has_icon ) : ?>
-		<span class="negozio-meta__icon bg-primary-500 h-[75px]">
+		<span class="negozio-meta__icon bg-primary-500 min-h-[75px] aspect-square shrink-0">
 			<?php if ( $icon_url ) : ?>
 				<img src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( $icon_alt ); ?>" class="w-9 h-9 object-contain" loading="lazy">
 			<?php else : ?>

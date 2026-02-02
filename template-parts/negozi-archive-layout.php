@@ -45,15 +45,23 @@ $archive_url = get_post_type_archive_link('negozi');
     </div>
 </section>
 
+<?php $mappa_negozi = get_global_option('mappa_negozi'); ?>
+<?php $virtual_tour = get_global_option('virtual_tour'); ?>
+<?php if ($mappa_negozi || $virtual_tour) : ?>
 <section class="my-8 lg:my-28" data-aos="fade-up">
     <div class="container">
         <div class="flex justify-center gap-4 lg:gap-8 flex-wrap">
-            <a href="<?php echo esc_url($archive_url); ?>" class="btn btn-primary-light w-full lg:w-[220px]">
+            <?php if ($mappa_negozi) : ?>
+            <a href="<?php echo esc_url($mappa_negozi); ?>" class="btn btn-primary-light w-full lg:w-[220px]">
                 <?php _e('Mappa dei negozi','mongolfiera'); ?>
             </a>
-            <a href="<?php echo esc_url($archive_url); ?>" class="btn btn-primary w-full lg:w-[220px]">
+            <?php endif; ?>
+            <?php if ($virtual_tour) : ?>
+            <a href="<?php echo esc_url($virtual_tour); ?>" class="btn btn-primary w-full lg:w-[220px]">
                 <?php _e('Virtual Tour 3D','mongolfiera'); ?>
             </a>
+            <?php endif; ?>
         </div>
     </div>
 </section>
+<?php endif; ?>

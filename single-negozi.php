@@ -77,38 +77,38 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
                             ?>
                         <?php endif; ?>
                         <?php if( get_field('telefono')):?>
-                            <a class="negozio-meta group" href="tel:<?php echo get_field('telefono'); ?>">
-                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/phone'); ?></span>
+                            <a class="negozio-meta group no-underline" href="tel:<?php echo get_field('telefono'); ?>">
+                                <span class="negozio-meta__icon shrink-0 text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/phone'); ?></span>
                                 <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('telefono'); ?></span>
                             </a>
                         <?php endif; ?>
                         <?php if( get_field('email')):?>
-                            <a class="negozio-meta group" href="mailto:<?php echo get_field('email'); ?>">
-                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/mail'); ?></span>
+                            <a class="negozio-meta group no-underline" href="mailto:<?php echo get_field('email'); ?>">
+                                <span class="negozio-meta__icon shrink-0 text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/mail'); ?></span>
                                 <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('email'); ?></span>
                             </a>
                         <?php endif; ?>
                         <?php if( get_field('sito')):?>
-                            <a class="negozio-meta group" href="<?php echo get_field('sito'); ?>" target="_blank">
-                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/globe'); ?></span>
+                            <a class="negozio-meta group no-underline" href="<?php echo get_field('sito'); ?>" target="_blank">
+                                <span class="negozio-meta__icon shrink-0 text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/globe'); ?></span>
                                 <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('sito'); ?></span>
                             </a>
                         <?php endif; ?>
                         <?php if( get_field('facebook')):?>
-                            <a class="negozio-meta group" href="<?php echo get_field('facebook'); ?>" target="_blank">
-                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/socials/facebook'); ?></span>
+                            <a class="negozio-meta group no-underline" href="<?php echo get_field('facebook'); ?>" target="_blank">
+                                <span class="negozio-meta__icon shrink-0 text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/socials/facebook'); ?></span>
                                 <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('facebook'); ?></span>
                             </a>
                         <?php endif; ?>
                         <?php if( get_field('instagram')):?>
-                            <a class="negozio-meta group  group-hover:text-primary-500 transition-colors duration-200" href="<?php echo get_field('instagram'); ?>" target="_blank">
-                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/socials/instagram'); ?></span>
+                            <a class="negozio-meta group no-underline  group-hover:text-primary-500 transition-colors duration-200" href="<?php echo get_field('instagram'); ?>" target="_blank">
+                                <span class="negozio-meta__icon shrink-0 text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/socials/instagram'); ?></span>
                                 <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-400 transition-colors duration-200"><?php echo get_field('instagram'); ?></span>
                             </a>
                         <?php endif; ?>
                         <?php if( get_field('click_and_collect')):?>
-                            <a class="negozio-meta group" href="<?php echo get_field('click_and_collect'); ?>" target="_blank">
-                                <span class="negozio-meta__icon text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/click_and_collect'); ?></span>
+                            <a class="negozio-meta group no-underline" href="<?php echo get_field('click_and_collect'); ?>" target="_blank">
+                                <span class="negozio-meta__icon shrink-0 text-primary-500 group-hover:text-primary-400 transition-colors duration-200"><?php get_template_part('images/icons/click_and_collect'); ?></span>
                                 <span class="negozio-meta__text desc-2 text-gray-600 group-hover:text-primary-500 transition-colors duration-200"><?php echo get_field('click_and_collect'); ?></span>
                             </a>
                         <?php endif; ?>
