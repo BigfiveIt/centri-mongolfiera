@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
         <div class="container mx-auto px-4 h-full">
             <div class="flex items-center justify-between h-full py-2">
                 <div class="site-header__logo h-full">
-                    <div class="site-header__logo-main h-full flex items-center"><?php the_custom_logo(); ?></div>
+                    <?php the_custom_logo(); ?>
                 </div>
                 <div class="flex gap-4 md:gap-5 items-center h-full">
                     <div class="site-header__menu">

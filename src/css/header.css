@@ -14,6 +14,15 @@ body.menu-open{
     background-color: var(--color-primary-50);
     height: var(--site-header-height);
 }
+.site-header__logo{
+    
+    height: 100%;
+    img{
+        height: 100%;
+        object-fit: contain;
+        object-position: left center;
+    }
+}
 .site-header__menu{
     @apply p-4 xl:p-0 flex flex-col xl:flex-row xl:items-center gap-6 xl:gap-8;
     ul{
@@ -66,6 +75,14 @@ body.menu-open{
         }
         #close{
             opacity: 1;
+        }
+    }
+    @media (max-width: 1280px) {
+        height: 40px;
+        width: 40px;
+        svg{
+            height: 100%;
+            width: 100%;
         }
     }
 }

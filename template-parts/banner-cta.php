@@ -8,7 +8,7 @@ $immagine_w     = isset( $args['immagine_width'] ) ? (int) $args['immagine_width
 $immagine_h     = isset( $args['immagine_height'] ) ? (int) $args['immagine_height'] : 0;
 $fetchpriority  = isset( $args['fetchpriority'] ) && $args['fetchpriority'] === 'high' ? 'high' : 'auto';
 ?>
-<section class="banner-cta grid grid-cols-1 md:grid-cols-2 my-24 align-center rounded-2xl shadow-lg overflow-hidden bg-white">
+<section class="banner-cta grid grid-cols-1 md:grid-cols-2 my-8 lg:my-16 align-center rounded-2xl shadow-lg overflow-hidden bg-white">
     <?php if ( $immagine_url ) : ?>
         <figure class="banner-cta__image relative h-full col-span-1  overflow-hidden xl:pe-12">
             <img class="w-full h-full object-cover aspect-video md:aspect-4/1 rounded-2xl" src="<?php echo esc_url( $immagine_url ); ?>" alt="<?php echo esc_attr( $immagine_alt ?: $titolo ); ?>"<?php echo $immagine_w && $immagine_h ? ' width="' . esc_attr( $immagine_w ) . '" height="' . esc_attr( $immagine_h ) . '"' : ''; ?> loading="lazy" fetchpriority="<?php echo esc_attr( $fetchpriority ); ?>">
