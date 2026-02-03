@@ -9,7 +9,7 @@ $categoria = isset($args['categoria']) ? $args['categoria'] : null;
 
 ?>
 
-<article <?php post_class('teaser-news h-full bg-white flex flex-col rounded-2xl shadow-lg p-4 relative overflow-hidden transition-all duration-300 hover:scale-[0.98] hover:shadow-md'); ?> id="<?php echo esc_attr($id); ?>">
+<article <?php post_class('teaser-news h-full bg-white flex flex-col rounded-2xl shadow-lg p-4 relative overflow-hidden transition-all duration-300 hover:scale-[0.98] hover:shadow-md h-full'); ?> id="<?php echo esc_attr($id); ?>">
     
     <div class="teaser-news__image relative">
         <?php if ($immagine) : ?>
@@ -20,9 +20,9 @@ $categoria = isset($args['categoria']) ? $args['categoria'] : null;
             $img_w             = $image_data && ! empty( $image_data[1] ) ? (int) $image_data[1] : 768;
             $img_h             = $image_data && ! empty( $image_data[2] ) ? (int) $image_data[2] : 576;
             ?>
-            <figure><img class="w-full h-full object-cover aspect-4/3 rounded-xl" src="<?php echo esc_url( $immagine ); ?>" alt="<?php echo esc_attr( $alt_text ?: $titolo ); ?>" width="<?php echo esc_attr( $img_w ); ?>" height="<?php echo esc_attr( $img_h ); ?>" loading="lazy"></figure>
+            <figure><img class="w-full h-full object-cover aspect-square rounded-xl" src="<?php echo esc_url( $immagine ); ?>" alt="<?php echo esc_attr( $alt_text ?: $titolo ); ?>" width="<?php echo esc_attr( $img_w ); ?>" height="<?php echo esc_attr( $img_h ); ?>" loading="lazy"></figure>
             <?php else : ?>
-            <figure><img class="w-full h-full object-cover aspect-4/3 rounded-xl" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/placeholder-800x600.png' ); ?>" alt="" width="800" height="600" loading="lazy"></figure>
+            <figure><img class="w-full h-full object-cover aspect-square rounded-xl" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/placeholder-800x600.png' ); ?>" alt="" width="800" height="600" loading="lazy"></figure>
         <?php endif; ?>
     </div>
 

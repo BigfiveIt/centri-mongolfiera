@@ -34,25 +34,15 @@ get_header();
 	</section>
 
 	<?php
-	// Post correlati (stessa categoria, escluso il post corrente)
+	// Ultime 6 news (escluso il post corrente)
 	$current_id = get_the_ID();
-	$categories = get_the_category( $current_id );
-	$cat_ids = array();
-	if ( ! empty( $categories ) ) {
-		foreach ( $categories as $cat ) {
-			$cat_ids[] = $cat->term_id;
-		}
-	}
-	$related_args = array(
+	$related_query = new WP_Query( array(
 		'post_type'      => 'post',
 		'posts_per_page' => 6,
 		'post__not_in'   => array( $current_id ),
-		'orderby'        => 'rand',
-	);
-	if ( ! empty( $cat_ids ) ) {
-		$related_args['category__in'] = $cat_ids;
-	}
-	$related_query = new WP_Query( $related_args );
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	) );
 	?>
 	<?php if ( $related_query->have_posts() ) : ?>
 	<section class="py-16">

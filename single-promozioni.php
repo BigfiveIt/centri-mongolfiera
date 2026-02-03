@@ -41,6 +41,17 @@ get_header();
 				<a href="<?php echo get_post_type_archive_link('promozioni'); ?>" class="btn btn-link">
 					<?php get_template_part('images/icons/arrow-left'); ?><span>Promozioni</span>
 				</a>
+				<?php
+				$data_inizio_single = get_field( 'data_inizio' );
+				$data_fine_single = get_field( 'data_fine' );
+				
+				if ( $data_inizio_single ) : 
+					$data_display = $data_fine_single 
+						? 'Dal ' . $data_inizio_single . ' al ' . $data_fine_single 
+						: 'Dal ' . $data_inizio_single;
+				?>
+					<time class="text-primary-500 desc-1"><?php echo esc_html( $data_display ); ?></time>
+				<?php endif; ?>
 				<h1 class="t-1 text-primary-500 leading-none font-black font-serif"><?php the_title(); ?></h1>
 				<div class="text-prmary-500 t-5"><?php the_content(); ?></div>
 

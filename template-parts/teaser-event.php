@@ -20,9 +20,9 @@ $type = isset($args['type']) ? $args['type'] : null;
             $img_w             = $image_data && ! empty( $image_data[1] ) ? (int) $image_data[1] : 768;
             $img_h             = $image_data && ! empty( $image_data[2] ) ? (int) $image_data[2] : 576;
             ?>
-            <figure><img class="w-full h-full object-cover aspect-4/3" src="<?php echo esc_url( $immagine ); ?>" alt="<?php echo esc_attr( $alt_text ?: $titolo ); ?>" width="<?php echo esc_attr( $img_w ); ?>" height="<?php echo esc_attr( $img_h ); ?>" loading="lazy"></figure>
+            <figure><img class="w-full h-full object-cover aspect-square" src="<?php echo esc_url( $immagine ); ?>" alt="<?php echo esc_attr( $alt_text ?: $titolo ); ?>" width="<?php echo esc_attr( $img_w ); ?>" height="<?php echo esc_attr( $img_h ); ?>" loading="lazy"></figure>
             <?php else : ?>
-            <figure><img class="w-full h-full object-cover aspect-4/3" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/placeholder-800x600.png' ); ?>" alt="" width="800" height="600" loading="lazy"></figure>
+            <figure><img class="w-full h-full object-cover aspect-square" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/placeholder-800x600.png' ); ?>" alt="" width="800" height="600" loading="lazy"></figure>
         <?php endif; ?>
     </div>
 
@@ -34,7 +34,7 @@ $type = isset($args['type']) ? $args['type'] : null;
         <?php endif; ?>
 
         <?php if ($titolo) : ?>
-            <h3 class="teaser-event__title font-black text-primary-400 t-5">
+            <h3 class="teaser-event__title font-black text-primary-500 t-5">
                 <a href="<?php echo esc_url($link); ?>" class="no-underline stretched-link teaser-event__title-link"><?php echo esc_html($titolo); ?></a>
             </h3>
         <?php endif; ?>

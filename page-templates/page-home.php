@@ -16,9 +16,9 @@ get_header();
     <?php $mostra_infobox_icone = get_field( 'mostra_infobox_icone' ); ?>
 
     <section class="hero">
-        <div class="container">
+        <div class="container relative">
             <?php if ( $mostra_hero_slider ) : ?>
-            <div class="hero-slider overflow-hidden" data-aos="fade">
+            <div class="hero-slider overflow-hidden relative" data-aos="fade">
                 <div class="swiper-wrapper">
                     <?php while ( have_rows( 'hero_slider' ) ) : the_row(); ?>
                         <?php
@@ -33,19 +33,29 @@ get_header();
                             <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
                                 <picture>
                                     <source media="(min-width:768px)" srcset="<?php echo esc_url( $immagine_slide['url'] ); ?>">
-                                    <img src="<?php echo esc_url( $immagine_slide_mobile['sizes']['hero-slider'] ); ?>" alt="<?php echo esc_attr( $immagine_slide_mobile['alt'] ? $immagine_slide_mobile['alt'] : $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover rounded-3xl aspect-4/3 md:aspect-1400/660">
+                                    <img src="<?php echo esc_url( $immagine_slide_mobile['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide_mobile['alt'] ? $immagine_slide_mobile['alt'] : $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover rounded-3xl aspect-square md:aspect-1400/660">
                                 </picture>
                             <?php if ( $link_url ) : ?></a><?php endif; ?>
                         <?php elseif ( $immagine_slide ) : ?>
                             <figure>
                                 <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
-                                    <img src="<?php echo esc_url( $immagine_slide['sizes']['hero-slider'] ); ?>" alt="<?php echo esc_attr( $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover rounded-3xl aspect-4/3 md:aspect-1400/660" />
+                                    <img src="<?php echo esc_url( $immagine_slide['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover rounded-3xl aspect-4/3 md:aspect-1400/660" />
                                 <?php if ( $link_url ) : ?></a><?php endif; ?>
                             </figure>
                         <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
                 </div>
+                <!-- Frecce mobile (dentro il carousel) -->
+                <div class="hero-slider-navigation hero-slider-navigation--mobile absolute bottom-10 right-6 z-10 flex lg:hidden gap-4 text-white">
+                    <div class="swiper-button-prev"><?php get_template_part('images/icons/arrow-left'); ?></div>
+                    <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
+                </div>
+            </div>
+            <!-- Frecce desktop (fuori dal carousel) -->
+            <div class="hero-slider-navigation hero-slider-navigation--desktop absolute bottom-16 right-12 z-20 hidden lg:flex gap-4 text-white">
+                <div class="swiper-button-prev"><?php get_template_part('images/icons/arrow-left'); ?></div>
+                <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
             </div>
             <?php endif; ?>
 

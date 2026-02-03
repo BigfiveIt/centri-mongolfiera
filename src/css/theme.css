@@ -328,3 +328,10 @@ figure {
         height: 100%;
     }
 }
+
+.news-carousel{
+    .swiper-slide{
+        align-self: stretch;
+        height: auto;
+    }
+}

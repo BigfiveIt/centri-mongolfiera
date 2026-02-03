@@ -3,9 +3,11 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 const Swipers = () => {
 	if(document.querySelector('.hero-slider')){
+		const heroNextBtns = document.querySelectorAll('.hero-slider-navigation .swiper-button-next');
+		const heroPrevBtns = document.querySelectorAll('.hero-slider-navigation .swiper-button-prev');
 
-		new Swiper('.hero-slider', {
-			modules: [Pagination],
+		const heroSlider = new Swiper('.hero-slider', {
+			modules: [Navigation, Pagination],
 			spaceBetween: 35,
 			freeMode: false,
 			slidesPerView: "auto",
@@ -15,13 +17,18 @@ const Swipers = () => {
 				type: 'bullets',
 				clickable: true
 			},
+			navigation: {
+				nextEl: Array.from(heroNextBtns),
+				prevEl: Array.from(heroPrevBtns),
+			},
 			/* Nascondi paginazione e navigazione se ho 1 bullet solo */
 			on: {
 				init: function(e){
 					const bulletNumber = document.querySelectorAll('.hero-slider  .swiper-pagination-bullet');
-					/* Hide pagination */
+					/* Hide pagination and navigation */
 					if(bulletNumber.length == 1){
-						document.querySelector('.hero-slider .swiper-pagination').classList.add('hidden');
+						document.querySelector('.hero-slider .swiper-pagination')?.classList.add('hidden');
+						document.querySelectorAll('.hero-slider-navigation').forEach(el => el.classList.add('hidden'));
 					}
 				}
 			}
