@@ -1,5 +1,5 @@
 @layer base;
-@import url("/wp-content/themes/mongolfiera/dist/theme.css") layer(base); /* CAMBIARE PERCORSO!!! */
+@import url("/wp-content/themes/centri-mongolfiera/dist/theme.css") layer(base); /* CAMBIARE PERCORSO!!! */
 
 .editor-styles-wrapper {
     font-family: "Bricolage Grotesque", sans-serif;

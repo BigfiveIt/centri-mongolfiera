@@ -178,7 +178,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_numeri_icone' ) ) : ?>
-    <section class="my-16 bg-primary-500 lg:bg-transparent px-4 py-8 lg:p-0" data-aos="fade-up">
+    <section class="my-16 bg-primary-500 lg:bg-transparent py-8" data-aos="fade-up">
         <div class="container">
             <div class="lg:bg-primary-500 lg:rounded-2xl lg:p-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <?php foreach ( $stats_items as $item ) : ?>
