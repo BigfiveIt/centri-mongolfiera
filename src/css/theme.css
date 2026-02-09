@@ -90,11 +90,6 @@
 @import './footer.css';
 
 /* Fix per scrollbar orizzontale causata da 100vw */
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 html {
     scrollbar-gutter: stable; /* Soluzione moderna (Chrome 145+) - riserva spazio per scrollbar */
     scroll-behavior: smooth; /* Scroll smooth per le ancore */
@@ -330,7 +325,8 @@ figure {
         z-index: -1;
         /* Eredita il background dall'elemento stesso (che può avere .has-*-background-color) */
         background: inherit;
-        width: 100vw;
+        /* Usa calc per sottrarre la larghezza della scrollbar da 100vw */
+        width: calc(100vw - var(--scrollbar-width, 0px));
         height: 100%;
     }
 }

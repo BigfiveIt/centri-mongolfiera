@@ -19,7 +19,44 @@ const scrollToSection = (event, target) => {
 
 }
 
+// Calcola la larghezza della scrollbar e la imposta come variabile CSS
+const calculateScrollbarWidth = () => {
+    // Crea un elemento temporaneo per misurare la scrollbar
+    const outer = document.createElement('div');
+    outer.style.visibility = 'hidden';
+    outer.style.overflow = 'scroll';
+    outer.style.msOverflowStyle = 'scrollbar'; // necessario per IE
+    document.body.appendChild(outer);
+    
+    // Crea un elemento interno
+    const inner = document.createElement('div');
+    outer.appendChild(inner);
+    
+    // Calcola la differenza tra le larghezze
+    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+    
+    // Rimuovi l'elemento temporaneo
+    outer.parentNode.removeChild(outer);
+    
+    // Imposta la variabile CSS
+    document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    
+    return scrollbarWidth;
+};
+
 const Common = () => {
+    // Calcola e imposta la larghezza della scrollbar
+    calculateScrollbarWidth();
+    
+    // Ricalcola su resize per gestire cambiamenti dinamici
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            calculateScrollbarWidth();
+        }, 100);
+    });
+    
     if(document.querySelector('[data-scrollto]')){
 
         const scrollBtns = document.querySelectorAll('[data-scrollto]');
