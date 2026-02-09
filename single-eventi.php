@@ -52,7 +52,7 @@ get_header();
 				?>
 					<time class="text-primary-500 desc-1"><?php echo esc_html( $data_display ); ?></time>
 				<?php endif; ?>
-				<h1 class="t-1 text-primary-500 leading-none font-black font-serif"><?php the_title(); ?></h1>
+				<h1 class="t-1 text-primary-500 font-black font-serif"><?php the_title(); ?></h1>
 				<div class="text-prmary-500 t-5"><?php the_content(); ?></div>
 			</div>
 		</div>

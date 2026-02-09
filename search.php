@@ -12,7 +12,7 @@ get_header();
 <?php if ( have_posts() ) : ?>
 	<div class="container mx-auto px-4 mb-16">
 		<header class="page-header py-16">
-			<div class="t-1 text-primary-500 leading-none font-black font-serif">
+			<div class="t-1 text-primary-500 font-black font-serif">
 				<?php
 				printf(
 					/* translators: %s: search query */
@@ -44,7 +44,7 @@ get_header();
 <?php else : ?>
 	<div class="container mx-auto px-4 mb-16">
 		<header class="page-header py-16">
-			<div class="t-1 text-primary-500 leading-none font-black font-serif">
+			<div class="t-1 text-primary-500 font-black font-serif">
 				<?php
 				printf(
 					/* translators: %s: search query */

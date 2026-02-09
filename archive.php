@@ -16,7 +16,7 @@ get_header();
 	<?php if ( have_posts() ): ?>
 	<div class="container mx-auto px-4 mb-16">
 		<header class="page-header py-16">
-			<div class="t-1 text-primary-500 leading-none font-black font-serif"><?php echo esc_html( strip_tags( get_the_archive_title() ) ); ?></div>
+			<div class="t-1 text-primary-500 font-black font-serif"><?php echo esc_html( strip_tags( get_the_archive_title() ) ); ?></div>
 			<?php if ( get_the_archive_description() ) : ?>
 				<div class="taxonomy-description mt-4"><?php the_archive_description(); ?></div>
 			<?php endif; ?>

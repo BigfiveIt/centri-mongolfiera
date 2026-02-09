@@ -16,7 +16,7 @@ $fetchpriority  = isset( $args['fetchpriority'] ) && $args['fetchpriority'] === 
     <?php endif; ?>
     <div class="col-span-1 grid grid-cols-1 xl:grid-cols-3 gap-8 md:py-18 p-8 xl:pe-12">
         <div class="banner-cta__content col-span-2">
-            <h2 class="banner-cta__title t-2 text-primary-500 font-black font-serif leading-none"><?php echo esc_html($titolo); ?></h2>
+            <h2 class="banner-cta__title t-2 text-primary-500 font-black font-serif"><?php echo esc_html($titolo); ?></h2>
             <div class="banner-cta__description desc-2 text-primary-500 mt-4"><?php echo esc_html($testo); ?></div>
         </div>
         <?php if ($cta) : ?>

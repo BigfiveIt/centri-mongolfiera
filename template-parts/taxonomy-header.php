@@ -17,7 +17,7 @@ $search_url = isset($args['search_url']) ? $args['search_url'] : get_post_type_a
 <div class="flex flex-wrap gap-4 items-center justify-between mb-8" data-aos="fade-up">
     <div>
         <?php if ($title): ?>
-            <h1 class="t-1 font-serif text-primary-500 font-bold leading-none"><?php echo esc_html($title); ?></h1>
+            <h1 class="t-1 font-serif text-primary-500 font-bold"><?php echo esc_html($title); ?></h1>
         <?php endif; ?>
         <?php if ($description): ?>
             <div class="taxonomy-description mt-4"><?php echo wp_kses_post($description); ?></div>

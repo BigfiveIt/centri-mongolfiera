@@ -2,33 +2,41 @@
 /* Formula clamp: clamp(min, preferred, max) */
 /* Viewport da 375px (mobile) a 1380px (desktop) */
 /* Utilizzabili come classe (t-1, desc-2) o con @apply t-1 */
+/* Formula: clamp(min, (max-min)/(1380-375)*100vw + (min - (max-min)/(1380-375)*375), max) */
 
 @utility t-1 {
-    font-size: clamp(47px, 2.97vw + 35.88px, 57px);
+    font-size: clamp(38px, 1.89vw + 30.91px, 57px);
+    line-height: 1.2;
 }
 
 @utility t-2 {
-    font-size: clamp(40px, 2.38vw + 31.05px, 48px);
+    font-size: clamp(32px, 1.59vw + 26.04px, 48px);
+    line-height: 1.2;
 }
 
 @utility t-3 {
-    font-size: clamp(31px, 2.19vw + 22.78px, 38px);
+    font-size: clamp(28px, 0.99vw + 24.29px, 38px);
+    line-height: 1.2;
 }
 
 @utility t-4 {
-    font-size: clamp(26px, 1.90vw + 18.88px, 32px);
+    font-size: clamp(22px, 0.99vw + 18.29px, 32px);
+    line-height: 1.2;
 }
 
 @utility t-5 {
-    font-size: clamp(19px, 1.19vw + 14.54px, 23px);
+    font-size: clamp(20px, 0.30vw + 18.88px, 23px);
+    line-height: 1.2;
 }
 
 @utility desc-1 {
-    font-size: clamp(16px, 0.60vw + 13.75px, 18px);
+    font-size: clamp(16px, 0.20vw + 15.25px, 18px);
+    line-height: 1.2;
 }
 
 @utility desc-2 {
-    font-size: clamp(15px, 0.30vw + 13.88px, 16px);
+    font-size: clamp(15px, 0.10vw + 14.63px, 16px);
+    line-height: 1.2;
 }
 
 @utility desc-3 {

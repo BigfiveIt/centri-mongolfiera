@@ -16,7 +16,7 @@ get_header();
     <?php $mostra_infobox_icone = get_field( 'mostra_infobox_icone' ); ?>
 
     <section class="hero">
-        <div class="container relative">
+        <div class="lg:container mx-auto relative">
             <?php if ( $mostra_hero_slider ) : ?>
             <div class="hero-slider overflow-hidden relative" data-aos="fade">
                 <div class="swiper-wrapper">
@@ -33,13 +33,13 @@ get_header();
                             <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
                                 <picture>
                                     <source media="(min-width:768px)" srcset="<?php echo esc_url( $immagine_slide['url'] ); ?>">
-                                    <img src="<?php echo esc_url( $immagine_slide_mobile['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide_mobile['alt'] ? $immagine_slide_mobile['alt'] : $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover rounded-3xl aspect-square md:aspect-1400/660">
+                                    <img src="<?php echo esc_url( $immagine_slide_mobile['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide_mobile['alt'] ? $immagine_slide_mobile['alt'] : $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover lg:rounded-3xl aspect-square md:aspect-1400/660">
                                 </picture>
                             <?php if ( $link_url ) : ?></a><?php endif; ?>
                         <?php elseif ( $immagine_slide ) : ?>
                             <figure>
                                 <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
-                                    <img src="<?php echo esc_url( $immagine_slide['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover rounded-3xl aspect-4/3 md:aspect-1400/660" />
+                                    <img src="<?php echo esc_url( $immagine_slide['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover lg:rounded-3xl aspect-4/3 md:aspect-1400/660" />
                                 <?php if ( $link_url ) : ?></a><?php endif; ?>
                             </figure>
                         <?php endif; ?>
@@ -60,8 +60,8 @@ get_header();
             <?php endif; ?>
 
             <?php if ( $mostra_infobox_icone ) : ?>
-            <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-6" data-aos="fade-up">
-                <div class="bg-white rounded-3xl p-5 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 shadow-lg">
+            <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-4 lg:mx-6" data-aos="fade-up">
+                <div class="bg-white rounded-3xl p-5 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 shadow-lg w-full lg:w-auto">
                     <?php if ( have_rows( 'info_box_items' ) ) : ?>
                     <div class="flex justify-between gap-4 lg:gap-12">
                         <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
@@ -121,7 +121,7 @@ get_header();
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
                 <div class="flex flex-col gap-6 justify-center order-2 lg:order-1 text-center lg:text-left">
                     <?php if ( $nuova_titolo ) : ?>
-                        <div class="t-1 font-serif text-primary-500 leading-none text-balance">
+                        <div class="t-1 font-serif text-primary-500 text-balance">
                             <?php echo wp_kses_post( $nuova_titolo ); ?>
                         </div>
                     <?php endif; ?>
@@ -189,14 +189,14 @@ get_header();
                 $stat_suffisso= isset( $item['suffisso'] ) ? $item['suffisso'] : '';
                 ?>
                 <div class="flex items-center gap-4">
-                    <figure class="w-16 h-16 bg-white rounded-full p-4">
+                    <figure class="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full p-4 shrink-0">
                         <?php if ( $stat_icon ) : ?>
                             <img src="<?php echo esc_url( $stat_icon['url'] ); ?>" alt="<?php echo esc_attr( $stat_icon['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
                         <?php endif; ?>
                     </figure>
                     <div class="flex flex-col gap-1">
                         <?php if ( $stat_numero ) : ?>
-                            <div class="t-4 text-secondary-500 font-semibold leading-none">
+                            <div class="t-4 text-secondary-500 font-semibold">
                                 <span class="number-count" data-end="<?php echo esc_attr( $stat_numero ); ?>"><?php echo esc_html( $stat_numero ); ?></span>
                                 <?php if ( $stat_suffisso ) : ?>
                                     <span><?php echo esc_html( $stat_suffisso ); ?></span>
@@ -238,7 +238,7 @@ get_header();
                         </figure>
                         <div class="absolute inset-0 p-4 lg:p-8 flex flex-col justify-end page-grid-wall-item__content z-10">
                             <?php if ( $grid_link['title'] ) : ?>
-                                <div class="t-4 text-white font-semibold leading-none"><?php echo esc_html( $grid_link['title'] ); ?></div>
+                                <div class="t-5 lg:t-4 text-white font-semibold"><?php echo esc_html( $grid_link['title'] ); ?></div>
                             <?php endif; ?>
                         </div>
                     </a>
@@ -262,17 +262,17 @@ get_header();
     <section class="bg-white py-16 lg:py-24" data-aos="fade-up">
         <div class="container">
             <?php if ( $brand_titolo ) : ?>
-                <div class="t-1 text-primary-500 leading-none text-center font-black font-serif"><?php echo esc_html( $brand_titolo ); ?></div>
+                <div class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $brand_titolo ); ?></div>
             <?php endif; ?>
             <?php if ( ! empty( $brand_logos ) ) : ?>
                 <div class="brand-carousel overflow-hidden my-8 lg:my-16">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper items-center">
                         <?php foreach ( $brand_logos as $brand_logo ) : ?>
                             <?php $logo = isset( $brand_logo['logo'] ) ? $brand_logo['logo'] : null; ?>
                             <div class="swiper-slide">
-                                <figure class="w-full h-full object-cover">
+                                <figure class="lg:w-[200px] lg:h-[100px] w-[140px] h-[70px]">
                                     <?php if ( $logo ) : ?>
-                                        <img src="<?php echo esc_url( $logo['url'] ); ?>" alt="<?php echo esc_attr( $logo['alt'] ); ?>" class="w-full h-full object-cover" loading="lazy">
+                                        <img src="<?php echo esc_url( $logo['url'] ); ?>" alt="<?php echo esc_attr( $logo['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
                                     <?php endif; ?>
                                 </figure>
                             </div>
@@ -309,7 +309,7 @@ get_header();
         <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
             <div class="w-full lg:w-2/5 self-center">
                 <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
-                    <div class="t-1 font-serif leading-none text-balance text-white">
+                    <div class="t-1 font-serif text-balance text-white">
                         <?php if ( $divertimento_titolo_enfasi ) : ?>
                             <b><span class="text-secondary-500"><?php echo esc_html( $divertimento_titolo_enfasi ); ?></span></b>
                         <?php endif; ?>
@@ -370,7 +370,7 @@ get_header();
                         <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
                     </div>
                 </div>
-                <div class="flex justify-center lg:hidden">
+                <div class="flex lg:hidden">
                     <?php if ( $divertimento_cta_url ) : ?>
                         <a href="<?php echo esc_url( $divertimento_cta_url ); ?>" class="btn btn-secondary mt-8 lg:mt-12" target="<?php echo esc_attr( $divertimento_cta_target ); ?>">
                             <span><?php echo esc_html( $divertimento_cta['title'] ? $divertimento_cta['title'] : 'Scopri' ); ?></span>
@@ -402,7 +402,7 @@ get_header();
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
                 <div class="flex flex-col gap-6 justify-center">
                     <?php if ( $servizi_titolo ) : ?>
-                        <div class="t-2 font-serif text-primary-500 leading-none text-balance font-black"><?php echo esc_html( $servizi_titolo ); ?></div>
+                        <div class="t-2 font-serif text-primary-500 text-balance font-black"><?php echo esc_html( $servizi_titolo ); ?></div>
                     <?php endif; ?>
                     <?php if ( $servizi_descrizione ) : ?>
                         <div class="desc-2 mb-8 text-primary-500">
@@ -426,15 +426,15 @@ get_header();
                         $servizio_titolo = isset( $servizio['titolo'] ) ? $servizio['titolo'] : '';
                         $servizio_descrizione = isset( $servizio['descrizione'] ) ? $servizio['descrizione'] : '';
                         ?>
-                        <div class="grid grid-cols-3 gap-4 px-8 py-4 rounded-2xl shadow-lg overflow-hidden bg-white items-center">
-                            <figure class="w-full h-full object-cover col-span-1 pe-8">
+                        <div class="grid grid-cols-3 gap-4 px-4 lg:px-8 py-4 rounded-2xl shadow-lg overflow-hidden bg-white items-center">
+                            <figure class="w-full h-full col-span-1 pe-4 lg:pe-8">
                                 <?php if ( $servizio_image ) : ?>
-                                    <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ); ?>" class="w-full h-full object-cover" loading="lazy">
+                                    <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ); ?>" class="w-full h-full object-fill" loading="lazy">
                                 <?php endif; ?>
                             </figure>
                             <div class="col-span-2">
                                 <?php if ( $servizio_titolo ) : ?>
-                                    <div class="t-5 font-medium leading-none mb-2 text-primary-500"><?php echo esc_html( $servizio_titolo ); ?></div>
+                                    <div class="t-5 font-medium mb-2 text-primary-500"><?php echo esc_html( $servizio_titolo ); ?></div>
                                 <?php endif; ?>
                                 <?php if ( $servizio_descrizione ) : ?>
                                     <div class="desc-3 text-primary-500 leading-tight"><?php echo wp_kses_post( $servizio_descrizione ); ?></div>
@@ -475,7 +475,7 @@ get_header();
             <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
                 <div class="text-center lg:text-left">
                     <?php if ( $social_titolo ) : ?>
-                        <div class="t-2 text-primary-500 leading-none font-black font-serif"><?php echo esc_html( $social_titolo ); ?></div>
+                        <div class="t-2 text-primary-500 font-black font-serif"><?php echo esc_html( $social_titolo ); ?></div>
                     <?php endif; ?>
                     <?php if ( $social_handle && ! empty( $social_handle['url'] ) ) : ?>
                         <a href="<?php echo esc_url( $social_handle['url'] ); ?>" class="text-primary-400 t-5 block" target="<?php echo esc_attr( ! empty( $social_handle['target'] ) ? $social_handle['target'] : '_self' ); ?>">
@@ -514,7 +514,7 @@ get_header();
     <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
     <section class="py-16 bg-primary-50" data-aos="fade-up">
         <div class="container">
-            <div class="t-2 text-primary-500 leading-none text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
+            <div class="t-2 text-primary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
             <?php
             $today = date( 'Ymd' );
             

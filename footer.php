@@ -20,7 +20,7 @@ $footer = get_field('footer', 'option');
             <?php if($socialwall && $socialwall['titolo']): ?>
                 <div class="flex flex-col gap-4 lg:gap-8 text-center p-4 lg:px-12 lg:py-24 py-12 bg-linear-to-t from-[#2EA338] to-[#C6D41F]">
                     <div class="">
-                        <h4 class="text-white t-2 font-medium font-serif leading-none"><?php echo $socialwall['titolo']; ?></h4>
+                        <h4 class="text-white t-3 font-medium font-serif"><?php echo $socialwall['titolo']; ?></h4>
                         <?php if($socialwall['link_instagram']): ?>
                             <a href="<?php echo $socialwall['link_instagram']['url']; ?>" class="text-white t-5 block mt-4 btn btn-link justify-center font-normal">
                                 <?php echo $socialwall['link_instagram']['title']; ?>
@@ -43,7 +43,7 @@ $footer = get_field('footer', 'option');
             <?php endif; ?>
             <?php if($newsletter && $newsletter['titolo']): ?>
                 <div class="flex flex-col gap-4 lg:gap-8 text-center p-4 lg:px-12 lg:py-24 py-12 bg-linear-to-b from-[#2EA338] to-[#C6D41F]">
-                    <h4 class="text-white t-2 font-medium font-serif leading-none"><?php echo $newsletter['titolo']; ?></h4>
+                    <h4 class="text-white t-3 font-medium font-serif"><?php echo $newsletter['titolo']; ?></h4>
                     <p class="text-white t-5 block text-balance"><?php echo $newsletter['descrizione']; ?></p>
                     <?php if($newsletter['pulsante']): ?>
                         <div class="flex justify-center">

@@ -27,9 +27,11 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
             
             if($logo):
             ?>
-                <figure class="negozio-logo flex justify-center items-center">
-                    <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="max-w-[200px] lg:max-w-[400px]">
+            <div class="flex justify-center">
+                <figure class="negozio-logo flex justify-center items-center bg-white rounded-2xl p-10 w-[640px] h-[240px]">
+                    <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="h-full w-full object-contain">
                 </figure>
+            </div>
             <?php endif; ?>
             <?php
             
@@ -59,7 +61,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
                     <a href="<?php echo get_post_type_archive_link('negozi'); ?>" class="btn btn-link">
                         <?php get_template_part('images/icons/arrow-left'); ?><span><?php _e('Negozi','mongolfiera'); ?></span>
                     </a>
-                    <h1 class="t-3 my-4 font-bold font-serif text-primary-500 leading-none"><?php the_title(); ?></h1>
+                    <h1 class="t-3 my-4 font-bold font-serif text-primary-500"><?php the_title(); ?></h1>
                     <div class="desc-1 text-primary-500"><?php the_content(); ?></div>
                 </div>
                 <div class="col-span-1 lg:ps-16">
@@ -120,10 +122,12 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
 
         <?php 
         $term_ids = wp_list_pluck( $terms, 'term_id' );
+        $current_post_id = get_the_ID();
+        
         $args_query = array(
             'post_type'      => 'negozi',
-            'posts_per_page' => -1,
-            'post__not_in' => array( get_the_ID()),
+            'posts_per_page' => 12,
+            'post__not_in'   => array( $current_post_id ),
             'tax_query'      => array(
                 array(
                     'taxonomy' => 'categoria_negozi',
@@ -134,12 +138,43 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
         );
 
         $the_query = new WP_Query( $args_query );
+        
+        // Se ci sono meno di 12 risultati e meno di 6, aggiungi negozi casuali fino ad avere almeno 6
+        if ( $the_query->found_posts < 12 && $the_query->found_posts < 6 ) {
+            $posts_found = $the_query->found_posts;
+            $posts_to_add = 6 - $posts_found;
+            
+            // Raccogli gli ID dei post già trovati (senza consumare il loop)
+            $exclude_ids = array( $current_post_id );
+            foreach ( $the_query->posts as $post ) {
+                $exclude_ids[] = $post->ID;
+            }
+            
+            // Query per negozi casuali (ottimizzata: no_found_rows evita il count totale)
+            $args_random = array(
+                'post_type'      => 'negozi',
+                'posts_per_page' => $posts_to_add,
+                'post__not_in'   => $exclude_ids,
+                'orderby'        => 'rand',
+                'no_found_rows'  => true, // Ottimizzazione: non calcola il count totale
+            );
+            
+            $random_query = new WP_Query( $args_random );
+            
+            // Unisci i risultati
+            if ( $random_query->have_posts() ) {
+                // Aggiungi i post casuali a quelli esistenti
+                $the_query->posts = array_merge( $the_query->posts, $random_query->posts );
+                $the_query->post_count = count( $the_query->posts );
+            }
+        }
+        
         if ( $the_query->have_posts() ) :
         ?>
         <section class="my-6 lg:my-28 related-negozi" data-aos="fade-up">
 
             <h2 class="mb-8 t-4 font-serif text-primary-500 font-bold text-center"><?php _e('I Negozi del Centro','mongolfiera');?></h2>
-            <div class="related-negozi__carousel">
+            <div class="related-negozi__carousel overflow-hidden pb-6">
                 <div class="swiper-wrapper">
                     <?php while ( $the_query->have_posts() ) :$the_query->the_post(); ?>
                         <div class="swiper-slide">

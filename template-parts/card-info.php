@@ -16,7 +16,7 @@ $cta = isset($args['cta']) ? $args['cta'] : null;
     </div>
     <div class="card-info__content py-4">
         <?php if ($titolo) : ?>
-            <h3 class="card-info__title font-extrabold t-3 leading-none text-primary-500 font-serif my-5">
+            <h3 class="card-info__title font-extrabold t-3 text-primary-500 font-serif my-5">
                 <?php if ($cta && !empty($cta['url'])) : ?>
                     <a href="<?php echo esc_url($cta['url']); ?>" class="no-underline stretched-link card-info__title-link"><?php echo esc_html($titolo); ?></a>
                 <?php else : ?>

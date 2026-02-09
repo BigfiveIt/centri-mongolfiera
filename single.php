@@ -29,7 +29,7 @@ get_header();
 		<a href="<?php echo get_post_type_archive_link(get_post_type()); ?>" class="btn btn-link">
 			<?php get_template_part('images/icons/arrow-left'); ?><span><?php _e('Magazine','mongolfiera'); ?></span>
 		</a>
-		<h1 class="t-3 my-4 font-bold font-serif text-primary-500 leading-none"><?php the_title(); ?></h1>
+		<h1 class="t-3 my-4 font-bold font-serif text-primary-500"><?php the_title(); ?></h1>
 		<?php the_content(); ?>
 	</section>
 
@@ -47,7 +47,7 @@ get_header();
 	<?php if ( $related_query->have_posts() ) : ?>
 	<section class="py-16">
 		<div class="container">
-			<h2 class="t-3 text-primary-500 leading-none text-center font-black font-serif mb-8 lg:mb-12"><?php esc_html_e( 'Potrebbero interessarti', 'mongolfiera' ); ?></h2>
+			<h2 class="t-3 text-primary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php esc_html_e( 'Potrebbero interessarti', 'mongolfiera' ); ?></h2>
 			<?php
 			$related_count = $related_query->post_count;
 			$pagination_class = ( $related_count <= 3 ) ? 'hidden' : '';

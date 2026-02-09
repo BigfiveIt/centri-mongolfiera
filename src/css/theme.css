@@ -93,12 +93,14 @@
 html {
     scrollbar-gutter: stable; /* Soluzione moderna (Chrome 145+) - riserva spazio per scrollbar */
     overflow-x: hidden; /* Fallback per browser meno recenti */
+    scroll-behavior: smooth; /* Scroll smooth per le ancore */
+    scroll-padding-top: var(--site-header-height); /* Offset per compensare l'header fisso */
 }
 
 body {
     font-family: var(--font-sans);
     background-color: var(--color-primary-lighten);
-    overflow-x: hidden; /* Previene scrollbar orizzontale */
+    
 }
 figure {
     margin: 0;

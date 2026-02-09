@@ -16,7 +16,7 @@ get_header();
 	<?php if ( have_posts() ): ?>
 	<div class="container mx-auto px-4">
 		<header class="page-header py-16" data-aos="fade-up">
-			<div class="t-1 text-primary-500 leading-none font-black font-serif"><?php _e('Promozioni','mongolfiera'); ?></div>
+			<div class="t-1 text-primary-500 font-black font-serif"><?php _e('Promozioni','mongolfiera'); ?></div>
 		</header><!-- .page-header -->
 
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">

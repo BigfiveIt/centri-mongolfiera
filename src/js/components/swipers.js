@@ -143,7 +143,8 @@ const Swipers = () => {
 					slidesPerView: 3
 				},
 				1024: {
-					slidesPerView: 5
+					slidesPerView: 6,
+					slidesPerGroup: 3
 				}
 			},
 			pagination: {
