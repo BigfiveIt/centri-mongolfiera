@@ -90,9 +90,13 @@
 @import './footer.css';
 
 /* Fix per scrollbar orizzontale causata da 100vw */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 html {
     scrollbar-gutter: stable; /* Soluzione moderna (Chrome 145+) - riserva spazio per scrollbar */
-    overflow-x: hidden; /* Fallback per browser meno recenti */
     scroll-behavior: smooth; /* Scroll smooth per le ancore */
     scroll-padding-top: var(--site-header-height); /* Offset per compensare l'header fisso */
 }
@@ -336,4 +340,51 @@ figure {
         align-self: stretch;
         height: auto;
     }
+}
+
+/* Select custom per filtri categorie su mobile */
+.custom-taxonomy-select {
+    position: relative;
+    z-index: 100;
+    isolation: isolate; /* Crea un nuovo stacking context isolato */
+}
+
+.custom-taxonomy-select__button {
+    position: relative;
+    z-index: 1;
+}
+
+.custom-taxonomy-select__icon {
+    flex-shrink: 0;
+}
+
+.custom-taxonomy-select.is-open .custom-taxonomy-select__icon {
+    transform: rotate(180deg);
+}
+
+.custom-taxonomy-select__dropdown {
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+    position: absolute;
+    isolation: isolate; /* Assicura che il dropdown sia sopra tutto */
+}
+
+.custom-taxonomy-select__option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgb(229 231 235);
+}
+
+.custom-taxonomy-select__option:last-child {
+    border-bottom: none;
+}
+
+.custom-taxonomy-select__option.bg-primary-400 {
+    font-weight: 500;
+}
+
+.iframe-aspect{
+    @apply lg:aspect-[16/9] aspect-square h-auto;
 }

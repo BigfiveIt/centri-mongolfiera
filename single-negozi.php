@@ -75,6 +75,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
                                     'alt' => 'Icona orario',
                                 ],
                                 'label' => $orari,
+                                'class' => 'mb-4',
                             ] );
                             ?>
                         <?php endif; ?>

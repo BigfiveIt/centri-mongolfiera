@@ -429,7 +429,7 @@ get_header();
                         <div class="grid grid-cols-3 gap-4 px-4 lg:px-8 py-4 rounded-2xl shadow-lg overflow-hidden bg-white items-center">
                             <figure class="w-full h-full col-span-1 pe-4 lg:pe-8">
                                 <?php if ( $servizio_image ) : ?>
-                                    <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ); ?>" class="w-full h-full object-fill" loading="lazy">
+                                    <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
                                 <?php endif; ?>
                             </figure>
                             <div class="col-span-2">

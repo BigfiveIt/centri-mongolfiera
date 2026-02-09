@@ -34,6 +34,105 @@ const Common = () => {
    
     }
 
+    // Gestione select custom per filtri categorie su mobile
+    const taxonomySelects = document.querySelectorAll('.custom-taxonomy-select[data-taxonomy-filter]');
+    
+    taxonomySelects.forEach(selectContainer => {
+        const button = selectContainer.querySelector('.custom-taxonomy-select__button');
+        const dropdown = selectContainer.querySelector('.custom-taxonomy-select__dropdown');
+        const options = selectContainer.querySelectorAll('.custom-taxonomy-select__option');
+        const selectedText = selectContainer.querySelector('.custom-taxonomy-select__selected-text');
+        const archiveUrl = selectContainer.getAttribute('data-archive-url');
+        
+        if (!button || !dropdown || !selectedText) return;
+        
+        // Funzione per aggiornare lo stile del bottone in base alla selezione
+        function updateButtonStyle(selectedOption) {
+            const isArchive = selectedOption && selectedOption.getAttribute('data-value') === archiveUrl;
+            
+            if (isArchive) {
+                button.classList.remove('bg-primary-400', 'text-white');
+                button.classList.add('bg-gray-200');
+            } else {
+                button.classList.add('bg-primary-400', 'text-white');
+                button.classList.remove('bg-gray-200');
+            }
+        }
+        
+        // Toggle dropdown
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = selectContainer.classList.contains('is-open');
+            
+            // Chiudi tutti gli altri dropdown
+            taxonomySelects.forEach(otherSelect => {
+                if (otherSelect !== selectContainer) {
+                    otherSelect.classList.remove('is-open');
+                    otherSelect.querySelector('.custom-taxonomy-select__dropdown')?.classList.add('hidden');
+                }
+            });
+            
+            // Toggle questo dropdown
+            if (isOpen) {
+                selectContainer.classList.remove('is-open');
+                dropdown.classList.add('hidden');
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                selectContainer.classList.add('is-open');
+                dropdown.classList.remove('hidden');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        });
+        
+        // Gestione click sulle opzioni
+        options.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('data-value');
+                const text = this.textContent.trim();
+                
+                // Aggiorna testo e stile del bottone
+                selectedText.textContent = text;
+                updateButtonStyle(this);
+                
+                // Rimuovi evidenziazione da tutte le opzioni
+                options.forEach(opt => {
+                    opt.classList.remove('bg-primary-400', 'text-white');
+                    opt.classList.add('text-gray-700');
+                });
+                
+                // Evidenzia l'opzione selezionata
+                this.classList.add('bg-primary-400', 'text-white');
+                this.classList.remove('text-gray-700');
+                
+                // Chiudi dropdown
+                selectContainer.classList.remove('is-open');
+                dropdown.classList.add('hidden');
+                button.setAttribute('aria-expanded', 'false');
+                
+                // Naviga alla pagina selezionata
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
+        
+        // Chiudi dropdown quando si clicca fuori
+        document.addEventListener('click', function(e) {
+            if (!selectContainer.contains(e.target)) {
+                selectContainer.classList.remove('is-open');
+                dropdown.classList.add('hidden');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Aggiorna stile iniziale del bottone
+        const activeOption = selectContainer.querySelector('.custom-taxonomy-select__option.bg-primary-400');
+        if (activeOption) {
+            updateButtonStyle(activeOption);
+        }
+    });
+
 }
 
 export default Common;

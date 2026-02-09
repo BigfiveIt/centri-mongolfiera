@@ -53,7 +53,7 @@ get_header();
 		<?php
 		$stato = isset( $_GET['stato'] ) ? sanitize_text_field( $_GET['stato'] ) : '';
 		?>
-		<div class="my-6 lg:my-12 flex justify-center" data-aos="fade-up">
+		<div class="my-6 mb-12 lg:my-12 flex justify-center" data-aos="fade-up">
 			<?php if ( $stato === 'passate' ) : ?>
 				<a href="<?php echo esc_url( get_post_type_archive_link( 'eventi' ) ); ?>" class="btn btn-primary-light">Eventi Attivi</a>
 			<?php else : ?>

@@ -19,7 +19,7 @@ $current_category_id = isset($args['current_category_id']) ? $args['current_cate
 $archive_url = get_post_type_archive_link('negozi');
 ?>
 
-<section class="my-6 lg:my-16" data-aos="fade-up">
+<section class="my-6 lg:my-16 z-50 relative" data-aos="fade-up">
     <div class="container">
         <?php get_template_part('template-parts/taxonomy-header', null, [
             'title' => $title,
