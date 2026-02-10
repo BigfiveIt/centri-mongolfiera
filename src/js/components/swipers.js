@@ -39,7 +39,7 @@ const Swipers = () => {
 		/* carosello brand, 6 slide su desktop e poi a scalare, 2 su mobile */
 		new Swiper('.brand-carousel', {
 			modules: [Navigation, Pagination, Autoplay],
-			spaceBetween: 35,
+			spaceBetween: 60,
 			freeMode: false,
 			slidesPerView: 2,
 			watchSlidesProgress : true,

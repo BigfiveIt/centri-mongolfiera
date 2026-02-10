@@ -63,7 +63,7 @@ get_header();
             <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-4 lg:mx-6" data-aos="fade-up">
                 <div class="bg-white rounded-3xl p-5 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 shadow-lg w-full lg:w-auto">
                     <?php if ( have_rows( 'info_box_items' ) ) : ?>
-                    <div class="flex justify-between gap-4 lg:gap-12">
+                    <div class="grid grid-cols-4 gap-4 lg:gap-12">
                         <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
                             <?php $icona = get_sub_field( 'icona' ); ?>
                             <?php $link = get_sub_field( 'link' ); ?>
@@ -270,7 +270,7 @@ get_header();
                         <?php foreach ( $brand_logos as $brand_logo ) : ?>
                             <?php $logo = isset( $brand_logo['logo'] ) ? $brand_logo['logo'] : null; ?>
                             <div class="swiper-slide">
-                                <figure class="lg:w-[200px] lg:h-[100px] w-[140px] h-[70px]">
+                                <figure class="w-full lg:h-[100px] h-[70px]">
                                     <?php if ( $logo ) : ?>
                                         <img src="<?php echo esc_url( $logo['url'] ); ?>" alt="<?php echo esc_attr( $logo['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
                                     <?php endif; ?>
