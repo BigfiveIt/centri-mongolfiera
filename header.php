@@ -39,7 +39,9 @@ defined( 'ABSPATH' ) || exit;
                         <?php 
                         $newsletter = get_global_option('newsletter');
                         if ($newsletter) : ?>
-                            <a href="<?php echo $newsletter; ?>" class="btn btn-primary xl:px-8">Newsletter</a>
+                            <div class="site-header__newsletter px-4 lg:px-0">
+                                <a href="<?php echo $newsletter; ?>" class="btn btn-primary xl:px-8 w-full lg:w-auto">Newsletter</a>
+                            </div>
                         <?php endif; ?>
                     </div>
                     <div class="site-header__menu-trigger xl:hidden"><?php get_template_part('images/icons/menu') ?></div>
