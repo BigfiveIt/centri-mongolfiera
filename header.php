@@ -34,8 +34,7 @@ defined( 'ABSPATH' ) || exit;
                         <?php wp_nav_menu( array(
                             'theme_location'  => 'primary-menu',
                             'menu_class' => '',
-                            'container' => false,
-                            'depth' => 1
+                            'container' => false
                         ) );?>
                         <?php 
                         $newsletter = get_global_option('newsletter');

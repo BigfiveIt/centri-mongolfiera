@@ -24,23 +24,148 @@ body.menu-open{
     }
 }
 .site-header__menu{
-    @apply p-4 xl:p-0 flex flex-col xl:flex-row xl:items-center gap-6 xl:gap-8;
-    ul{
-        @apply list-none flex flex-col xl:flex-row xl:items-center xl:gap-10;
-    }
-    .menu-item{
-        font-size: 20px;
-        font-family: var(--font-serif);
-        font-weight: 600;
-        a{
-            @apply no-underline text-primary-500;
-            transition: color 0.3s ease;
-        }
-        &:hover{
-            a{
-                @apply text-secondary-500;
+    @apply py-4 xl:py-0 flex flex-col xl:flex-row xl:items-center gap-6 xl:gap-8;
+    >ul{
+        @apply list-none flex flex-col xl:flex-row xl:items-center xl:gap-4;
+        >.menu-item{
+            font-size: 20px;
+            font-family: var(--font-serif);
+            font-weight: 600;
+            position: relative;
+            @apply p-4 xl:p-[10px];
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            border-bottom: 1px solid #d2ddd6;
+            @media (min-width: 1280px) {
+                border-radius: 10px;
+                border-bottom: none;
             }
-        }
+            &:has(.sub-menu){
+                border-radius: 10px 10px 0 0;
+            }
+            &:hover{
+                @media (min-width: 1280px) {
+                    background-color: var(--color-white);
+                }
+                
+            }
+            a{
+                @apply no-underline text-primary-500;
+                transition: color 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+            
+            /* Icone chevron e freccia - nascoste su desktop */
+            .menu-item__chevron,
+            .menu-item__arrow {
+                display: none;
+            }
+            
+            @media (max-width: 1280px) {
+                /* Bottone chevron per menu con sottomenu */
+                .menu-item__chevron {
+                    background: none;
+                    border: none;
+                    height: 32px;
+                    width: 32px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-left: auto;
+                    flex-shrink: 0;
+                    svg {
+                        width: 13px;
+                        height: 8px;
+                        display: block;
+                        transition: transform 0.3s ease;
+                    }
+                }
+                
+                /* Chevron ruotato quando il menu è espanso */
+                &.is-expanded > a .menu-item__chevron svg {
+                    transform: rotate(180deg);
+                }
+                
+                /* Icona freccia per link di primo livello */
+                .menu-item__arrow {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: auto;
+                    flex-shrink: 0;
+                    
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        display: block;
+                    }
+                }
+            }
+            
+            >.sub-menu{
+                position: relative;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0 2rem ;
+                
+                /* Comportamento accordion su mobile */
+                @media (max-width: 1280px) {
+                    max-height: 0;
+                    gap: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease;
+                    
+                    &.is-expanded {
+                        max-height: 1000px;
+                    }
+                }
+                
+                @media (min-width: 1280px) {
+                    font-size: 20px;
+                    font-weight: 600;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: var(--color-white);
+                    z-index: 100;
+                    opacity: 0;
+                    pointer-events: none;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+                    
+                    padding: 10px;
+                    border-radius: 0 10px 10px 10px;
+                }
+                a{
+                    @apply no-underline text-primary-500;
+                    transition: color 0.3s ease;
+                    white-space: nowrap;
+                    @media (max-width: 1280px) {
+                        padding-top: 10px;
+                    }
+                    &:hover{
+                        color: var(--color-primary-400);
+                        transition: color 0.3s ease;
+                    }
+                }
+            }
+            &:hover{
+               >.sub-menu{
+                opacity: 1;
+                pointer-events: auto;
+                visibility: visible;
+               }
+            }
+            
+        } 
     }
     @media (max-width: 1280px) {
         position: absolute;
@@ -58,6 +183,7 @@ body.menu-open{
             visibility: visible;
         }
     }
+    
 }
 .site-header__menu-trigger{
     @apply cursor-pointer;
