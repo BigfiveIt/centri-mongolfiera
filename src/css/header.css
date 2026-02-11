@@ -24,7 +24,7 @@ body.menu-open{
     }
 }
 .site-header__menu{
-    @apply py-4 xl:py-0 flex flex-col xl:flex-row xl:items-center gap-6 xl:gap-8;
+    @apply py-4 xl:py-0 flex flex-col justify-between xl:justify-normal xl:flex-row xl:items-center gap-6 xl:gap-8;
     >ul{
         @apply list-none flex flex-col xl:flex-row xl:items-center xl:gap-4;
         >.menu-item{
