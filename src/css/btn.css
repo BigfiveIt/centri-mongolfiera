@@ -1,10 +1,15 @@
+
 @layer components {
     .btn {
-        @apply inline-flex items-center justify-center gap-2 no-underline font-bold transition-colors duration-200 cursor-pointer px-6 py-2 lg:p-4;
-        border-radius: 1rem ;
+        @apply inline-flex items-center justify-center gap-2 no-underline font-bold cursor-pointer px-6 py-2 lg:py-3 lg:px-6;
+        border-radius: 2rem ;
         border: 1px solid transparent;
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
         &:has(svg) {
             @apply gap-8;
+        }
+        &:has(figure) {
+            @apply lg:py-1 ps-2;
         }
         text-decoration: none !important;
         
@@ -16,7 +21,8 @@
         }
     }
     .btn-link {
-        @apply flex items-center justify-start text-primary-400 [&_svg]:w-5 [&_svg]:h-5 hover:text-primary-500 transition-colors duration-200 no-underline p-0;
+        @apply flex items-center justify-start text-primary-400 [&_svg]:w-5 [&_svg]:h-5 hover:text-primary-500 no-underline p-0;
+        transition: color 0.2s ease-in-out;
         &:has(svg) {
             @apply gap-2;
         }
@@ -36,11 +42,41 @@
 
     /* Primary Outlined - bordo verde chiaro, sfondo trasparente, testo scuro */
     .btn-primary-outlined {
-        @apply bg-transparent text-primary-500 border border-primary-500;
+        @apply relative text-primary-500 border border-primary-500 overflow-hidden;
+        background-color: transparent;
+        img {
+            transition: filter 0.2s linear;
+            max-width: 50%;
+        }
+        figure {
+            background-color: var(--color-secondary);
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s linear;
+            min-width: 32px;
+        }
     }
-
+    .btn-primary-outlined::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color: var(--color-secondary);
+        opacity: 0;
+        transition: opacity 0.25s linear;
+    }
     .btn-primary-outlined:hover {
-        @apply bg-primary-400 text-white border-primary-400;
+        @apply border-secondary-500;
+        transition: border-color 0.2s linear;
+        img {
+            filter: brightness(0) invert(1);
+        }
+    }
+    .btn-primary-outlined:hover::before {
+        opacity: 1;
     }
 
     /* Primary Light - sfondo verde chiaro, testo bianco */
@@ -58,6 +94,7 @@
     /* Secondary - sfondo secondary, testo bianco */
     .btn-secondary {
         @apply bg-secondary-500 text-primary-500 border border-secondary-500;
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
 
     .btn-secondary:hover {
@@ -67,7 +104,8 @@
     /* Secondary Outlined - bordo secondary, sfondo trasparente, testo secondary */
     .btn-secondary-outlined {
         @apply bg-transparent text-secondary-500;
-        border-color: var(--color-secondary-500); /* secondary #C4D220 */
+        border-color: var(--color-secondary-500);
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
 
     .btn-secondary-outlined:hover {
@@ -79,6 +117,7 @@
     .btn-white-outlined {
         @apply bg-transparent text-white;
         border-color: var(--color-surface-0);
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
 
     .btn-white-outlined:hover {
@@ -90,6 +129,7 @@
     .btn-white {
         @apply bg-white text-primary-500;
         border-color: var(--color-surface-0);
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
 
     .btn-white:hover {
@@ -97,7 +137,8 @@
         border-color: var(--color-primary-400); /* primary-light #04972A */
     }
     .btn-transparent {
-        @apply bg-transparent text-white border border-white transition-colors duration-200;
+        @apply bg-transparent text-white border border-white;
+        transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
     .btn-transparent:hover {
         @apply bg-white text-primary-500 border-primary-500;

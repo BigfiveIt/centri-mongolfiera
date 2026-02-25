@@ -60,113 +60,65 @@ get_header();
             <?php endif; ?>
 
             <?php if ( $mostra_infobox_icone ) : ?>
-            <div class="info-box -mt-8 lg:-mt-16 z-10 relative flex justify-center mx-4 lg:mx-6" data-aos="fade-up">
-                <div class="bg-white rounded-3xl p-5 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 shadow-lg w-full lg:w-auto">
-                    <?php if ( have_rows( 'info_box_items' ) ) : ?>
-                    <div class="grid grid-cols-4 gap-4 lg:gap-12">
-                        <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
-                            <?php $icona = get_sub_field( 'icona' ); ?>
-                            <?php $link = get_sub_field( 'link' ); ?>
-                            <?php if ( $link ) : ?>
-                            <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" class="flex flex-col gap-1 items-center text-center no-underline hover:opacity-80 transition-opacity">
-                                <?php if ( $icona ) : ?>
-                                    <img src="<?php echo esc_url( $icona['url'] ); ?>" alt="<?php echo esc_attr( $icona['alt'] ); ?>" class="w-6 h-6 object-contain" loading="lazy" />
-                                <?php endif; ?>
-                                <span class="font-bold text-primary-500 leading-none"><?php echo esc_html( $link['title'] ); ?></span>
-                            </a>
-                            <?php else : ?>
-                            <div class="flex flex-col gap-1 items-center text-center">
-                                <?php if ( $icona ) : ?>
-                                    <img src="<?php echo esc_url( $icona['url'] ); ?>" alt="<?php echo esc_attr( $icona['alt'] ); ?>" class="w-6 h-6 object-contain" loading="lazy" />
-                                <?php endif; ?>
-                            </div>
+            <div class="info-box py-16 flex flex-col gap-12" data-aos="fade-up">
+
+                <?php if ( get_field( 'info_box_icone_title' ) ) : ?>
+                    <div class="t-2 text-primary-500 text-center font-serif"><?php echo  get_field( 'info_box_icone_title' ); ?></div>
+                <?php endif; ?>
+
+                <?php if ( have_rows( 'info_box_items' ) ) : ?>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
+                        <?php $icona = get_sub_field( 'icona' ); ?>
+                        <?php $link = get_sub_field( 'link' ); ?>
+                        <?php if ( $link ) : ?>
+                        <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" class="btn btn-primary-outlined">
+                            <?php if ( $icona ) : ?>
+                                <figure><img src="<?php echo esc_url( $icona['url'] ); ?>" alt="<?php echo esc_attr( $icona['alt'] ); ?>" class="w-6 h-6 object-contain" loading="lazy" /></figure>
                             <?php endif; ?>
-                        <?php endwhile; ?>
-                    </div>
-                    <?php endif; ?>
-                    <div class="flex items-center gap-2 lg:gap-6">
-                        <?php $cta_primary = get_field( 'cta_primary' ); ?>
-                        <?php if ( $cta_primary && ! empty( $cta_primary['url'] ) ) : ?>
-                            <a href="<?php echo esc_url( $cta_primary['url'] ); ?>" class="btn btn-primary-outlined text-center" target="<?php echo esc_attr( $cta_primary['target'] ? $cta_primary['target'] : '_self' ); ?>">
-                                <?php echo esc_html( $cta_primary['title'] ? $cta_primary['title'] : 'Virtual tour 3D' ); ?>
-                            </a>
+                            <span class="font-bold text-primary-500 leading-none"><?php echo esc_html( $link['title'] ); ?></span>
+                        </a>
                         <?php endif; ?>
-                        <?php $cta_secondary = get_field( 'cta_secondary' ); ?>
-                        <?php if ( $cta_secondary && ! empty( $cta_secondary['url'] ) ) : ?>
-                            <a href="<?php echo esc_url( $cta_secondary['url'] ); ?>" class="btn btn-primary-light text-center" target="<?php echo esc_attr( $cta_secondary['target'] ? $cta_secondary['target'] : '_self' ); ?>">
-                                <?php echo esc_html( $cta_secondary['title'] ? $cta_secondary['title'] : 'Mappa Negozi' ); ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
+                    <?php endwhile; ?>
                 </div>
+                <?php endif; ?>
+                  
+       
             </div>
             <?php endif; ?>
         </div>
     </section>
 
     <?php
-    $nuova_stagione = get_field( 'nuova_stagione' );
-    $nuova_titolo = isset( $nuova_stagione['titolo'] ) ? $nuova_stagione['titolo'] : null;
-    $nuova_sottotitolo = isset( $nuova_stagione['sottotitolo'] ) ? $nuova_stagione['sottotitolo'] : null;
-    $nuova_orari_titolo = isset( $nuova_stagione['orari_titolo'] ) ? $nuova_stagione['orari_titolo'] : null;
-    $nuova_orari_blocco_1 = isset( $nuova_stagione['orari_blocco_1'] ) ? $nuova_stagione['orari_blocco_1'] : null;
-    $nuova_orari_blocco_2 = isset( $nuova_stagione['orari_blocco_2'] ) ? $nuova_stagione['orari_blocco_2'] : null;
-    $nuova_cta = isset( $nuova_stagione['cta'] ) ? $nuova_stagione['cta'] : null;
-    $nuova_immagine = isset( $nuova_stagione['immagine_maschera'] ) ? $nuova_stagione['immagine_maschera'] : null;
+    $griglia_wall = get_field( 'griglia_wall' );
+    $grid_items = isset( $griglia_wall['grid_items'] ) ? $griglia_wall['grid_items'] : [];
     ?>
 
-    <?php if ( get_field( 'mostra_nuova_stagione' ) ) : ?>
-    <section class="pt-16 pb-8 lg:pb-16" data-aos="fade-up">
+    <?php if ( get_field( 'mostra_griglia_wall' ) ) : ?>
+    <section class="my-16" data-aos="fade-up">
         <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
-                <div class="flex flex-col gap-6 justify-center order-2 lg:order-1 text-center lg:text-left">
-                    <?php if ( $nuova_titolo ) : ?>
-                        <div class="t-1 font-serif text-primary-500 text-balance">
-                            <?php echo wp_kses_post( $nuova_titolo ); ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ( $nuova_sottotitolo ) : ?>
-                        <div class="t-5 text-primary-500 leading-tight text-balance"><?php echo wp_kses_post( $nuova_sottotitolo ); ?></div>
-                    <?php endif; ?>
-                    <?php if ( get_global_option('orari_negozi') ||get_global_option('orari_ipermercato')) : ?>
-                        <div class="border-secondary-500 border-2 rounded-2xl p-5 lg:p-6 text-primary-500">
-                            <p class="t-5 mb-4 uppercase"><?php _e('Orari', 'mongolfiera'); ?></p>
-                            <?php if ( get_global_option('orari_negozi') ) : ?>
-                                <p class="mb-4">
-                                    <strong class="uppercase"><?php _e('Tutti i negozi', 'mongolfiera'); ?></strong><br>
-                                    <?php echo wp_kses_post( get_global_option('orari_negozi') ); ?>
-                                </p>
-                            <?php endif; ?>
-                            <?php if ( get_global_option('orari_ipermercato') ) : ?>
-                                <p>
-                                    <strong class="uppercase"><?php _e('Ipermercato', 'mongolfiera'); ?></strong><br>
-                                    <?php echo wp_kses_post( get_global_option('orari_ipermercato') ); ?>
-                                </p>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ( ! empty( $nuova_cta['url'] ) ) : ?>
-                        <a href="<?php echo esc_url( $nuova_cta['url'] ); ?>" class="btn btn-white border-none self-center lg:self-start" target="<?php echo esc_attr( $nuova_cta['target'] ? $nuova_cta['target'] : '_self' ); ?>">
-                            <span><?php echo esc_html( $nuova_cta['title'] ? $nuova_cta['title'] : 'Il centro' ); ?></span>
-                            <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
-                            </svg>
-                        </a>
-                    <?php endif; ?>
+            <div class="page-grid-wall">
+                <?php foreach ( $grid_items as $grid_item ) : ?>
+                    <?php
+                    $grid_image = isset( $grid_item['immagine'] ) ? $grid_item['immagine'] : null;
+                    $grid_link = isset( $grid_item['link'] ) ? $grid_item['link'] : null;
+                    ?>
+       
+                    <a href="<?php echo esc_url( $grid_link['url'] ); ?>" target="<?php echo esc_attr( $grid_link['target'] ); ?>" class="page-grid-wall-item block h-36 lg:h-96 overflow-hidden relative">
 
-                </div>
-                <div class="flex flex-col justify-center gap-4 order-1 lg:order-2 px-14 relative overflow-hidden aspect-square">
-                    <figure class="aspect-square absolute inset-0">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/mongolfiera-mask.png' ); ?>" alt="Mongolfiera Mask" class="w-full h-full object-contain relative z-20 pointer-events-none">
-                        <?php if ( $nuova_immagine ) : ?>
-                            <div class="absolute inset-0 z-10 overflow-hidden">
-                                <div class="absolute left-1/2 top-1/2 w-[180%] h-[180%] -translate-x-1/2 -translate-y-1/3 rellax" data-rellax-speed="5">
-                                    <img src="<?php echo esc_url( $nuova_immagine['url'] ); ?>" alt="<?php echo esc_attr( $nuova_immagine['alt'] ); ?>" class="absolute inset-0 w-full h-full object-cover">
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    </figure>
-                </div>
+                        <figure class="h-full w-full">
+                            <?php if ( $grid_image ) : ?>
+                                <img src="<?php echo esc_url( $grid_image['url'] ); ?>" alt="<?php echo esc_attr( $grid_image['alt'] ); ?>" class="h-full w-full object-cover" loading="lazy">
+                            <?php endif; ?>
+                        </figure>
+                        <div class="absolute inset-0 p-4 lg:p-8 flex flex-col justify-end page-grid-wall-item__content z-10">
+                            <?php if ( $grid_link['title'] ) : ?>
+                                <div class="t-4 lg:t-2 text-white font-medium font-serif tracking-tight"><?php echo esc_html( $grid_link['title'] ); ?></div>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -214,40 +166,7 @@ get_header();
     </section>
     <?php endif; ?>
 
-    <?php
-    $griglia_wall = get_field( 'griglia_wall' );
-    $grid_items = isset( $griglia_wall['grid_items'] ) ? $griglia_wall['grid_items'] : [];
-    ?>
-
-    <?php if ( get_field( 'mostra_griglia_wall' ) ) : ?>
-    <section class="my-16" data-aos="fade-up">
-        <div class="container">
-            <div class="page-grid-wall">
-                <?php foreach ( $grid_items as $grid_item ) : ?>
-                    <?php
-                    $grid_image = isset( $grid_item['immagine'] ) ? $grid_item['immagine'] : null;
-                    $grid_link = isset( $grid_item['link'] ) ? $grid_item['link'] : null;
-                    ?>
-       
-                    <a href="<?php echo esc_url( $grid_link['url'] ); ?>" target="<?php echo esc_attr( $grid_link['target'] ); ?>" class="page-grid-wall-item block rounded-2xl h-36 lg:h-96 overflow-hidden relative">
-
-                        <figure class="h-full w-full">
-                            <?php if ( $grid_image ) : ?>
-                                <img src="<?php echo esc_url( $grid_image['url'] ); ?>" alt="<?php echo esc_attr( $grid_image['alt'] ); ?>" class="h-full w-full object-cover" loading="lazy">
-                            <?php endif; ?>
-                        </figure>
-                        <div class="absolute inset-0 p-4 lg:p-8 flex flex-col justify-end page-grid-wall-item__content z-10">
-                            <?php if ( $grid_link['title'] ) : ?>
-                                <div class="t-5 lg:t-4 text-white font-semibold"><?php echo esc_html( $grid_link['title'] ); ?></div>
-                            <?php endif; ?>
-                        </div>
-                    </a>
-
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
+    
 
     <?php
     $fascia_brand = get_field( 'fascia_brand' );
