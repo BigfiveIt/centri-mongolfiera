@@ -16,69 +16,72 @@ get_header();
     <?php $mostra_infobox_icone = get_field( 'mostra_infobox_icone' ); ?>
 
     <section class="hero">
-        <div class="lg:container mx-auto relative">
-            <?php if ( $mostra_hero_slider ) : ?>
-            <div class="hero-slider overflow-hidden relative" data-aos="fade">
-                <div class="swiper-wrapper">
-                    <?php while ( have_rows( 'hero_slider' ) ) : the_row(); ?>
-                        <?php
-                        $immagine_slide = get_sub_field( 'immagine_slide' );
-                        $immagine_slide_mobile = get_sub_field( 'immagine_slide_mobile' );
-                        $slide_link = get_sub_field( 'link' );
-                        $link_url = $slide_link && isset( $slide_link['url'] ) ? $slide_link['url'] : '';
-                        $link_target = $slide_link && isset( $slide_link['target'] ) && $slide_link['target'] ? $slide_link['target'] : '_self';
-                        ?>
-                        <div class="swiper-slide">
-                        <?php if ( $immagine_slide && $immagine_slide_mobile ) : ?>
-                            <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
-                                <picture>
-                                    <source media="(min-width:768px)" srcset="<?php echo esc_url( $immagine_slide['url'] ); ?>">
-                                    <img src="<?php echo esc_url( $immagine_slide_mobile['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide_mobile['alt'] ? $immagine_slide_mobile['alt'] : $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover lg:rounded-3xl aspect-square md:aspect-1400/660">
-                                </picture>
-                            <?php if ( $link_url ) : ?></a><?php endif; ?>
-                        <?php elseif ( $immagine_slide ) : ?>
-                            <figure>
-                                <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
-                                    <img src="<?php echo esc_url( $immagine_slide['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover lg:rounded-3xl aspect-4/3 md:aspect-1400/660" />
-                                <?php if ( $link_url ) : ?></a><?php endif; ?>
-                            </figure>
-                        <?php endif; ?>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
-                <div class="swiper-pagination flex justify-center gap-2 mt-6"></div>
-            </div>
-            <?php endif; ?>
 
-            <?php if ( $mostra_infobox_icone ) : ?>
-            <div class="info-box py-16 flex flex-col gap-12" data-aos="fade-up">
+        <?php if ( $mostra_hero_slider ) : ?>
+        <div class="hero-slider overflow-hidden relative" data-aos="fade">
+            <div class="swiper-wrapper">
+                <?php while ( have_rows( 'hero_slider' ) ) : the_row(); ?>
+                    <?php
+                    $immagine_slide = get_sub_field( 'immagine_slide' );
+                    $immagine_slide_mobile = get_sub_field( 'immagine_slide_mobile' );
+                    $slide_link = get_sub_field( 'link' );
+                    $link_url = $slide_link && isset( $slide_link['url'] ) ? $slide_link['url'] : '';
+                    $link_target = $slide_link && isset( $slide_link['target'] ) && $slide_link['target'] ? $slide_link['target'] : '_self';
+                    ?>
+                    <div class="swiper-slide">
+                    <?php if ( $immagine_slide && $immagine_slide_mobile ) : ?>
+                        <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
+                            <picture>
+                                <source media="(min-width:768px)" srcset="<?php echo esc_url( $immagine_slide['url'] ); ?>">
+                                <img src="<?php echo esc_url( $immagine_slide_mobile['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide_mobile['alt'] ? $immagine_slide_mobile['alt'] : $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover aspect-square md:aspect-1400/660">
+                            </picture>
+                        <?php if ( $link_url ) : ?></a><?php endif; ?>
+                    <?php elseif ( $immagine_slide ) : ?>
+                        <figure>
+                            <?php if ( $link_url ) : ?><a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php endif; ?>
+                                <img src="<?php echo esc_url( $immagine_slide['sizes']['medium_large'] ); ?>" alt="<?php echo esc_attr( $immagine_slide['alt'] ); ?>" class="w-full h-full object-cover aspect-square md:aspect-1400/660" />
+                            <?php if ( $link_url ) : ?></a><?php endif; ?>
+                        </figure>
+                    <?php endif; ?>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+            <div class="swiper-pagination flex justify-center gap-2 mt-6"></div>
+        </div>
+        <?php endif; ?>
+    </section>
+
+    <?php if ( $mostra_infobox_icone ) : ?>
+    <section class="my-16 lg:my-24">
+        <div class="container">
+            <div class="info-box flex flex-col gap-12 overflow-hidden" data-aos="fade-up">
 
                 <?php if ( get_field( 'info_box_icone_title' ) ) : ?>
                     <div class="t-2 text-primary-500 text-center font-serif"><?php echo  get_field( 'info_box_icone_title' ); ?></div>
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'info_box_items' ) ) : ?>
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex overflow-x-auto lg:justify-center gap-4 px-4">
                     <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
                         <?php $icona = get_sub_field( 'icona' ); ?>
                         <?php $link = get_sub_field( 'link' ); ?>
                         <?php if ( $link ) : ?>
-                        <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" class="btn btn-primary-outlined">
+                        <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" class="btn btn-primary-outlined shrink-0">
                             <?php if ( $icona ) : ?>
-                                <figure><img src="<?php echo esc_url( $icona['url'] ); ?>" alt="<?php echo esc_attr( $icona['alt'] ); ?>" class="w-6 h-6 object-contain" loading="lazy" /></figure>
+                                <figure class="shrink-0"><img src="<?php echo esc_url( $icona['url'] ); ?>" alt="<?php echo esc_attr( $icona['alt'] ); ?>" class="w-6 h-6 object-contain" loading="lazy" /></figure>
                             <?php endif; ?>
-                            <span class="font-bold text-primary-500 leading-none"><?php echo esc_html( $link['title'] ); ?></span>
+                            <span class="font-bold text-primary-500 leading-none text-nowrap"><?php echo esc_html( $link['title'] ); ?></span>
                         </a>
                         <?php endif; ?>
                     <?php endwhile; ?>
                 </div>
                 <?php endif; ?>
-                  
-       
+                    
+
             </div>
-            <?php endif; ?>
         </div>
     </section>
+    <?php endif; ?>
 
     <?php
     $griglia_wall = get_field( 'griglia_wall' );

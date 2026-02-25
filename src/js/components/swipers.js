@@ -5,7 +5,7 @@ const Swipers = () => {
 	if(document.querySelector('.hero-slider')){
 		new Swiper('.hero-slider', {
 			modules: [Pagination],
-			spaceBetween: 35,
+			spaceBetween: 0,
 			freeMode: false,
 			slidesPerView: "auto",
 			watchSlidesProgress : true,
