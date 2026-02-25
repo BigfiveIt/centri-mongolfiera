@@ -3,11 +3,8 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 const Swipers = () => {
 	if(document.querySelector('.hero-slider')){
-		const heroNextBtns = document.querySelectorAll('.hero-slider-navigation .swiper-button-next');
-		const heroPrevBtns = document.querySelectorAll('.hero-slider-navigation .swiper-button-prev');
-
-		const heroSlider = new Swiper('.hero-slider', {
-			modules: [Navigation, Pagination],
+		new Swiper('.hero-slider', {
+			modules: [Pagination],
 			spaceBetween: 35,
 			freeMode: false,
 			slidesPerView: "auto",
@@ -17,18 +14,11 @@ const Swipers = () => {
 				type: 'bullets',
 				clickable: true
 			},
-			navigation: {
-				nextEl: Array.from(heroNextBtns),
-				prevEl: Array.from(heroPrevBtns),
-			},
-			/* Nascondi paginazione e navigazione se ho 1 bullet solo */
 			on: {
-				init: function(e){
-					const bulletNumber = document.querySelectorAll('.hero-slider  .swiper-pagination-bullet');
-					/* Hide pagination and navigation */
-					if(bulletNumber.length == 1){
+				init: function(){
+					const bulletNumber = document.querySelectorAll('.hero-slider .swiper-pagination-bullet');
+					if(bulletNumber.length === 1){
 						document.querySelector('.hero-slider .swiper-pagination')?.classList.add('hidden');
-						document.querySelectorAll('.hero-slider-navigation').forEach(el => el.classList.add('hidden'));
 					}
 				}
 			}

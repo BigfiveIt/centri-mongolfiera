@@ -143,22 +143,21 @@ figure {
 
 .section-divertimento {
     position: relative;
-    @media (min-width: 768px) {
+
         &::after {
             content: '';
             position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            background: linear-gradient(-90deg, #101010 9%, rgba(16, 16, 16, 0) 30%);
-            width: 40%;
+            inset: 0;
+            background: rgba(0, 0, 0, .5);
             z-index: 1;
-            opacity: 0.33;
             pointer-events: none;
-
-
+            mix-blend-mode: multiply;
         }
-    }
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+    
 }
 .divertimento-carousel {
     @media (min-width: 768px) {
@@ -224,7 +223,7 @@ figure {
     .swiper-pagination {
         @apply flex justify-center items-center gap-2;
         .swiper-pagination-bullet {
-            @apply w-4 h-4 rounded-full bg-primary-500 opacity-25 transition-all duration-300 cursor-pointer scale-75;
+            @apply w-4 h-4 rounded-full bg-secondary-500 transition-all duration-300 cursor-pointer scale-75;
         }
         .swiper-pagination-bullet-active {
             @apply w-4 h-4 bg-primary-500 opacity-100 scale-100;

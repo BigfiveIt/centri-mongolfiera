@@ -11,7 +11,7 @@ body.menu-open{
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--color-primary-50);
+    background-color: var(--color-white);
     height: var(--site-header-height);
 }
 .site-header__logo{

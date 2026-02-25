@@ -46,16 +46,7 @@ get_header();
                         </div>
                     <?php endwhile; ?>
                 </div>
-                <!-- Frecce mobile (dentro il carousel) -->
-                <div class="hero-slider-navigation hero-slider-navigation--mobile absolute bottom-10 right-6 z-10 flex lg:hidden gap-4 text-white">
-                    <div class="swiper-button-prev"><?php get_template_part('images/icons/arrow-left'); ?></div>
-                    <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
-                </div>
-            </div>
-            <!-- Frecce desktop (fuori dal carousel) -->
-            <div class="hero-slider-navigation hero-slider-navigation--desktop absolute bottom-16 right-12 z-20 hidden lg:flex gap-4 text-white">
-                <div class="swiper-button-prev"><?php get_template_part('images/icons/arrow-left'); ?></div>
-                <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
+                <div class="swiper-pagination flex justify-center gap-2 mt-6"></div>
             </div>
             <?php endif; ?>
 
@@ -130,9 +121,9 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_numeri_icone' ) ) : ?>
-    <section class="my-16 bg-primary-500 lg:bg-transparent py-8" data-aos="fade-up">
+    <section class="my-16" data-aos="fade-up">
         <div class="container">
-            <div class="lg:bg-primary-500 lg:rounded-2xl lg:p-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <?php foreach ( $stats_items as $item ) : ?>
                 <?php
                 $stat_icon = isset( $item['icona'] ) ? $item['icona'] : null;
@@ -141,14 +132,14 @@ get_header();
                 $stat_suffisso= isset( $item['suffisso'] ) ? $item['suffisso'] : '';
                 ?>
                 <div class="flex items-center gap-4">
-                    <figure class="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full p-4 shrink-0">
+                    <figure class="w-12 h-12 lg:w-24 lg:h-24 bg-secondary-500 rounded-full p-3 lg:p-5 shrink-0">
                         <?php if ( $stat_icon ) : ?>
                             <img src="<?php echo esc_url( $stat_icon['url'] ); ?>" alt="<?php echo esc_attr( $stat_icon['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
                         <?php endif; ?>
                     </figure>
                     <div class="flex flex-col gap-1">
                         <?php if ( $stat_numero ) : ?>
-                            <div class="t-4 text-secondary-500 font-semibold">
+                            <div class="t-3 text-primary-500 font-serif font-bold leading-none">
                                 <span class="number-count" data-end="<?php echo esc_attr( $stat_numero ); ?>"><?php echo esc_html( $stat_numero ); ?></span>
                                 <?php if ( $stat_suffisso ) : ?>
                                     <span><?php echo esc_html( $stat_suffisso ); ?></span>
@@ -156,7 +147,7 @@ get_header();
                             </div>
                         <?php endif; ?>
                         <?php if ( $stat_etichetta ) : ?>
-                            <div class="desc-1 text-secondary-500 leading-none"><?php echo esc_html( $stat_etichetta ); ?></div>
+                            <div class="desc-1 text-primary-500 leading-none"><?php echo esc_html( $stat_etichetta ); ?></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -166,6 +157,98 @@ get_header();
     </section>
     <?php endif; ?>
 
+    <?php
+    $fascia_divertimento = get_field( 'fascia_divertimento' );
+    $divertimento_sfondo = isset( $fascia_divertimento['sfondo'] ) ? $fascia_divertimento['sfondo'] : null;
+    $divertimento_titolo = isset( $fascia_divertimento['titolo'] ) ? $fascia_divertimento['titolo'] : '';
+    $divertimento_titolo_enfasi = isset( $fascia_divertimento['titolo_enfasi'] ) ? $fascia_divertimento['titolo_enfasi'] : '';
+    $divertimento_cta = isset( $fascia_divertimento['cta'] ) ? $fascia_divertimento['cta'] : null;
+    $divertimento_cta_url = isset( $divertimento_cta['url'] ) ? $divertimento_cta['url'] : '';
+    $divertimento_cta_target = isset( $divertimento_cta['target'] ) && $divertimento_cta['target'] ? $divertimento_cta['target'] : '_self';
+    $divertimento_cards = isset( $fascia_divertimento['cards'] ) ? $fascia_divertimento['cards'] : [];
+    ?>
+
+    <?php if ( get_field( 'mostra_fascia_divertimento' ) ) : ?>
+    <section class="py-16 lg:py-24 overflow-hidden bg-cover bg-center section-divertimento" data-aos="fade-up" style="background-image: url(<?php echo esc_url( $divertimento_sfondo['url'] ); ?>);">
+        <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
+            <div class="w-full lg:w-2/5 self-center">
+                <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
+                    <div class="t-1 font-serif text-balance text-white">
+                        <?php if ( $divertimento_titolo_enfasi ) : ?>
+                            <b><span class="text-secondary-500"><?php echo esc_html( $divertimento_titolo_enfasi ); ?></span></b>
+                        <?php endif; ?>
+                        <?php if ( $divertimento_titolo ) : ?>
+                            <br><?php echo esc_html( $divertimento_titolo ); ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ( $divertimento_cta_url ) : ?>
+                    <a href="<?php echo esc_url( $divertimento_cta_url ); ?>" class="btn btn-secondary mt-8 lg:mt-12 hidden lg:inline-flex" target="<?php echo esc_attr( $divertimento_cta_target ); ?>">
+                        <span><?php echo esc_html( $divertimento_cta['title'] ? $divertimento_cta['title'] : 'Scopri' ); ?></span>
+                        <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <div class="w-full lg:w-3/5">
+                <div class="divertimento-carousel">
+                    <div class="swiper-wrapper">
+                        <?php foreach ( $divertimento_cards as $card ) : ?>
+                        <?php
+                        $card_label = isset( $card['label'] ) ? $card['label'] : '';
+                        $card_image = isset( $card['immagine'] ) ? $card['immagine'] : null;
+                        $card_title = isset( $card['titolo'] ) ? $card['titolo'] : '';
+                        $card_description = isset( $card['descrizione'] ) ? $card['descrizione'] : '';
+                        ?>
+                        <div class="swiper-slide">
+
+                            <div class="divertimento-carousel-card bg-white rounded-2xl overflow-hidden p-6 flex flex-col mb-5">
+                                <div class="flex justify-center">
+                                    <?php if ( $card_label ) : ?>
+                                        <div class="divertimento-carousel-card__label py-4 px-6 bg-primary-500 text-secondary-500 uppercase desc-4 font-bold text-center rounded-full">
+                                            <?php echo esc_html( $card_label ); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <figure class="grow flex flex-col justify-center">
+                                    <?php if ( $card_image ) : ?>
+                                        <img src="<?php echo esc_url( $card_image['url'] ); ?>" alt="<?php echo esc_attr( $card_image['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
+                                    <?php endif; ?>
+                                </figure>
+                            
+                            </div>
+
+                            <?php if ( $card_title ) : ?>
+                                <div class="desc-2 font-black text-secondary-500 uppercase"><?php echo esc_html( $card_title ); ?></div>
+                            <?php endif; ?>
+                            <?php if ( $card_description ) : ?>
+                                <div class="desc-3 font-semibold text-white"><?php echo wp_kses_post( $card_description ); ?></div>
+                            <?php endif; ?>
+
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="swiper-navigation flex justify-end gap-4 mt-8 text-white">
+                        <div class="swiper-button-prev"><?php get_template_part('images/icons/arrow-left'); ?></div>
+                        <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
+                    </div>
+                </div>
+                <div class="flex lg:hidden">
+                    <?php if ( $divertimento_cta_url ) : ?>
+                        <a href="<?php echo esc_url( $divertimento_cta_url ); ?>" class="btn btn-secondary mt-8 lg:mt-12" target="<?php echo esc_attr( $divertimento_cta_target ); ?>">
+                            <span><?php echo esc_html( $divertimento_cta['title'] ? $divertimento_cta['title'] : 'Scopri' ); ?></span>
+                            <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
+                            </svg>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <?php endif; ?>
     
 
     <?php
@@ -213,97 +296,7 @@ get_header();
     </section>
     <?php endif; ?>
 
-    <?php
-    $fascia_divertimento = get_field( 'fascia_divertimento' );
-    $divertimento_titolo = isset( $fascia_divertimento['titolo'] ) ? $fascia_divertimento['titolo'] : '';
-    $divertimento_titolo_enfasi = isset( $fascia_divertimento['titolo_enfasi'] ) ? $fascia_divertimento['titolo_enfasi'] : '';
-    $divertimento_cta = isset( $fascia_divertimento['cta'] ) ? $fascia_divertimento['cta'] : null;
-    $divertimento_cta_url = isset( $divertimento_cta['url'] ) ? $divertimento_cta['url'] : '';
-    $divertimento_cta_target = isset( $divertimento_cta['target'] ) && $divertimento_cta['target'] ? $divertimento_cta['target'] : '_self';
-    $divertimento_cards = isset( $fascia_divertimento['cards'] ) ? $fascia_divertimento['cards'] : [];
-    ?>
-
-    <?php if ( get_field( 'mostra_fascia_divertimento' ) ) : ?>
-    <section class="bg-primary-500 py-16 lg:py-24 overflow-hidden section-divertimento" data-aos="fade-up">
-        <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
-            <div class="w-full lg:w-2/5 self-center">
-                <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
-                    <div class="t-1 font-serif text-balance text-white">
-                        <?php if ( $divertimento_titolo_enfasi ) : ?>
-                            <b><span class="text-secondary-500"><?php echo esc_html( $divertimento_titolo_enfasi ); ?></span></b>
-                        <?php endif; ?>
-                        <?php if ( $divertimento_titolo ) : ?>
-                            <br><?php echo esc_html( $divertimento_titolo ); ?>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-                <?php if ( $divertimento_cta_url ) : ?>
-                    <a href="<?php echo esc_url( $divertimento_cta_url ); ?>" class="btn btn-secondary mt-8 lg:mt-12 hidden lg:inline-flex" target="<?php echo esc_attr( $divertimento_cta_target ); ?>">
-                        <span><?php echo esc_html( $divertimento_cta['title'] ? $divertimento_cta['title'] : 'Scopri' ); ?></span>
-                        <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
-                        </svg>
-                    </a>
-                <?php endif; ?>
-            </div>
-            <div class="w-full lg:w-3/5">
-                <div class="divertimento-carousel">
-                    <div class="swiper-wrapper">
-                        <?php foreach ( $divertimento_cards as $card ) : ?>
-                        <?php
-                        $card_label = isset( $card['label'] ) ? $card['label'] : '';
-                        $card_image = isset( $card['immagine'] ) ? $card['immagine'] : null;
-                        $card_title = isset( $card['titolo'] ) ? $card['titolo'] : '';
-                        $card_description = isset( $card['descrizione'] ) ? $card['descrizione'] : '';
-                        ?>
-                        <div class="swiper-slide">
-
-                            <div class="divertimento-carousel-card bg-white rounded-2xl overflow-hidden p-6 flex flex-col mb-5">
-                                <div class="flex justify-center">
-                                    <?php if ( $card_label ) : ?>
-                                        <div class="divertimento-carousel-card__label py-4 px-6 bg-secondary-500 text-white uppercase desc-4 font-bold text-center rounded-full">
-                                            <?php echo esc_html( $card_label ); ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                                <figure class="grow flex flex-col justify-center">
-                                    <?php if ( $card_image ) : ?>
-                                        <img src="<?php echo esc_url( $card_image['url'] ); ?>" alt="<?php echo esc_attr( $card_image['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
-                                    <?php endif; ?>
-                                </figure>
-                            
-                            </div>
-
-                            <?php if ( $card_title ) : ?>
-                                <div class="desc-2 font-black text-secondary-500 uppercase"><?php echo esc_html( $card_title ); ?></div>
-                            <?php endif; ?>
-                            <?php if ( $card_description ) : ?>
-                                <div class="desc-3 font-semibold text-white"><?php echo wp_kses_post( $card_description ); ?></div>
-                            <?php endif; ?>
-
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="swiper-navigation flex justify-end gap-4 mt-8 text-white">
-                        <div class="swiper-button-prev"><?php get_template_part('images/icons/arrow-left'); ?></div>
-                        <div class="swiper-button-next"><?php get_template_part('images/icons/arrow-right'); ?></div>
-                    </div>
-                </div>
-                <div class="flex lg:hidden">
-                    <?php if ( $divertimento_cta_url ) : ?>
-                        <a href="<?php echo esc_url( $divertimento_cta_url ); ?>" class="btn btn-secondary mt-8 lg:mt-12" target="<?php echo esc_attr( $divertimento_cta_target ); ?>">
-                            <span><?php echo esc_html( $divertimento_cta['title'] ? $divertimento_cta['title'] : 'Scopri' ); ?></span>
-                            <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
-                            </svg>
-                        </a>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-    <?php endif; ?>
+    
 
     <?php
     $fascia_servizi = get_field( 'fascia_servizi' );
