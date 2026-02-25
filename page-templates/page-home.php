@@ -286,9 +286,6 @@ get_header();
                 <div class="flex justify-center">
                     <a href="<?php echo esc_url( $brand_cta_url ); ?>" class="btn btn-white border border-primary-500 self-center lg:self-start" target="<?php echo esc_attr( $brand_cta_target ); ?>">
                         <span><?php echo esc_html( $brand_cta['title'] ? $brand_cta['title'] : 'Tutti i negozi' ); ?></span>
-                        <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
-                        </svg>
                     </a>
                 </div>
             <?php endif; ?>
@@ -296,7 +293,52 @@ get_header();
     </section>
     <?php endif; ?>
 
-    
+    <?php
+    $social_wall = get_field( 'social_wall' );
+    if ( ! is_array( $social_wall ) ) {
+        $social_wall = [];
+    }
+    $social_titolo = isset( $social_wall['titolo'] ) ? $social_wall['titolo'] : '';
+    $social_handle = isset( $social_wall['handle_link'] ) ? $social_wall['handle_link'] : null;
+    $social_shortcode = isset( $social_wall['shortcode'] ) ? trim( (string) $social_wall['shortcode'] ) : '';
+    $social_facebook = isset( $social_wall['facebook_url'] ) ? $social_wall['facebook_url'] : '';
+    $social_instagram = isset( $social_wall['instagram_url'] ) ? $social_wall['instagram_url'] : '';
+    $has_social_content = $social_titolo || $social_shortcode || $social_facebook || $social_instagram;
+    ?>
+
+    <?php if ( get_field( 'mostra_social_wall' ) ) : ?>
+    <section class="py-16 bg-secondary-500 social-wall">
+        <div class="container" data-aos="fade-up">
+            <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
+                <div class="text-center lg:text-left">
+                    <?php if ( $social_titolo ) : ?>
+                        <div class="t-2 text-primary-500 font-black font-serif"><?php echo esc_html( $social_titolo ); ?></div>
+                    <?php endif; ?>
+                    <?php if ( $social_handle && ! empty( $social_handle['url'] ) ) : ?>
+                        <a href="<?php echo esc_url( $social_handle['url'] ); ?>" class="text-primary-400 t-5 block" target="<?php echo esc_attr( ! empty( $social_handle['target'] ) ? $social_handle['target'] : '_self' ); ?>">
+                            <?php echo esc_html( ! empty( $social_handle['title'] ) ? $social_handle['title'] : '' ); ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+                <div class="social-icons flex gap-4 justify-center lg:justify-start">
+                    <a href="<?php echo $social_facebook ? esc_url( $social_facebook ) : '#'; ?>" class="social-icon w-[40px] h-[40px] rounded-full bg-white p-3 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200 text-primary-500 hover:text-white" <?php echo $social_facebook ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
+                        <?php get_template_part( 'images/icons/socials/facebook' ); ?>
+                    </a>
+                    <a href="<?php echo $social_instagram ? esc_url( $social_instagram ) : '#'; ?>" class="social-icon w-[40px] h-[40px] rounded-full bg-white p-2 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200 text-primary-500 hover:text-white" <?php echo $social_instagram ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
+                        <?php get_template_part( 'images/icons/socials/instagram' ); ?>
+                    </a>
+                </div>
+            </div>
+            <?php if ( $social_shortcode ) : ?>
+                <div class="social-wall-grid">
+                    <?php echo do_shortcode( $social_shortcode ); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        
+    </section>
+    <img src="<?php echo get_template_directory_uri(); ?>/images/bg-circle-big-yellow.svg" alt="Circle" class="social-wall-bg w-full">
+    <?php endif; ?>
 
     <?php
     $fascia_servizi = get_field( 'fascia_servizi' );
@@ -368,50 +410,7 @@ get_header();
     </section>
     <?php endif; ?>
 
-    <?php
-    $social_wall = get_field( 'social_wall' );
-    if ( ! is_array( $social_wall ) ) {
-        $social_wall = [];
-    }
-    $social_titolo = isset( $social_wall['titolo'] ) ? $social_wall['titolo'] : '';
-    $social_handle = isset( $social_wall['handle_link'] ) ? $social_wall['handle_link'] : null;
-    $social_shortcode = isset( $social_wall['shortcode'] ) ? trim( (string) $social_wall['shortcode'] ) : '';
-    $social_facebook = isset( $social_wall['facebook_url'] ) ? $social_wall['facebook_url'] : '';
-    $social_instagram = isset( $social_wall['instagram_url'] ) ? $social_wall['instagram_url'] : '';
-    $has_social_content = $social_titolo || $social_shortcode || $social_facebook || $social_instagram;
-    ?>
-
-    <?php if ( get_field( 'mostra_social_wall' ) ) : ?>
-    <section class="py-16 bg-secondary-500" data-aos="fade-up">
-        <div class="container">
-            <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
-                <div class="text-center lg:text-left">
-                    <?php if ( $social_titolo ) : ?>
-                        <div class="t-2 text-primary-500 font-black font-serif"><?php echo esc_html( $social_titolo ); ?></div>
-                    <?php endif; ?>
-                    <?php if ( $social_handle && ! empty( $social_handle['url'] ) ) : ?>
-                        <a href="<?php echo esc_url( $social_handle['url'] ); ?>" class="text-primary-400 t-5 block" target="<?php echo esc_attr( ! empty( $social_handle['target'] ) ? $social_handle['target'] : '_self' ); ?>">
-                            <?php echo esc_html( ! empty( $social_handle['title'] ) ? $social_handle['title'] : '' ); ?>
-                        </a>
-                    <?php endif; ?>
-                </div>
-                <div class="social-icons flex gap-4 justify-center lg:justify-start">
-                    <a href="<?php echo $social_facebook ? esc_url( $social_facebook ) : '#'; ?>" class="social-icon w-[40px] h-[40px] rounded-full bg-white p-3 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200 text-primary-500 hover:text-white" <?php echo $social_facebook ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
-                        <?php get_template_part( 'images/icons/socials/facebook' ); ?>
-                    </a>
-                    <a href="<?php echo $social_instagram ? esc_url( $social_instagram ) : '#'; ?>" class="social-icon w-[40px] h-[40px] rounded-full bg-white p-2 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200 text-primary-500 hover:text-white" <?php echo $social_instagram ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
-                        <?php get_template_part( 'images/icons/socials/instagram' ); ?>
-                    </a>
-                </div>
-            </div>
-            <?php if ( $social_shortcode ) : ?>
-                <div class="social-wall-grid">
-                    <?php echo do_shortcode( $social_shortcode ); ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    </section>
-    <?php endif; ?>
+    
 
     <?php
     $news_eventi = get_field( 'news_eventi' );
@@ -424,9 +423,9 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
-    <section class="py-16 bg-primary-50" data-aos="fade-up">
+    <section class="py-16 bg-primary-500 section-news-eventi" data-aos="fade-up">
         <div class="container">
-            <div class="t-2 text-primary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
+            <div class="t-2 text-secondary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
             <?php
             $today = date( 'Ymd' );
             
@@ -602,16 +601,86 @@ get_header();
                 <div class="swiper-pagination flex justify-center gap-2 mt-8 <?php echo esc_attr( $pagination_class ); ?>"></div>
             </div>
             <div class="flex justify-center mt-8">
-                <a href="<?php echo esc_url( $news_cta_url ); ?>" class="btn btn-white px-6 py-3 flex items-center gap-2" target="<?php echo esc_attr( $news_cta_target ); ?>">
+                <a href="<?php echo esc_url( $news_cta_url ); ?>" class="btn btn-secondary-outlined px-6 py-3 flex items-center gap-2" target="<?php echo esc_attr( $news_cta_target ); ?>">
                     <span><?php echo esc_html( $news_cta && $news_cta['title'] ? $news_cta['title'] : 'Tutti gli eventi' ); ?></span>
-                    <svg width="24" height="24" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#292929"/>
-                    </svg>
                 </a>
             </div>
         </div>
+        
+    </section>
+    <img src="<?php echo get_template_directory_uri(); ?>/images/bg-circle-big-green.svg" alt="Circle" class="section-news-eventi-bg w-full">
+    <?php endif; ?>
+
+
+    <?php 
+    $mostra_newsletter = get_field( 'mostra_newsletter' );
+    $newsletter = get_field( 'newsletter' );
+    $newsletter_pre_titolo = isset( $newsletter['pre_titolo'] ) ? $newsletter['pre_titolo'] : '';
+    $newsletter_titolo = isset( $newsletter['titolo'] ) ? $newsletter['titolo'] : '';
+    $newsletter_cta = isset( $newsletter['cta'] ) ? $newsletter['cta'] : null;
+    $newsletter_cta_url = ( $newsletter_cta && isset( $newsletter_cta['url'] ) && $newsletter_cta['url'] ) ? $newsletter_cta['url'] : get_post_type_archive_link( 'newsletter' );
+    $newsletter_cta_target = ( $newsletter_cta && isset( $newsletter_cta['target'] ) && $newsletter_cta['target'] ) ? $newsletter_cta['target'] : '_self';
+    ?>
+    <?php if ( $mostra_newsletter ) : ?>
+    <section class="py-16 lg:py-24 newsletter bg-white">
+        <div class="container flex flex-col gap-4 lg:gap-8 justify-center items-center">
+            <?php if ( $newsletter_pre_titolo ) : ?>
+                <div class="t-5 text-primary-500 text-center font-medium font-serif"><?php echo esc_html( $newsletter_pre_titolo ); ?></div>
+            <?php endif; ?>
+            <?php if ( $newsletter_titolo ) : ?>
+                <div class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $newsletter_titolo ); ?></div>
+            <?php endif; ?>
+            <?php if ( $newsletter_cta_url ) : ?>
+                <a href="<?php echo esc_url( $newsletter_cta_url ); ?>" class="btn btn-secondary hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500 px-6 py-3 flex items-center gap-2" target="<?php echo esc_attr( $newsletter_cta_target ); ?>">
+                    <span><?php echo esc_html( $newsletter_cta && $newsletter_cta['title'] ? $newsletter_cta['title'] : 'Iscriviti alla newsletter' ); ?></span>
+                </a>
+            <?php endif; ?>
+        </div>
     </section>
     <?php endif; ?>
+
+    <?php 
+    $mostra_social = get_field( 'mostra_social' );
+    $social_box = get_field( 'social_box' );
+    ?>
+
+    <section class="social-section bg-secondary-500 pt-16 lg:py-0 position-relative">
+        <?php
+        $instagram_link = isset( $social_box['instagram'] ) ? $social_box['instagram'] : null;
+        $titolo_sezione = isset( $social_box['titolo_sezione'] ) ? $social_box['titolo_sezione'] : '';
+        $facebook_url = isset( $social_box['facebook_url'] ) ? $social_box['facebook_url'] : '';
+        $instagram_url = isset( $social_box['instagram_url'] ) ? $social_box['instagram_url'] : '';
+        $foto_social = isset( $social_box['foto_social'] ) ? $social_box['foto_social'] : null;
+        ?>
+        <div class="container flex lg:flex-row flex-col gap-8">
+            <div class="flex flex-col gap-8 items-start lg:w-2/3 lg:py-24">
+                <?php if ( $instagram_link && ! empty( $instagram_link['url'] ) ) : ?>
+                    <a href="<?php echo esc_url( $instagram_link['url'] ); ?>" target="<?php echo esc_attr( $instagram_link['target'] ?? '_self' ); ?>" class="btn btn-primary-outlined font-serif t-5 hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500"><?php echo esc_html( $instagram_link['title'] ?: $instagram_link['url'] ); ?></a>
+                <?php endif; ?>
+                <?php if ( $titolo_sezione ) : ?>
+                    <div class="t-2 text-primary-500 font-medium font-serif"><?php echo $titolo_sezione; ?></div>
+                <?php endif; ?>
+                <div class="flex gap-6 social-section__icons">
+                    <?php if ( $facebook_url ) : ?>
+                        <a href="<?php echo esc_url( $facebook_url ); ?>" target="_blank" rel="noopener noreferrer" class="bg-white p-2 rounded-full aspect-square w-14 h-14 flex items-center justify-center text-primary-500 [&_svg]:fill-primary-500 hover:bg-primary-500 hover:text-secondary-500 hover:[&_svg]:fill-secondary-500 transition-colors"><?php get_template_part( 'images/icons/socials/facebook' ); ?></a>
+                    <?php endif; ?>
+                    <?php if ( $instagram_url ) : ?>
+                        <a href="<?php echo esc_url( $instagram_url ); ?>" target="_blank" rel="noopener noreferrer" class="bg-white p-2 rounded-full aspect-square w-14 h-14 flex items-center justify-center text-primary-500 [&_svg]:fill-primary-500 hover:bg-primary-500 hover:text-secondary-500 hover:[&_svg]:fill-secondary-500 transition-colors"><?php get_template_part( 'images/icons/socials/instagram' ); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php if ( $foto_social ) : ?>
+            <div class="lg:w-1/3 relative">
+                <figure class="lg:absolute lg:bottom-0 lg:right-0">
+                    <img src="<?php echo esc_url( $foto_social['url'] ); ?>" alt="<?php echo esc_attr( $foto_social['alt'] ); ?>" class="w-full h-full object-cover">
+                </figure>
+            </div>
+            <?php endif; ?>
+        </div>
+    </section>
+
+
+
 
 <?php endwhile; ?>
 

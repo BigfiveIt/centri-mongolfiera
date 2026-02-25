@@ -340,3 +340,10 @@ figure {
 .iframe-aspect{
     @apply lg:aspect-video aspect-square h-auto;
 }
+
+.social-section {
+    background-image: url("../images/bg-pattern-social.svg");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-blend-mode: soft-light;
+}
