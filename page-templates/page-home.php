@@ -342,8 +342,8 @@ get_header();
 
     <?php
     $fascia_servizi = get_field( 'fascia_servizi' );
+    $servizi_etichetta = ( isset( $fascia_servizi['etichetta'] ) && $fascia_servizi['etichetta'] !== '' ) ? $fascia_servizi['etichetta'] : 'DEDICATI A TE';
     $servizi_titolo = isset( $fascia_servizi['titolo'] ) ? $fascia_servizi['titolo'] : '';
-    $servizi_descrizione = isset( $fascia_servizi['descrizione'] ) ? $fascia_servizi['descrizione'] : '';
     $servizi_cta = isset( $fascia_servizi['cta'] ) ? $fascia_servizi['cta'] : null;
     $servizi_cta_url = isset( $servizi_cta['url'] ) ? $servizi_cta['url'] : '';
     $servizi_cta_target = isset( $servizi_cta['target'] ) && $servizi_cta['target'] ? $servizi_cta['target'] : '_self';
@@ -351,61 +351,46 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_servizi' ) ) : ?>
-    <section class="py-16" data-aos="fade-up">
+    <section class="py-16 lg:py-24" data-aos="fade-up">
         <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-36 lg:px-28">
-                <div class="flex flex-col gap-6 justify-center">
-                    <?php if ( $servizi_titolo ) : ?>
-                        <div class="t-2 font-serif text-primary-500 text-balance font-black"><?php echo esc_html( $servizi_titolo ); ?></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                <div class="lg:col-span-4 flex flex-col gap-6">
+                    <?php if ( $servizi_etichetta ) : ?>
+                        <span class="inline-flex bg-secondary-500 text-primary-500 text-sm self-start uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></span>
                     <?php endif; ?>
-                    <?php if ( $servizi_descrizione ) : ?>
-                        <div class="desc-2 mb-8 text-primary-500">
-                            <?php echo wp_kses_post( $servizi_descrizione ); ?>
-                        </div>
+                    <?php if ( $servizi_titolo ) : ?>
+                        <h2 class="t-1 font-serif text-primary-500 font-bold text-balance leading-none"><?php echo  $servizi_titolo; ?></h2>
                     <?php endif; ?>
                     <?php if ( $servizi_cta_url ) : ?>
-                        <a href="<?php echo esc_url( $servizi_cta_url ); ?>" class="btn btn-white border-white self-center lg:self-start hidden lg:flex" target="<?php echo esc_attr( $servizi_cta_target ); ?>">
-                            <span><?php echo esc_html( $servizi_cta['title'] ? $servizi_cta['title'] : 'Vedi tutti' ); ?></span>
-                            <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
-                            </svg>
+                        <a href="<?php echo esc_url( $servizi_cta_url ); ?>" class="btn btn-primary-outlined w-fit lg:mt-24 hidden lg:block" target="<?php echo esc_attr( $servizi_cta_target ); ?>">
+                            <?php echo esc_html( $servizi_cta['title'] ? $servizi_cta['title'] : 'Vedi tutti' ); ?>
                         </a>
                     <?php endif; ?>
-
                 </div>
-                <div class="flex flex-col justify-center gap-6">
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <?php foreach ( $servizi_items as $servizio ) : ?>
                         <?php
                         $servizio_image = isset( $servizio['immagine'] ) ? $servizio['immagine'] : null;
                         $servizio_titolo = isset( $servizio['titolo'] ) ? $servizio['titolo'] : '';
-                        $servizio_descrizione = isset( $servizio['descrizione'] ) ? $servizio['descrizione'] : '';
                         ?>
-                        <div class="grid grid-cols-3 gap-4 px-4 lg:px-8 py-4 rounded-2xl shadow-lg overflow-hidden bg-white items-center">
-                            <figure class="w-full h-full col-span-1 pe-4 lg:pe-8">
+                        <div class="flex items-center gap-4">
+                            <figure class="shrink-0 w-14 h-14 rounded-full bg-secondary-500 flex items-center justify-center p-2.5">
                                 <?php if ( $servizio_image ) : ?>
-                                    <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
+                                    <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ?: $servizio_titolo ); ?>" class="w-full h-full object-contain" loading="lazy">
                                 <?php endif; ?>
                             </figure>
-                            <div class="col-span-2">
-                                <?php if ( $servizio_titolo ) : ?>
-                                    <div class="t-5 font-medium mb-2 text-primary-500"><?php echo esc_html( $servizio_titolo ); ?></div>
-                                <?php endif; ?>
-                                <?php if ( $servizio_descrizione ) : ?>
-                                    <div class="desc-3 text-primary-500 leading-tight"><?php echo wp_kses_post( $servizio_descrizione ); ?></div>
-                                <?php endif; ?>
-                            </div>
+                            <?php if ( $servizio_titolo ) : ?>
+                                <span class="t-5 font-medium text-primary-500 leading-tight"><?php echo esc_html( $servizio_titolo ); ?></span>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
-                    <?php if ( $servizi_cta_url ) : ?>
-                        <a href="<?php echo esc_url( $servizi_cta_url ); ?>" class="btn btn-white self-center lg:self-start flex lg:hidden" target="<?php echo esc_attr( $servizi_cta_target ); ?>">
-                            <span><?php echo esc_html( $servizi_cta['title'] ? $servizi_cta['title'] : 'Vedi tutti' ); ?></span>
-                            <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30.9399 9.70028L22.6199 0.340279C22.1852 -0.102532 21.5534 -0.0984702 21.1492 0.267157C20.7451 0.632785 20.7105 1.33357 21.0761 1.73777L27.8522 9.35889H1.04C0.46514 9.35889 0 9.82405 0 10.3989C0 10.9737 0.465156 11.4389 1.04 11.4389H27.8522L21.0761 19.06C20.7105 19.4642 20.7572 20.1528 21.1492 20.5306C21.5575 20.9247 22.2542 20.8617 22.6199 20.4575L30.9399 11.0975C31.3075 10.5836 31.2628 10.1492 30.9399 9.70028Z" fill="#2B463A"/>
-                            </svg>
-                        </a>
-                    <?php endif; ?>
                 </div>
             </div>
+            <?php if ( $servizi_cta_url ) : ?>
+                <a href="<?php echo esc_url( $servizi_cta_url ); ?>" class="btn btn-primary-outlined w-fit mt-8 block lg:hidden" target="<?php echo esc_attr( $servizi_cta_target ); ?>">
+                    <?php echo esc_html( $servizi_cta['title'] ? $servizi_cta['title'] : 'Vedi tutti' ); ?>
+                </a>
+            <?php endif; ?>
         </div>
     </section>
     <?php endif; ?>
