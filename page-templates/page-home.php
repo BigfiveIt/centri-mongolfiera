@@ -115,6 +115,59 @@ get_header();
     </section>
     <?php endif; ?>
 
+
+    <?php
+    $centro = get_field( 'centro' );
+    $centro_scritta = isset( $centro['scritta_scorrevole'] ) ? $centro['scritta_scorrevole'] : '';
+    $centro_sfondo = isset( $centro['sfondo'] ) ? $centro['sfondo'] : null;
+    $centro_etichetta = isset( $centro['etichetta'] ) ? $centro['etichetta'] : '';
+    $centro_titolo = isset( $centro['titolo'] ) ? $centro['titolo'] : '';
+    $centro_descrizione = isset( $centro['descrizione'] ) ? $centro['descrizione'] : '';
+    $centro_cta = isset( $centro['cta'] ) ? $centro['cta'] : null;
+    $centro_cta_url = isset( $centro_cta['url'] ) ? $centro_cta['url'] : '';
+    $centro_cta_target = isset( $centro_cta['target'] ) && $centro_cta['target'] ? $centro_cta['target'] : '_self';
+    ?>
+    <?php if ( get_field( 'mostra_centro' ) == 1 ) : ?>
+    <section class="centro-section relative overflow-hidden" data-aos="fade">
+        <?php if ( $centro_scritta ) : ?>
+        <div class="centro-marquee py-6 overflow-hidden">
+            <div class="marquee-inner flex gap-8 whitespace-nowrap" aria-hidden="true">
+                <span class="marquee-text text-primary-500 font-bold uppercase t-4 font-serif tracking-wide"><?php echo esc_html( $centro_scritta ); ?></span>
+                <span class="marquee-text text-primary-500 font-bold uppercase t-4 font-serif tracking-wide"><?php echo esc_html( $centro_scritta ); ?></span>
+                <span class="marquee-text text-primary-500 font-bold uppercase t-4 font-serif tracking-wide"><?php echo esc_html( $centro_scritta ); ?></span>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="centro-section__main -mt-6 relative py-24 flex items-end bg-cover bg-center" <?php if ( $centro_sfondo && ! empty( $centro_sfondo['url'] ) ) : ?>style="background-image: url(<?php echo esc_url( $centro_sfondo['url'] ); ?>);"<?php endif; ?>>
+            <div class="centro-section__content relative z-10 container flex flex-col gap-8 lg:gap-16">
+                <div class="flex">
+                    <div class="lg:w-1/2">
+                        <?php if ( $centro_etichetta ) : ?>
+                            <span class="inline-flex w-fit rounded-full bg-secondary-500 px-4 py-1.5 text-sm font-bold  mb-6 uppercase tracking-wide text-primary-500"><?php echo esc_html( $centro_etichetta ); ?></span>
+                        <?php endif; ?>
+                        <?php if ( $centro_titolo ) : ?>
+                            <h2 class="t-1 lg:t-hero font-serif font-black text-white text-balance leading-tight"><?php echo  $centro_titolo; ?></h2>
+                        <?php endif; ?>
+                        
+                    </div>
+                </div>
+                <div class="flex lg:justify-end">
+                    <div class="lg:w-1/2">
+                        <?php if ( $centro_descrizione ) : ?>
+                            <div class="t-5 text-white"><?php echo wp_kses_post( nl2br( $centro_descrizione ) ); ?></div>
+                        <?php endif; ?>
+                        <?php if ( $centro_cta_url ) : ?>
+                            <a href="<?php echo esc_url( $centro_cta_url ); ?>" class="btn btn-secondary-outlined px-12 mt-8" target="<?php echo esc_attr( $centro_cta_target ); ?>">
+                                <?php echo esc_html( $centro_cta['title'] ? $centro_cta['title'] : 'Maggiori Info' ); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <?php
     $fascia_numeri_icone = get_field( 'fascia_numeri_icone' );
     $stats_items = isset( $fascia_numeri_icone['stats_items'] ) ? $fascia_numeri_icone['stats_items'] : [];
