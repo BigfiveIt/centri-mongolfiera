@@ -9,54 +9,69 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 </main>
-<?php 
-$socialwall = get_field('socialwall', 'option');
-$newsletter = get_field('newsletter', 'option');
-$footer = get_field('footer', 'option'); 
-    if($socialwall && $socialwall['titolo'] && $newsletter && $newsletter['titolo']):
+<?php
+$socialwall = get_field( 'socialwall', 'option' );
+$newsletter = get_field( 'newsletter', 'option' );
+$footer = get_field( 'footer', 'option' );
+$mostra_newsletter = $newsletter && ( isset( $newsletter['titolo'] ) || isset( $newsletter['pulsante'] ) );
+$mostra_social = $socialwall && ( isset( $socialwall['titolo'] ) || isset( $socialwall['link_instagram'] ) || isset( $socialwall['foto_social'] ) );
+if ( $mostra_newsletter || $mostra_social ) :
 ?>
-    <section class="site-prefooter">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-            <?php if($socialwall && $socialwall['titolo']): ?>
-                <div class="flex flex-col gap-4 lg:gap-8 text-center p-4 lg:px-12 lg:py-24 py-12 bg-linear-to-t from-[#2EA338] to-[#C6D41F]">
-                    <div class="">
-                        <h4 class="text-white t-3 font-medium font-serif"><?php echo $socialwall['titolo']; ?></h4>
-                        <?php if($socialwall['link_instagram']): ?>
-                            <a href="<?php echo $socialwall['link_instagram']['url']; ?>" class="text-white t-5 block mt-4 btn btn-link justify-center font-normal">
-                                <?php echo $socialwall['link_instagram']['title']; ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                    <div class="social-icons justify-center flex gap-4">
-                        <?php if(get_global_option('facebook')): ?>
-                            <a href="#" class="social-icon w-[40px] h-[40px] rounded-full bg-white p-3 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200 text-primary-500 hover:text-white">
-                                <?php get_template_part('images/icons/socials/facebook'); ?>
-                            </a>
-                        <?php endif; ?>
-                        <?php if(get_global_option('instagram')): ?>
-                            <a href="#" class="social-icon w-[40px] h-[40px] rounded-full bg-white p-2 flex items-center justify-center hover:bg-primary-500 transition-colors duration-200 text-primary-500 hover:text-white">
-                                <?php get_template_part('images/icons/socials/instagram'); ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
+    <?php if ( $mostra_newsletter ) : ?>
+    <section class="site-prefooter site-prefooter--newsletter py-16 lg:py-24 newsletter bg-white">
+        <div class="container flex flex-col gap-4 lg:gap-8 justify-center items-center">
+            <?php if ( ! empty( $newsletter['titolo'] ) ) : ?>
+                <div class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $newsletter['titolo'] ); ?></div>
             <?php endif; ?>
-            <?php if($newsletter && $newsletter['titolo']): ?>
-                <div class="flex flex-col gap-4 lg:gap-8 text-center p-4 lg:px-12 lg:py-24 py-12 bg-linear-to-b from-[#2EA338] to-[#C6D41F]">
-                    <h4 class="text-white t-3 font-medium font-serif"><?php echo $newsletter['titolo']; ?></h4>
-                    <p class="text-white t-5 block text-balance"><?php echo $newsletter['descrizione']; ?></p>
-                    <?php if($newsletter['pulsante']): ?>
-                        <div class="flex justify-center">
-                            <a href="<?php echo $newsletter['pulsante']['url']; ?>" class="btn btn-transparent">
-                                <span><?php echo $newsletter['pulsante']['title']; ?></span>
-                            </a>
-                        </div>
-                    <?php endif; ?>
-                </div>
+            <?php if ( ! empty( $newsletter['descrizione'] ) ) : ?>
+                <p class="t-5 text-primary-500 text-center text-balance"><?php echo esc_html( $newsletter['descrizione'] ); ?></p>
+            <?php endif; ?>
+            <?php if ( ! empty( $newsletter['pulsante']['url'] ) ) : ?>
+                <a href="<?php echo esc_url( $newsletter['pulsante']['url'] ); ?>" class="btn btn-secondary hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500 px-6 py-3 flex items-center gap-2" target="<?php echo esc_attr( $newsletter['pulsante']['target'] ?? '_self' ); ?>">
+                    <span><?php echo esc_html( $newsletter['pulsante']['title'] ?: 'Iscriviti alla newsletter' ); ?></span>
+                </a>
             <?php endif; ?>
         </div>
     </section>
     <?php endif; ?>
+
+    <?php if ( $mostra_social ) : ?>
+    <section class="site-prefooter site-prefooter--social social-section bg-secondary-500 pt-16 md:py-0 position-relative">
+        <?php
+        $instagram_link = isset( $socialwall['link_instagram'] ) && ! empty( $socialwall['link_instagram']['url'] ) ? $socialwall['link_instagram'] : null;
+        $titolo_sezione = isset( $socialwall['titolo'] ) ? $socialwall['titolo'] : '';
+        $facebook_url = get_global_option( 'facebook' );
+        $instagram_url = get_global_option( 'instagram' );
+        $foto_social = isset( $socialwall['foto_social'] ) ? $socialwall['foto_social'] : null;
+        ?>
+        <div class="container flex md:flex-row flex-col gap-8">
+            <div class="flex flex-col gap-8 items-start md:w-2/3 md:py-24">
+                <?php if ( $instagram_link ) : ?>
+                    <a href="<?php echo esc_url( $instagram_link['url'] ); ?>" target="<?php echo esc_attr( $instagram_link['target'] ?? '_self' ); ?>" class="btn btn-primary-outlined font-serif t-5 hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500"><?php echo esc_html( $instagram_link['title'] ?: $instagram_link['url'] ); ?></a>
+                <?php endif; ?>
+                <?php if ( $titolo_sezione ) : ?>
+                    <div class="t-2 text-primary-500 font-medium font-serif"><?php echo esc_html( $titolo_sezione ); ?></div>
+                <?php endif; ?>
+                <div class="flex gap-6 social-section__icons">
+                    <?php if ( $facebook_url ) : ?>
+                        <a href="<?php echo esc_url( $facebook_url ); ?>" target="_blank" rel="noopener noreferrer" class="bg-white p-2 rounded-full aspect-square w-14 h-14 flex items-center justify-center text-primary-500 [&_svg]:fill-primary-500 hover:bg-primary-500 hover:text-secondary-500 hover:[&_svg]:fill-secondary-500 transition-colors"><?php get_template_part( 'images/icons/socials/facebook' ); ?></a>
+                    <?php endif; ?>
+                    <?php if ( $instagram_url ) : ?>
+                        <a href="<?php echo esc_url( $instagram_url ); ?>" target="_blank" rel="noopener noreferrer" class="bg-white p-2 rounded-full aspect-square w-14 h-14 flex items-center justify-center text-primary-500 [&_svg]:fill-primary-500 hover:bg-primary-500 hover:text-secondary-500 hover:[&_svg]:fill-secondary-500 transition-colors"><?php get_template_part( 'images/icons/socials/instagram' ); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php if ( $foto_social && ! empty( $foto_social['url'] ) ) : ?>
+            <div class="md:w-1/3 relative md:flex md:flex-col md:items-end">
+                <figure class="md:absolute md:bottom-0 md:right-0">
+                    <img src="<?php echo esc_url( $foto_social['url'] ); ?>" alt="<?php echo esc_attr( $foto_social['alt'] ?? '' ); ?>" loading="lazy" class="w-full h-full object-cover">
+                </figure>
+            </div>
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php endif; ?>
+<?php endif; ?>
 
     <footer class="site-footer bg-primary-500 text-white py-20" id="colophon">
         <div class="container mx-auto px-4">

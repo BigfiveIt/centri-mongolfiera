@@ -1,3 +1,4 @@
+
 :root{
     --site-header-height: 80px;
     @media (min-width: 1280px) {
@@ -7,6 +8,9 @@
 body.menu-open{
     overflow: hidden;
 }
+
+
+
 .site-header{
     position: sticky;
     top: 0;
@@ -17,8 +21,10 @@ body.menu-open{
 .site-header__logo{
     
     height: 100%;
+    
     img{
         height: 100%;
+        width: auto;
         object-fit: contain;
         object-position: left center;
     }
@@ -28,7 +34,7 @@ body.menu-open{
     >ul{
         @apply list-none flex flex-col xl:flex-row xl:items-center xl:gap-4;
         >.menu-item{
-            font-size: 20px;
+            font-size: 1.125rem;
             font-family: var(--font-serif);
             font-weight: 600;
             position: relative;
@@ -112,7 +118,7 @@ body.menu-open{
                 align-items: flex-start;
                 flex-direction: column;
                 gap: 10px;
-                font-size: 16px;
+                font-size: 1rem;
                 font-weight: 400;
                 padding: 0 2rem ;
                 
@@ -130,7 +136,7 @@ body.menu-open{
                 }
                 
                 @media (min-width: 1280px) {
-                    font-size: 20px;
+                    font-size: 1.125rem;
                     font-weight: 600;
                     position: absolute;
                     top: 100%;
