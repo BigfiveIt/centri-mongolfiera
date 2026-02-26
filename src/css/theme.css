@@ -116,7 +116,10 @@ figure {
 .page-grid-wall {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: .5rem;
+    @media (min-width: 768px) {
+        gap: 1rem;
+    }
     
 }
 
@@ -160,7 +163,7 @@ figure {
     
 }
 .divertimento-carousel {
-    @media (min-width: 768px) {
+
         .swiper-slide {
             height: auto;
             opacity: 0;
@@ -173,14 +176,19 @@ figure {
             opacity: 1;
         }
         .swiper-slide .divertimento-carousel-card {
-            height: 350px;
+            height: 250px;
             transition: height 0.3s ease-in-out;
+            @media (min-width: 768px) {
+                height: 350px;
+            }
         }
         .swiper-slide-active ~ .swiper-slide .divertimento-carousel-card {
-            height: 265px;
+            height: 190px;
             transition: height 0.3s ease-in-out;
+            @media (min-width: 768px) {
+                height: 265px;
+            }
         }
-    }
     
 }
 

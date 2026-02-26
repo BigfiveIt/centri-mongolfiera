@@ -99,8 +99,8 @@ const initMobileMenuAccordion = () => {
             chevronBtn.className = 'menu-item__chevron';
             chevronBtn.setAttribute('aria-expanded', 'false');
             chevronBtn.setAttribute('aria-label', 'Espandi sottomenu');
-            chevronBtn.innerHTML = `<svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.071 7.071L12.728 1.414L11.314 -1.34918e-07L6.364 4.95L1.414 -1.68618e-08L1.68618e-08 1.414L5.657 7.071C5.84453 7.25847 6.09884 7.36379 6.364 7.36379C6.62916 7.36379 6.88347 7.25847 7.071 7.071Z" fill="#2B463A"/>
+            chevronBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200">
+                <path d="m30 375.6c0-31.199 12-61.199 34.801-85.199 46.801-46.801 123.6-46.801 170.4 0l364.8 363.6 364.8-364.8c46.801-46.801 123.6-46.801 170.4 0 46.801 46.801 46.801 123.6 0 170.4l-450 450c-22.801 22.801-52.801 34.801-85.199 34.801s-62.398-13.199-85.199-34.801l-450-448.8c-22.801-24-34.801-55.199-34.801-85.199z" fill="#F2C614"/>
             </svg>`;
             
             // Inserisci il chevron dopo il link

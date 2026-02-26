@@ -7,20 +7,20 @@ defined( 'ABSPATH' ) || exit;
 if ( ! function_exists( 'mongolfiera_register_post_type_eventi' ) ) {
 	function mongolfiera_register_post_type_eventi() {
 		$labels = array(
-			'name'                  => _x( 'Eventi', 'Post Type General Name', 'mongolfiera' ),
-			'singular_name'         => _x( 'Evento', 'Post Type Singular Name', 'mongolfiera' ),
-			'menu_name'             => __( 'Eventi', 'mongolfiera' ),
-			'name_admin_bar'        => __( 'Eventi', 'mongolfiera' ),
-			'archives'              => __( 'Archivio Eventi', 'mongolfiera' ),
-			'parent_item_colon'     => __( 'Parent Evento:', 'mongolfiera' ),
-			'all_items'             => __( 'Tutti gli Eventi', 'mongolfiera' ),
-			'add_new_item'          => __( 'Aggiungi Nuovo Evento', 'mongolfiera' ),
+			'name'                  => _x( 'News & Eventi', 'Post Type General Name', 'mongolfiera' ),
+			'singular_name'         => _x( 'News & Evento', 'Post Type Singular Name', 'mongolfiera' ),
+			'menu_name'             => __( 'News & Eventi', 'mongolfiera' ),
+			'name_admin_bar'        => __( 'News & Eventi', 'mongolfiera' ),
+			'archives'              => __( 'Archivio News & Eventi', 'mongolfiera' ),
+			'parent_item_colon'     => __( 'Parent News & Evento:', 'mongolfiera' ),
+			'all_items'             => __( 'Tutti gli News & Eventi', 'mongolfiera' ),
+			'add_new_item'          => __( 'Aggiungi Nuovo News & Evento', 'mongolfiera' ),
 			'add_new'               => __( 'Aggiungi Nuovo', 'mongolfiera' ),
-			'new_item'              => __( 'Nuovo Evento', 'mongolfiera' ),
-			'edit_item'             => __( 'Modifica Evento', 'mongolfiera' ),
-			'update_item'           => __( 'Aggiorna Evento', 'mongolfiera' ),
-			'view_item'             => __( 'Vedi Evento', 'mongolfiera' ),
-			'search_items'          => __( 'Cerca Eventi', 'mongolfiera' ),
+			'new_item'              => __( 'Nuovo News & Evento', 'mongolfiera' ),
+			'edit_item'             => __( 'Modifica News & Evento', 'mongolfiera' ),
+			'update_item'           => __( 'Aggiorna News & Evento', 'mongolfiera' ),
+			'view_item'             => __( 'Vedi News & Evento', 'mongolfiera' ),
+			'search_items'          => __( 'Cerca News & Eventi', 'mongolfiera' ),
 			'not_found'             => __( 'Non Trovato', 'mongolfiera' ),
 			'not_found_in_trash'    => __( 'Non Trovato nel Cestino', 'mongolfiera' ),
 			'featured_image'        => __( 'Immagine in Evidenza', 'mongolfiera' ),
@@ -42,7 +42,7 @@ if ( ! function_exists( 'mongolfiera_register_post_type_eventi' ) ) {
 			'show_in_menu'       => true,
 			'show_in_rest'       => false,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'eventi', 'with_front' => false ),
+			'rewrite'            => array( 'slug' => 'news-e-eventi', 'with_front' => false ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -55,9 +55,38 @@ if ( ! function_exists( 'mongolfiera_register_post_type_eventi' ) ) {
 	add_action( 'init', 'mongolfiera_register_post_type_eventi', 0 );
 }
 
+if ( ! function_exists( 'mongolfiera_register_taxonomy_categoria_eventi' ) ) {
+	function mongolfiera_register_taxonomy_categoria_eventi() {
+		$labels = array(
+			'name'              => _x( 'Categorie News & Eventi', 'Taxonomy General Name', 'mongolfiera' ),
+			'singular_name'     => _x( 'Categoria', 'Taxonomy Singular Name', 'mongolfiera' ),
+			'menu_name'         => __( 'Categorie', 'mongolfiera' ),
+			'all_items'         => __( 'Tutte le Categorie', 'mongolfiera' ),
+			'new_item_name'     => __( 'Nuova Categoria', 'mongolfiera' ),
+			'add_new_item'      => __( 'Aggiungi Nuova Categoria', 'mongolfiera' ),
+			'edit_item'         => __( 'Modifica Categoria', 'mongolfiera' ),
+			'update_item'       => __( 'Aggiorna Categoria', 'mongolfiera' ),
+			'view_item'         => __( 'Vedi Categoria', 'mongolfiera' ),
+			'search_items'      => __( 'Cerca Categoria', 'mongolfiera' ),
+			'not_found'         => __( 'Non Trovata', 'mongolfiera' ),
+		);
+		$args = array(
+			'labels'            => $labels,
+			'hierarchical'      => true,
+			'public'            => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_rest'      => false,
+			'rewrite'           => array( 'slug' => 'categoria-news-e-eventi', 'with_front' => false ),
+		);
+		register_taxonomy( 'categoria-eventi', array( 'eventi' ), $args );
+	}
+	add_action( 'init', 'mongolfiera_register_taxonomy_categoria_eventi', 0 );
+}
+
 if ( ! function_exists( 'mongolfiera_filter_eventi_archive' ) ) {
 	function mongolfiera_filter_eventi_archive( $query ) {
-		if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'eventi' ) ) {
+		if ( ! is_admin() && $query->is_main_query() && ( is_post_type_archive( 'eventi' ) || is_tax( 'categoria-eventi' ) ) ) {
 			$today = date( 'Ymd' );
 			$stato = isset( $_GET['stato'] ) ? sanitize_text_field( wp_unslash( $_GET['stato'] ) ) : '';
 			mongolfiera_apply_date_archive_meta_query( $query, $today, ( $stato === 'passate' ) );

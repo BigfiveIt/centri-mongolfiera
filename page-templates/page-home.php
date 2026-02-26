@@ -53,11 +53,11 @@ get_header();
 
     <?php if ( $mostra_infobox_icone ) : ?>
     <section class="my-16 lg:my-24">
-        <div class="container">
+        <div class="lg:container mx-auto">
             <div class="info-box flex flex-col gap-12 overflow-hidden" data-aos="fade-up">
 
                 <?php if ( get_field( 'info_box_icone_title' ) ) : ?>
-                    <div class="t-2 text-primary-500 text-center font-serif"><?php echo  get_field( 'info_box_icone_title' ); ?></div>
+                    <div class="t-2 text-primary-500 text-center font-serif px-4 lg:px-0"><?php echo  get_field( 'info_box_icone_title' ); ?></div>
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'info_box_items' ) ) : ?>
@@ -229,7 +229,7 @@ get_header();
         <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
             <div class="w-full lg:w-2/5 self-center">
                 <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
-                    <div class="t-1 font-serif text-balance text-white">
+                    <div class="t-1 font-serif text-balance text-center lg:text-left text-white">
                         <?php if ( $divertimento_titolo_enfasi ) : ?>
                             <b><span class="text-secondary-500"><?php echo esc_html( $divertimento_titolo_enfasi ); ?></span></b>
                         <?php endif; ?>
@@ -410,9 +410,9 @@ get_header();
     <section class="py-16 lg:py-24" data-aos="fade-up">
         <div class="container">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                <div class="lg:col-span-4 flex flex-col gap-6">
+                <div class="lg:col-span-4 flex flex-col gap-6 items-center lg:items-start">
                     <?php if ( $servizi_etichetta ) : ?>
-                        <span class="inline-flex bg-secondary-500 text-primary-500 text-sm self-start uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></span>
+                        <span class="inline-flex bg-secondary-500 text-primary-500 text-sm uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></span>
                     <?php endif; ?>
                     <?php if ( $servizi_titolo ) : ?>
                         <h2 class="t-1 font-serif text-primary-500 font-bold text-balance leading-none"><?php echo  $servizi_titolo; ?></h2>
@@ -423,7 +423,7 @@ get_header();
                         </a>
                     <?php endif; ?>
                 </div>
-                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     <?php foreach ( $servizi_items as $servizio ) : ?>
                         <?php
                         $servizio_image = isset( $servizio['immagine'] ) ? $servizio['immagine'] : null;
@@ -464,7 +464,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
-    <section class="py-16 bg-primary-500 section-news-eventi" data-aos="fade-up">
+    <section class="py-16 bg-primary-500 section-news-eventi overflow-hidden" data-aos="fade-up">
         <div class="container">
             <div class="t-2 text-secondary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
             <?php
@@ -575,7 +575,7 @@ get_header();
             // Nascondi paginazione se ci sono 3 o meno eventi
             $pagination_class = ( $totale_eventi <= $limite_passati ) ? 'hidden' : '';
             ?>
-            <div class="news-carousel overflow-hidden">
+            <div class="news-carousel">
                 <div class="swiper-wrapper">
                     <?php if ( $eventi_futuri->have_posts() ) : ?>
                         <?php while ( $eventi_futuri->have_posts() ) : $eventi_futuri->the_post(); ?>

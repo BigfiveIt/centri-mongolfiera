@@ -55,16 +55,17 @@ const Swipers = () => {
 	if(document.querySelector('.divertimento-carousel')){
 		new Swiper('.divertimento-carousel', {
 			modules: [Navigation, Autoplay],
-			spaceBetween: 35,
+			spaceBetween: 20,
 			freeMode: false,
-			slidesPerView: 1.2,
+			slidesPerView: 2.2,
 			navigation: {
 				nextEl: '.divertimento-carousel .swiper-button-next',
 				prevEl: '.divertimento-carousel .swiper-button-prev',
 			},
 			breakpoints: {
 				768: {
-					slidesPerView: 2
+					spaceBetween: 35,
+					slidesPerView: 2.2
 				},
 				1280: {
 					slidesPerView: 3
@@ -77,7 +78,7 @@ const Swipers = () => {
 			modules: [Pagination],
 			spaceBetween: 24,
 			freeMode: false,
-			slidesPerView: 1,
+			slidesPerView: 1.2,
 			pagination: {
 				el: '.news-carousel .swiper-pagination',
 				type: 'bullets',

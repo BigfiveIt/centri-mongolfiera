@@ -33,7 +33,7 @@ if ( $mostra_topbar ) :
     <div class="site-topbar bg-secondary-500 text-primary-500">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap items-center justify-between gap-2 py-2">
-                <div class="flex items-center gap-2 shrink-0 desc-2">
+                <div class="flex items-center gap-2 shrink-0 desc-3 lg:desc-2">
                     <?php if ( $orari_negozi ) : ?>
                         <span class="site-topbar__icon [&_svg]:w-5 [&_svg]:h-5 shrink-0 [&_svg]:fill-primary-500 [&_svg]:stroke-primary-500"><?php get_template_part( 'images/icons/clock' ); ?></span>
                         <span class="font-bold uppercase tracking-wide"><?php esc_html_e( 'Orari', 'mongolfiera' ); ?></span>
