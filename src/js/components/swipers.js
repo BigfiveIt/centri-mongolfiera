@@ -4,11 +4,15 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 const Swipers = () => {
 	if(document.querySelector('.hero-slider')){
 		new Swiper('.hero-slider', {
-			modules: [Pagination],
+			modules: [Pagination, Autoplay],
 			spaceBetween: 0,
 			freeMode: false,
 			slidesPerView: "auto",
 			watchSlidesProgress : true,
+			autoplay: {
+				delay: 2000,
+				disableOnInteraction: false
+			},
 			pagination: {
 				el: '.hero-slider .swiper-pagination',
 				type: 'bullets',
