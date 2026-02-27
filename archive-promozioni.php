@@ -44,9 +44,9 @@ get_header();
 		?>
 		<div class="my-6 mb-12 lg:my-12 flex justify-center" data-aos="fade-up">
 			<?php if ( $stato === 'passate' ) : ?>
-				<a href="<?php echo esc_url( get_post_type_archive_link( 'promozioni' ) ); ?>" class="btn btn-primary-light">Promozioni Attive</a>
+				<a href="<?php echo esc_url( get_post_type_archive_link( 'promozioni' ) ); ?>" class="btn btn-secondary">Promozioni Attive</a>
 			<?php else : ?>
-				<a href="<?php echo esc_url( add_query_arg( 'stato', 'passate', get_post_type_archive_link( 'promozioni' ) ) ); ?>" class="btn btn-primary-light">Archivio Promozioni</a>
+				<a href="<?php echo esc_url( add_query_arg( 'stato', 'passate', get_post_type_archive_link( 'promozioni' ) ) ); ?>" class="btn btn-secondary">Archivio Promozioni</a>
 			<?php endif; ?>
 		</div>
 	</div>

@@ -21,7 +21,7 @@
         }
     }
     .btn-link {
-        @apply flex items-center justify-start text-primary-400 [&_svg]:w-5 [&_svg]:h-5 hover:text-primary-500 no-underline p-0;
+        @apply flex items-center justify-start text-secondary-500 [&_svg]:w-5 [&_svg]:h-5 hover:text-primary-500 no-underline p-0;
         transition: color 0.2s ease-in-out;
         &:has(svg) {
             @apply gap-2;
@@ -36,8 +36,8 @@
     }
 
     .btn-primary:hover {
-        @apply bg-primary-400 text-white;
-        border-color: var(--color-primary-400);
+        @apply bg-secondary-500 text-white;
+        border-color: var(--color-secondary-500);
     }
 
     /* Primary Outlined - bordo verde chiaro, sfondo trasparente, testo scuro */
@@ -79,17 +79,6 @@
         opacity: 1;
     }
 
-    /* Primary Light - sfondo verde chiaro, testo bianco */
-    .btn-primary-light {
-        @apply bg-primary-400 text-white;
-        border-color: var(--color-primary-400); /* primary #2B463A */
-    }
-
-    .btn-primary-light:hover {
-        @apply bg-primary-500 text-white;
-        border-color: var(--color-primary-500); /* primary-light #04972A */
-    }
-
 
     /* Secondary - sfondo secondary, testo bianco */
     .btn-secondary {
@@ -98,7 +87,7 @@
     }
 
     .btn-secondary:hover {
-        @apply bg-transparent text-secondary-500;
+        @apply bg-primary-500 text-secondary-500 border-primary-500 ;
     }
 
     /* Secondary Outlined - bordo secondary, sfondo trasparente, testo secondary */
@@ -133,7 +122,7 @@
     }
 
     .btn-white:hover {
-        @apply bg-primary-400 text-white;
+        @apply bg-secondary-500 text-white;
         border-color: var(--color-primary-400); /* primary-light #04972A */
     }
     .btn-transparent {

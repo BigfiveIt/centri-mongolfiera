@@ -52,7 +52,7 @@ $archive_url = get_post_type_archive_link('negozi');
     <div class="container">
         <div class="flex justify-center gap-4 lg:gap-8 flex-wrap">
             <?php if ($mappa_negozi) : ?>
-            <a href="<?php echo esc_url($mappa_negozi); ?>" class="btn btn-primary-light w-full lg:w-[220px]">
+            <a href="<?php echo esc_url($mappa_negozi); ?>" class="btn btn-secondary w-full lg:w-[220px]">
                 <?php _e('Mappa dei negozi','mongolfiera'); ?>
             </a>
             <?php endif; ?>

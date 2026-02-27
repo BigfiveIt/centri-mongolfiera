@@ -47,7 +47,7 @@ get_header();
 		<!-- Select mobile -->
 		<div class="lg:hidden custom-taxonomy-select mb-6" data-taxonomy-filter="true" data-archive-url="<?php echo esc_attr($archive_url_eventi); ?>">
 			<button type="button"
-					class="custom-taxonomy-select__button w-full px-4 py-2 desc-1 rounded-full border-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 flex items-center justify-between <?php echo ($current_cat_id > 0) ? 'bg-primary-400 text-white' : 'bg-gray-200'; ?>"
+					class="custom-taxonomy-select__button w-full px-4 py-2 desc-1 rounded-full border-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 flex items-center justify-between <?php echo ($current_cat_id > 0) ? 'bg-secondary-400 text-white' : 'bg-gray-200'; ?>"
 					aria-expanded="false" aria-haspopup="true">
 				<span class="custom-taxonomy-select__selected-text">
 					<?php echo $current_cat_id > 0 ? esc_html($current_cat->name) : __('Tutte le categorie','mongolfiera'); ?>
@@ -58,13 +58,13 @@ get_header();
 			</button>
 			<div class="custom-taxonomy-select__dropdown hidden absolute w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 max-h-60 overflow-y-auto">
 				<a href="<?php echo esc_url($all_url); ?>"
-				   class="custom-taxonomy-select__option block px-4 py-2 desc-1 no-underline transition-colors <?php echo ($current_cat_id == 0) ? 'bg-primary-400 text-white' : 'text-gray-700 hover:bg-gray-100'; ?>">
+				   class="custom-taxonomy-select__option block px-4 py-2 desc-1 no-underline transition-colors <?php echo ($current_cat_id == 0) ? 'bg-secondary-400 text-white' : 'text-gray-700 hover:bg-gray-100'; ?>">
 					<?php _e('Tutte le categorie','mongolfiera'); ?>
 				</a>
 				<?php foreach ($categorie_eventi as $cat) : ?>
 				<?php $cat_url = $stato === 'passate' ? add_query_arg( 'stato', 'passate', get_term_link($cat) ) : get_term_link($cat); ?>
 				<a href="<?php echo esc_url($cat_url); ?>"
-				   class="custom-taxonomy-select__option block px-4 py-2 desc-1 no-underline transition-colors <?php echo ($current_cat_id == $cat->term_id) ? 'bg-primary-400 text-white' : 'text-gray-700 hover:bg-gray-100'; ?>">
+				   class="custom-taxonomy-select__option block px-4 py-2 desc-1 no-underline transition-colors <?php echo ($current_cat_id == $cat->term_id) ? 'bg-secondary-400 text-white' : 'text-gray-700 hover:bg-gray-100'; ?>">
 					<?php echo esc_html($cat->name); ?>
 				</a>
 				<?php endforeach; ?>
@@ -74,13 +74,13 @@ get_header();
 		<!-- Pulsanti desktop -->
 		<div class="hidden lg:flex gap-2 flex-wrap mb-8" data-aos="fade-up">
 			<a href="<?php echo esc_url($all_url); ?>"
-			   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap <?php echo ($current_cat_id == 0) ? 'bg-primary-400 text-white hover:bg-primary-500' : 'bg-gray-200 hover:bg-primary-400 hover:text-white'; ?>">
+			   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap <?php echo ($current_cat_id == 0) ? 'bg-secondary-400 text-white hover:bg-primary-500' : 'bg-gray-200 hover:bg-secondary-400 hover:text-white'; ?>">
 				<?php _e('Tutte le categorie','mongolfiera'); ?>
 			</a>
 			<?php foreach ($categorie_eventi as $cat) : ?>
 			<?php $cat_url = $stato === 'passate' ? add_query_arg( 'stato', 'passate', get_term_link($cat) ) : get_term_link($cat); ?>
 			<a href="<?php echo esc_url($cat_url); ?>"
-			   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap <?php echo ($current_cat_id == $cat->term_id) ? 'bg-primary-400 text-white hover:bg-primary-500' : 'bg-gray-200 hover:bg-primary-400 hover:text-white'; ?>">
+			   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap <?php echo ($current_cat_id == $cat->term_id) ? 'bg-secondary-400 text-white hover:bg-primary-500' : 'bg-gray-200 hover:bg-secondary-400 hover:text-white'; ?>">
 				<?php echo esc_html($cat->name); ?>
 			</a>
 			<?php endforeach; ?>
@@ -121,9 +121,9 @@ get_header();
 
 		<div class="my-6 mb-12 lg:my-12 flex justify-center" data-aos="fade-up">
 			<?php if ( $stato === 'passate' ) : ?>
-				<a href="<?php echo esc_url( $archive_url_eventi ); ?>" class="btn btn-primary-light"><?php _e('News & Eventi in corso','mongolfiera'); ?></a>
+				<a href="<?php echo esc_url( $archive_url_eventi ); ?>" class="btn btn-secondary"><?php _e('News & Eventi in corso','mongolfiera'); ?></a>
 			<?php else : ?>
-				<a href="<?php echo esc_url( add_query_arg( 'stato', 'passate', $archive_url_eventi ) ); ?>" class="btn btn-primary-light"><?php _e('News & Eventi passati','mongolfiera'); ?></a>
+				<a href="<?php echo esc_url( add_query_arg( 'stato', 'passate', $archive_url_eventi ) ); ?>" class="btn btn-secondary"><?php _e('News & Eventi passati','mongolfiera'); ?></a>
 			<?php endif; ?>
 		</div>
 	</div>

@@ -22,16 +22,16 @@ get_header();
 						$post_url = urlencode( get_permalink() );
 						$post_title = urlencode( get_the_title() );
 						?>
-						<a href="mailto:?subject=<?php echo esc_attr( $post_title ); ?>&body=<?php echo esc_url( get_permalink() ); ?>" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-primary-400 transition-colors duration-200" aria-label="Condividi via email">
+						<a href="mailto:?subject=<?php echo esc_attr( $post_title ); ?>&body=<?php echo esc_url( get_permalink() ); ?>" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-400 transition-colors duration-200" aria-label="Condividi via email">
 							<?php get_template_part('images/icons/socials/email'); ?>
 						</a>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( $post_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-primary-400 transition-colors duration-200" aria-label="Condividi su Facebook">
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( $post_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-400 transition-colors duration-200" aria-label="Condividi su Facebook">
 							<?php get_template_part('images/icons/socials/facebook'); ?>
 						</a>
-						<a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url( $post_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-primary-400 transition-colors duration-200" aria-label="Condividi su LinkedIn">
+						<a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url( $post_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-400 transition-colors duration-200" aria-label="Condividi su LinkedIn">
 							<?php get_template_part('images/icons/socials/linkedin'); ?>
 						</a>
-						<a href="https://x.com/intent/tweet?url=<?php echo esc_url( $post_url ); ?>&text=<?php echo esc_attr( $post_title ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-primary-400 transition-colors duration-200" aria-label="Condividi su X">
+						<a href="https://x.com/intent/tweet?url=<?php echo esc_url( $post_url ); ?>&text=<?php echo esc_attr( $post_title ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-400 transition-colors duration-200" aria-label="Condividi su X">
 							<?php get_template_part('images/icons/socials/x'); ?>
 						</a>
 					</div>

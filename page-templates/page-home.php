@@ -340,7 +340,7 @@ get_header();
             <?php endif; ?>
             <?php if ( $brand_cta_url ) : ?>
                 <div class="flex justify-center">
-                    <a href="<?php echo esc_url( $brand_cta_url ); ?>" class="btn btn-white border border-primary-500 self-center lg:self-start" target="<?php echo esc_attr( $brand_cta_target ); ?>">
+                    <a href="<?php echo esc_url( $brand_cta_url ); ?>" class="btn btn-primary-outlined self-center lg:self-start" target="<?php echo esc_attr( $brand_cta_target ); ?>">
                         <span><?php echo esc_html( $brand_cta['title'] ? $brand_cta['title'] : 'Tutti i negozi' ); ?></span>
                     </a>
                 </div>
