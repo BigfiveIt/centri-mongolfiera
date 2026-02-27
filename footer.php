@@ -77,7 +77,7 @@ if ( $mostra_newsletter || $mostra_social ) :
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="col-span-1 order-2 lg:order-1">
-                    <div class="site-footer__logo flex justify-center lg:justify-start"><?php the_custom_logo(); ?></div>
+                    <div class="site-footer__logo flex justify-center lg:justify-start max-w-[250px] mx-auto lg:mx-0"><?php the_custom_logo(); ?></div>
                     <?php if ($footer &&$footer['credits']): ?>
                         <div class="desc-2 mt-4 lg:mt-8 text-center lg:text-left">
                             <?php echo wp_kses_post($footer['credits']); ?>
