@@ -3,10 +3,10 @@ $logo = isset($args['logo']) ? $args['logo'] : null;
 $title = isset($args['title']) ? $args['title'] : null;
 $link = isset($args['link']) ? $args['link'] : null;
 ?>
-<article class="teaser-negozio group h-full relative overflow-hidden">
-    <figure class="teaser-negozio__icon aspect-square rounded-2xl overflow-hidden bg-white shadow-md p-10">
+<article class="teaser-negozio group h-full relative">
+    <figure class="teaser-negozio__icon aspect-square rounded-2xl overflow-hidden bg-white border border-secondary-500 p-14 transition-all duration-300 ease-out group-hover:shadow-lg group-hover:translate-y-[-2px]">
         <?php if($logo): ?>
-            <img src="<?php echo esc_url($logo['sizes']['large']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" class="w-full h-full object-contain transition-transform duration-300 ease-out group-hover:scale-105" loading="lazy">
+            <img src="<?php echo esc_url($logo['sizes']['large']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" class="w-full h-full object-contain" loading="lazy">
         <?php endif; ?>
     </figure>
     <div class="teaser-negozio__content">
