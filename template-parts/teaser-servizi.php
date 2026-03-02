@@ -5,7 +5,7 @@ $titolo = isset($args['titolo']) ? $args['titolo'] : null;
 $testo = isset($args['testo']) ? $args['testo'] : null;
 $cta = isset($args['cta']) ? $args['cta'] : null;
 ?>
-<article class="teaser-servizi h-full bg-white flex flex-col gap-4 rounded-2xl shadow-lg p-4 relative overflow-hidden">
+<article class="teaser-servizi h-full bg-white flex flex-col gap-4 rounded-2xl border border-secondary-500 p-4 lg:p-8 relative overflow-hidden">
     <?php if ($immagine_url) : ?>
         <figure class="teaser-servizi__image relative">
             <img class="w-full h-full object-contain aspect-video" src="<?php echo esc_url($immagine_url); ?>" alt="<?php echo esc_attr($immagine_alt ?: $titolo); ?>" loading="lazy">
