@@ -41,7 +41,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 	<!-- Select mobile -->
 	<div class="lg:hidden custom-taxonomy-select mb-6" data-taxonomy-filter="true" data-archive-url="<?php echo esc_attr($archive_url_eventi); ?>">
 		<button type="button"
-				class="custom-taxonomy-select__button w-full px-4 py-2 desc-1 rounded-full border-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 flex items-center justify-between bg-secondary-400 text-white"
+				class="custom-taxonomy-select__button w-full px-4 py-2 desc-1 rounded-full border-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 flex items-center justify-between bg-secondary-500 text-white"
 				aria-expanded="false" aria-haspopup="true">
 			<span class="custom-taxonomy-select__selected-text"><?php echo esc_html( $term->name ); ?></span>
 			<svg class="custom-taxonomy-select__icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 			<?php foreach ($categorie_eventi as $cat) : ?>
 			<?php $cat_url = $stato === 'passate' ? add_query_arg( 'stato', 'passate', get_term_link($cat) ) : get_term_link($cat); ?>
 			<a href="<?php echo esc_url($cat_url); ?>"
-			   class="custom-taxonomy-select__option block px-4 py-2 desc-1 no-underline transition-colors <?php echo ($cat->term_id == $term->term_id) ? 'bg-secondary-400 text-white' : 'text-gray-700 hover:bg-gray-100'; ?>">
+			   class="custom-taxonomy-select__option block px-4 py-2 desc-1 no-underline transition-colors <?php echo ($cat->term_id == $term->term_id) ? 'bg-secondary-500 text-white' : 'text-gray-700 hover:bg-gray-100'; ?>">
 				<?php echo esc_html($cat->name); ?>
 			</a>
 			<?php endforeach; ?>
@@ -66,13 +66,13 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 	<!-- Pulsanti desktop -->
 	<div class="hidden lg:flex gap-2 flex-wrap mb-8" data-aos="fade-up">
 		<a href="<?php echo esc_url($all_url); ?>"
-		   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap bg-gray-200 hover:bg-secondary-400 hover:text-white">
+		   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap bg-gray-200 hover:bg-secondary-500 hover:text-white">
 			<?php _e('Tutte le categorie','mongolfiera'); ?>
 		</a>
 		<?php foreach ($categorie_eventi as $cat) : ?>
 		<?php $cat_url = $stato === 'passate' ? add_query_arg( 'stato', 'passate', get_term_link($cat) ) : get_term_link($cat); ?>
 		<a href="<?php echo esc_url($cat_url); ?>"
-		   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap <?php echo ($cat->term_id == $term->term_id) ? 'bg-secondary-400 text-white hover:bg-primary-500' : 'bg-gray-200 hover:bg-secondary-400 hover:text-white'; ?>">
+		   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap <?php echo ($cat->term_id == $term->term_id) ? 'bg-secondary-500 text-white hover:bg-primary-500' : 'bg-gray-200 hover:bg-secondary-500 hover:text-white'; ?>">
 			<?php echo esc_html($cat->name); ?>
 		</a>
 		<?php endforeach; ?>

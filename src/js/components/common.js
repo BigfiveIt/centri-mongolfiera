@@ -88,10 +88,10 @@ const Common = () => {
             const isArchive = selectedOption && selectedOption.getAttribute('data-value') === archiveUrl;
             
             if (isArchive) {
-                button.classList.remove('bg-secondary-400', 'text-white');
+                button.classList.remove('bg-secondary-500', 'text-white');
                 button.classList.add('bg-gray-200');
             } else {
-                button.classList.add('bg-secondary-400', 'text-white');
+                button.classList.add('bg-secondary-500', 'text-white');
                 button.classList.remove('bg-gray-200');
             }
         }
@@ -134,12 +134,12 @@ const Common = () => {
                 
                 // Rimuovi evidenziazione da tutte le opzioni
                 options.forEach(opt => {
-                    opt.classList.remove('bg-secondary-400', 'text-white');
+                    opt.classList.remove('bg-secondary-500', 'text-white');
                     opt.classList.add('text-gray-700');
                 });
                 
                 // Evidenzia l'opzione selezionata
-                this.classList.add('bg-secondary-400', 'text-white');
+                this.classList.add('bg-secondary-500', 'text-white');
                 this.classList.remove('text-gray-700');
                 
                 // Chiudi dropdown
@@ -164,7 +164,7 @@ const Common = () => {
         });
         
         // Aggiorna stile iniziale del bottone
-        const activeOption = selectContainer.querySelector('.custom-taxonomy-select__option.bg-secondary-400');
+        const activeOption = selectContainer.querySelector('.custom-taxonomy-select__option.bg-secondary-500');
         if (activeOption) {
             updateButtonStyle(activeOption);
         }
