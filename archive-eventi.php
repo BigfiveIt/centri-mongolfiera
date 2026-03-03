@@ -18,7 +18,6 @@ get_header();
 	$archive_url_eventi = get_post_type_archive_link('eventi');
 	?>
 
-	<?php if ( have_posts() ): ?>
 	<div class="container mx-auto px-4">
 		<header class="page-header py-16" data-aos="fade-up">
 			<div class="t-1 text-primary-500 font-black font-serif">
@@ -88,6 +87,7 @@ get_header();
 
 		<?php endif; ?>
 
+		<?php if ( have_posts() ) : ?>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
 			<?php while ( have_posts() ): the_post(); ?>
 				<div>
@@ -118,6 +118,13 @@ get_header();
 		</div>
 		
 		<?php mongolfiera_eventi_pagination(); ?>
+		<?php else : ?>
+			<?php if ( $stato !== 'passate' ) : ?>
+				<div class="text-center text-gray-500" data-aos="fade-up">
+					<?php _e('Nessuna news o evento in corso.','mongolfiera'); ?>
+				</div>
+			<?php endif; ?>
+		<?php endif; ?>
 
 		<div class="my-6 mb-12 lg:my-12 flex justify-center" data-aos="fade-up">
 			<?php if ( $stato === 'passate' ) : ?>
@@ -127,8 +134,6 @@ get_header();
 			<?php endif; ?>
 		</div>
 	</div>
-
-	<?php endif;?>
 
 
 <?php

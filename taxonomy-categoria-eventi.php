@@ -18,7 +18,6 @@ $stato             = isset( $_GET['stato'] ) ? sanitize_text_field( $_GET['stato
 $archive_url_eventi = get_post_type_archive_link('eventi');
 ?>
 
-<?php if ( have_posts() ) : ?>
 <div class="container mx-auto px-4">
 	<header class="page-header py-16" data-aos="fade-up">
 		<div class="t-1 text-primary-500 font-black font-serif">
@@ -81,27 +80,35 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 
 	<?php endif; ?>
 
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
-		<?php while ( have_posts() ) : the_post(); ?>
-			<div>
-				<?php
-				$data_inizio = get_field('data_inizio');
-				$data_fine   = get_field('data_fine');
-				$data_formattata = '';
-				if ( $data_inizio ) {
-					$data_formattata = $data_fine ? 'Dal ' . $data_inizio . ' al ' . $data_fine : 'Dal ' . $data_inizio;
-				}
-				get_template_part('template-parts/teaser-event', null, [
-					'id'       => get_the_ID(),
-					'immagine' => get_the_post_thumbnail_url(get_the_ID(), 'medium_large'),
-					'titolo'   => get_the_title(),
-					'link'     => get_permalink(),
-					'data'     => $data_formattata,
-					'type'     => '',
-				]); ?>
+	<?php if ( have_posts() ) : ?>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div>
+					<?php
+					$data_inizio = get_field('data_inizio');
+					$data_fine   = get_field('data_fine');
+					$data_formattata = '';
+					if ( $data_inizio ) {
+						$data_formattata = $data_fine ? 'Dal ' . $data_inizio . ' al ' . $data_fine : 'Dal ' . $data_inizio;
+					}
+					get_template_part('template-parts/teaser-event', null, [
+						'id'       => get_the_ID(),
+						'immagine' => get_the_post_thumbnail_url(get_the_ID(), 'medium_large'),
+						'titolo'   => get_the_title(),
+						'link'     => get_permalink(),
+						'data'     => $data_formattata,
+						'type'     => '',
+					]); ?>
+				</div>
+			<?php endwhile; ?>
+		</div>
+	<?php else : ?>
+		<?php if ( $stato !== 'passate' ) : ?>
+			<div class="text-center text-gray-500" data-aos="fade-up">
+				<?php _e('Nessun evento attivo in questa categoria.','mongolfiera'); ?>
 			</div>
-		<?php endwhile; ?>
-	</div>
+		<?php endif; ?>
+	<?php endif; ?>
 
 	<div class="my-6 mb-12 lg:my-12 flex justify-center" data-aos="fade-up">
 		<?php if ( $stato === 'passate' ) : ?>
@@ -111,6 +118,5 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 		<?php endif; ?>
 	</div>
 </div>
-<?php endif; ?>
 
 <?php get_footer(); ?>
