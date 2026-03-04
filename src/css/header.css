@@ -1,7 +1,7 @@
 
 :root{
     --site-header-height: 80px;
-    @media (min-width: 1280px) {
+    @media (min-width: 96rem) {
         --site-header-height: 110px;
     }
 }
@@ -30,7 +30,7 @@ body.menu-open{
     }
 }
 .site-header__menu{
-    @apply py-4 xl:py-0 flex flex-col justify-between xl:justify-normal xl:flex-row xl:items-center gap-6 xl:gap-8;
+    @apply py-4 2xl:py-0 flex flex-col justify-between 2xl:justify-normal 2xl:flex-row 2xl:items-center gap-6 2xl:gap-8;
     >ul{
         @apply list-none flex flex-col xl:flex-row xl:items-center xl:gap-4;
         >.menu-item{
@@ -42,7 +42,7 @@ body.menu-open{
             background-color: transparent;
             transition: background-color 0.3s ease;
             border-bottom: 1px solid #d2ddd6;
-            @media (min-width: 1280px) {
+            @media (min-width: 96rem) {
                 border-radius: 10px;
                 border-bottom: none;
             }
@@ -50,7 +50,7 @@ body.menu-open{
                 border-radius: 10px 10px 0 0;
             }
             &:hover{
-                @media (min-width: 1280px) {
+                @media (min-width: 96rem) {
                     background-color: var(--color-white);
                 }
                 
@@ -87,7 +87,7 @@ body.menu-open{
                 }
             }
             
-            @media (max-width: 1280px) {
+            @media (max-width: 96rem) {
                 /* Bottone chevron per menu con sottomenu */
                 .menu-item__chevron {
                     background: none;
@@ -141,7 +141,7 @@ body.menu-open{
                 min-width: 100%;
                 
                 /* Comportamento accordion su mobile */
-                @media (max-width: 1280px) {
+                @media (max-width: 96rem) {
                     max-height: 0;
                     gap: 0;
                     overflow: hidden;
@@ -153,7 +153,7 @@ body.menu-open{
                     }
                 }
                 
-                @media (min-width: 1280px) {
+                @media (min-width: 96rem) {
                     font-size: 1.125rem;
                     font-weight: 600;
                     position: absolute;
@@ -173,7 +173,7 @@ body.menu-open{
                     @apply no-underline text-primary-500;
                     transition: color 0.3s ease;
                     white-space: nowrap;
-                    @media (max-width: 1280px) {
+                    @media (max-width: 96rem) {
                         padding-top: 10px;
                     }
                     &:hover{
@@ -192,7 +192,7 @@ body.menu-open{
             
         } 
     }
-    @media (max-width: 1280px) {
+    @media (max-width: 96rem) {
         position: absolute;
         top: var(--site-header-height);
         left: 0;
@@ -228,7 +228,7 @@ body.menu-open{
             opacity: 1;
         }
     }
-    @media (max-width: 1280px) {
+    @media (max-width: 96rem) {    
         height: 40px;
         width: 40px;
         svg{

@@ -68,7 +68,7 @@ const toggleMenu = () => {
     
     // Gestione resize: chiudi il menu se si passa a desktop
     const handleResize = () => {
-        if (window.matchMedia('(min-width: 1280px)').matches && isMenuOpen()) {
+        if (window.matchMedia('(min-width: 96rem)').matches && isMenuOpen()) {
             closeMenu();
         }
     };
@@ -111,7 +111,7 @@ const initMobileMenuAccordion = () => {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                if (!window.matchMedia('(max-width: 1280px)').matches) return;
+                if (!window.matchMedia('(max-width: 96rem)').matches) return;
                 
                 const isExpanded = menuItem.classList.contains('is-expanded');
                 
