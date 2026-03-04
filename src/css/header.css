@@ -15,7 +15,9 @@ body.menu-open{
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--color-white);
+    background-color: color-mix(in srgb, var(--color-white) 70%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     height: var(--site-header-height);
 }
 .site-header__logo{
