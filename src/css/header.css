@@ -15,9 +15,6 @@ body.menu-open{
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: color-mix(in srgb, var(--color-white) 70%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     height: var(--site-header-height);
 }
 .site-header__logo{
@@ -29,18 +26,19 @@ body.menu-open{
         width: auto;
         object-fit: contain;
         object-position: left center;
+        max-width: 200px;
     }
 }
 .site-header__menu{
     @apply py-4 2xl:py-0 flex flex-col justify-between 2xl:justify-normal 2xl:flex-row 2xl:items-center gap-6 2xl:gap-8;
     >ul{
-        @apply list-none flex flex-col xl:flex-row xl:items-center xl:gap-4;
+        @apply list-none flex flex-col 2xl:flex-row 2xl:items-center 2xl:gap-4;
         >.menu-item{
             font-size: 1.125rem;
             font-family: var(--font-serif);
             font-weight: 600;
             position: relative;
-            @apply p-4 xl:p-[10px];
+            @apply p-4 2xl:p-[10px];
             background-color: transparent;
             transition: background-color 0.3s ease;
             border-bottom: 1px solid #d2ddd6;
@@ -209,6 +207,7 @@ body.menu-open{
             opacity: 1;
             visibility: visible;
         }
+        
     }
     
 }

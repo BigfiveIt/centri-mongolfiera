@@ -52,7 +52,7 @@ if ( $mostra_topbar ) :
         </div>
     </div>
 <?php endif; ?>
-    <header id="masthead" class="site-header">
+    <header id="masthead" class="site-header bg-white/70 backdrop-blur">
         <div class="container mx-auto px-4 h-full">
             <div class="flex items-center justify-between h-full py-4">
                 <div class="site-header__logo h-full">
@@ -62,7 +62,7 @@ if ( $mostra_topbar ) :
                     <div class="site-header__menu">
                         <?php wp_nav_menu( array(
                             'theme_location'  => 'primary-menu',
-                            'menu_class' => '',
+                            'menu_class' => 'container 2xl:max-w-none 2xl:px-0',
                             'container' => false
                         ) );?>
                         <?php 
