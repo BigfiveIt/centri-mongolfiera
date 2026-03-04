@@ -47,7 +47,7 @@ if ( ! $categoria && $id ) {
 			if ( ! is_wp_error( $term_link ) ) :
 				?>
 			<div class="teaser-event__category mb-1">
-				<a href="<?php echo esc_url( $term_link ); ?>" class="text-secondary-500 font-bold uppercase no-underline desc-3"><?php echo esc_html( $categoria->name ); ?></a>
+				<a href="<?php echo esc_url( $term_link ); ?>" class="text-secondary-500 font-bold uppercase no-underline desc-2"><?php echo esc_html( $categoria->name ); ?></a>
 			</div>
 			<?php endif; ?>
 		<?php elseif ( $type ) : ?>

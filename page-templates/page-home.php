@@ -61,7 +61,7 @@ get_header();
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'info_box_items' ) ) : ?>
-                <div class="flex overflow-x-auto lg:justify-center gap-4 px-4">
+                <div class="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-4 px-4">
                     <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
                         <?php $icona = get_sub_field( 'icona' ); ?>
                         <?php $link = get_sub_field( 'link' ); ?>
