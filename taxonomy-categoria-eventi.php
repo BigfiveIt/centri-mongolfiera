@@ -91,6 +91,9 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 					if ( $data_inizio ) {
 						$data_formattata = $data_fine ? 'Dal ' . $data_inizio . ' al ' . $data_fine : 'Dal ' . $data_inizio;
 					}
+					$terms_evento = get_the_terms( get_the_ID(), 'categoria-eventi' );
+					$categoria_ev = ( $terms_evento && ! is_wp_error( $terms_evento ) && ! empty( $terms_evento ) ) ? $terms_evento[0] : null;
+
 					get_template_part('template-parts/teaser-event', null, [
 						'id'       => get_the_ID(),
 						'immagine' => get_the_post_thumbnail_url(get_the_ID(), 'medium_large'),
@@ -98,6 +101,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 						'link'     => get_permalink(),
 						'data'     => $data_formattata,
 						'type'     => '',
+						'categoria' => $categoria_ev,
 					]); ?>
 				</div>
 			<?php endwhile; ?>
