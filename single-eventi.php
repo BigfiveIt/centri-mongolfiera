@@ -111,14 +111,17 @@ get_header();
 										$data_formattata = 'Dal ' . $data_inizio;
 									}
 								}
-								
+								$terms_evento = get_the_terms( get_the_ID(), 'categoria-eventi' );
+								$categoria_ev = ( $terms_evento && ! is_wp_error( $terms_evento ) && ! empty( $terms_evento ) ) ? $terms_evento[0] : null;
+
 								get_template_part( 'template-parts/teaser-event', null, [
 									'id'          => get_the_ID(),
 									'immagine'    => get_the_post_thumbnail_url( get_the_ID(), 'medium_large' ),
 									'titolo'      => get_the_title(),
 									'link'        => get_permalink(),
 									'data'        => $data_formattata,
-									'type'        => ''
+									'type'        => '',
+									'categoria'   => $categoria_ev,
 								] );
 								?>
 							</div>

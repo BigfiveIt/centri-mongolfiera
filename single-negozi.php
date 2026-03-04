@@ -175,7 +175,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
         <section class="my-6 lg:my-28 related-negozi" data-aos="fade-up">
 
             <h2 class="mb-8 t-4 font-serif text-primary-500 font-bold text-center"><?php _e('I Negozi del Centro','mongolfiera');?></h2>
-            <div class="related-negozi__carousel overflow-hidden pb-6">
+            <div class="related-negozi__carousel overflow-hidden pt-4 pb-6">
                 <div class="swiper-wrapper">
                     <?php while ( $the_query->have_posts() ) :$the_query->the_post(); ?>
                         <div class="swiper-slide">

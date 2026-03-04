@@ -4,29 +4,34 @@ $immagine_alt = isset($args['immagine_alt']) ? $args['immagine_alt'] : '';
 $titolo = isset($args['titolo']) ? $args['titolo'] : null;
 $testo = isset($args['testo']) ? $args['testo'] : null;
 $cta = isset($args['cta']) ? $args['cta'] : null;
+$id = isset($args['id']) ? $args['id'] : null;
+$classes = isset($args['classes']) ? $args['classes'] : null;
+$style = isset($args['style']) ? $args['style'] : null;
 ?>
 
-<article class="card-info h-full bg-white flex flex-col rounded-2xl shadow-lg p-4 relative overflow-hidden duration-500 transition-transform hover:scale-95">
-    <div class="card-info__image relative">
-        <?php if ($immagine) : ?>
-            <figure><img class="w-full h-full object-cover aspect-6/3 rounded-2xl" src="<?php echo esc_url($immagine); ?>" alt="<?php echo esc_attr($immagine_alt ?: $titolo); ?>" loading="lazy"></figure>
-        <?php else: ?>
-            <figure><img class="w-full h-full object-cover aspect-6/3 rounded-2xl" src="<?php echo get_stylesheet_directory_uri();?>/images/placeholder-800x600.png" alt="" loading="lazy"></figure>
-        <?php endif; ?>
-    </div>
-    <div class="card-info__content py-4">
-        <?php if ($titolo) : ?>
-            <h3 class="card-info__title font-extrabold t-3 text-primary-500 font-serif my-5">
-                <?php if ($cta && !empty($cta['url'])) : ?>
-                    <a href="<?php echo esc_url($cta['url']); ?>" class="no-underline stretched-link card-info__title-link"><?php echo esc_html($titolo); ?></a>
-                <?php else : ?>
-                    <span class="card-info__title-text leading-none"><?php echo esc_html($titolo); ?></span>
-                <?php endif; ?>
-            </h3>
-        <?php endif; ?>
-        <?php if ($testo) : ?>
-            <div class="card-info__text desc-2 text-primary-500 leading-tight"><?php echo wp_kses_post(nl2br($testo)); ?></div>
-        <?php endif; ?>
+<article class="card-info h-full bg-white flex flex-col justify-between rounded-3xl border border-secondary-500 p-6 relative overflow-hidden duration-500 transition-transform hover:scale-95 <?php echo esc_attr($classes); ?>" style="<?php echo esc_attr($style); ?>">
+    <div>
+        <div class="card-info__image relative">
+            <?php if ($immagine) : ?>
+                <figure><img class="w-full h-full object-cover aspect-6/3 rounded-2xl" src="<?php echo esc_url($immagine); ?>" alt="<?php echo esc_attr($immagine_alt ?: $titolo); ?>" loading="lazy"></figure>
+            <?php else: ?>
+                <figure><img class="w-full h-full object-cover aspect-6/3 rounded-2xl" src="<?php echo get_stylesheet_directory_uri();?>/images/placeholder-800x600.png" alt="" loading="lazy"></figure>
+            <?php endif; ?>
+        </div>
+        <div class="card-info__content py-4">
+            <?php if ($titolo) : ?>
+                <h3 class="card-info__title font-extrabold t-3 text-primary-500 font-serif my-5">
+                    <?php if ($cta && !empty($cta['url'])) : ?>
+                        <a href="<?php echo esc_url($cta['url']); ?>" class="no-underline stretched-link card-info__title-link"><?php echo esc_html($titolo); ?></a>
+                    <?php else : ?>
+                        <span class="card-info__title-text leading-none"><?php echo esc_html($titolo); ?></span>
+                    <?php endif; ?>
+                </h3>
+            <?php endif; ?>
+            <?php if ($testo) : ?>
+                <div class="card-info__text desc-2 text-primary-500 leading-tight"><?php echo wp_kses_post(nl2br($testo)); ?></div>
+            <?php endif; ?>
+        </div>
     </div>
     <?php if ($cta && !empty($cta['url'])) : ?>
         <div class="card-info__cta mt-8 self-start">
