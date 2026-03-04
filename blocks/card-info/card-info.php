@@ -44,7 +44,6 @@ if( !empty( $block['data']['_is_preview'] ) ): ?>
 </figure>
 <?php else: ?>
 
-<section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>" style="<?php echo $style; ?>">
 <?php
 // Recupera i campi ACF
 $card_info = get_field('card_info');
@@ -65,11 +64,13 @@ if ($card_info) {
         'titolo' => $card_info['titolo'] ?? null,
         'testo' => $card_info['breve_testo'] ?? null,
         'cta' => $card_info['cta'] ?? null,
+        'id' => $id,
+        'classes' => $classes,
+        'style' => $style,
     ];
     
     get_template_part('template-parts/card-info', null, $args);
 }
 ?>
-</section>
 
 <?php endif; ?>
