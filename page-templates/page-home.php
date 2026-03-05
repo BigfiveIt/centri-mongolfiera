@@ -66,7 +66,7 @@ get_header();
                         <?php $icona = get_sub_field( 'icona' ); ?>
                         <?php $link = get_sub_field( 'link' ); ?>
                         <?php if ( $link ) : ?>
-                        <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" class="btn btn-primary-outlined shrink-0">
+                        <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" class="btn btn-primary-outlined shrink-0 justify-start">
                             <?php if ( $icona ) : ?>
                                 <figure class="shrink-0"><img src="<?php echo esc_url( $icona['url'] ); ?>" alt="<?php echo esc_attr( $icona['alt'] ); ?>" class="w-6 h-6 object-contain" loading="lazy" /></figure>
                             <?php endif; ?>
