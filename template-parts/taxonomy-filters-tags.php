@@ -16,7 +16,7 @@ $tags = get_terms(array(
 ));
 
 if (!empty($tags) && !is_wp_error($tags)): ?>
-    <div class="flex gap-2 overflow-x-auto mx-[-1rem] px-4 lg:px-0 lg:mx-0 lg:flex-wrap mb-4">
+    <div class="flex gap-2 overflow-x-auto mx-[-1rem] px-4 lg:px-0 lg:mx-0 lg:flex-wrap mb-4" data-aos="fade">
         <?php foreach ($tags as $tag): ?>
             <a href="<?php echo esc_url(get_term_link($tag)); ?>" 
                class="desc-1 px-6 py-2 rounded-full transition-colors whitespace-nowrap no-underline <?php echo ($current_term_id == $tag->term_id) ? 'bg-secondary-500 text-white hover:bg-primary-500' : 'bg-primary-500 hover:bg-secondary-500 text-white'; ?>">

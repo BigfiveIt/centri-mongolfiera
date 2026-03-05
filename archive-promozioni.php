@@ -15,13 +15,13 @@ $stato = isset( $_GET['stato'] ) ? sanitize_text_field( $_GET['stato'] ) : '';
 
 
 <div class="container mx-auto px-4">
-	<header class="page-header py-16" data-aos="fade-up">
+	<header class="page-header py-16">
 		<h1 class="t-1 text-primary-500 font-black font-serif"><?php _e('Promozioni','mongolfiera'); ?></h1>
 	</header><!-- .page-header -->
 	<?php if ( have_posts() ): ?>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+		<div class="animate-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php while ( have_posts() ): the_post(); ?>
-				<div>
+				<div data-aos="fade-up">
 					<?php 
 					$data_inizio = get_field('data_inizio');
 					$data_fine = get_field('data_fine');

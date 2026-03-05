@@ -22,9 +22,9 @@ get_header();
 			<h1 class="t-1 text-primary-500 font-black font-serif"><?php _e( 'Magazine', 'mongolfiera' ); ?></h1>
 		</header><!-- .page-header -->
 
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="animate-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php while ( have_posts() ): the_post(); ?>
-				<div>
+				<div data-aos="fade-up">
 					<?php get_template_part('template-parts/teaser-news', null, [
 						'id' => get_the_ID(),
 						'immagine' => get_the_post_thumbnail_url(get_the_ID(), 'medium_large'),

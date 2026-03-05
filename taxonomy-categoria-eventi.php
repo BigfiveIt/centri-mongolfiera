@@ -19,7 +19,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 ?>
 
 <div class="container mx-auto px-4">
-	<header class="page-header py-16" data-aos="fade-up">
+	<header class="page-header py-16">
 		<h1 class="t-1 text-primary-500 font-black font-serif">
 			<?php if ( $stato === 'passate' ) : ?>
 				<span class="text-gray-400"><?php _e('Archivio','mongolfiera'); ?> </span>
@@ -64,7 +64,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 	</div>
 
 	<!-- Pulsanti desktop -->
-	<div class="hidden lg:flex gap-2 flex-wrap mb-8" data-aos="fade-up">
+	<div class="hidden lg:flex gap-2 flex-wrap mb-8" data-aos="fade">
 		<a href="<?php echo esc_url($all_url); ?>"
 		   class="desc-1 px-6 py-2 rounded-full transition-colors no-underline whitespace-nowrap bg-gray-200 hover:bg-secondary-500 hover:text-white">
 			<?php _e('Tutte le categorie','mongolfiera'); ?>
@@ -81,7 +81,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 	<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+		<div class="animate-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div>
 					<?php

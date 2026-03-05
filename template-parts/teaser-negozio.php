@@ -10,7 +10,7 @@ $link = isset($args['link']) ? $args['link'] : null;
         <?php endif; ?>
     </figure>
     <div class="teaser-negozio__content">
-        <h3 class="teaser-negozio__title text-center mt-4">
+        <h3 class="teaser-negozio__title text-center mt-4 js-text-anim-off">
             <a href="<?php echo $link; ?>" class="no-underline stretched-link teaser-negozio__title-link font-semibold"><?php echo $title; ?></a>
         </h3>
     </div>

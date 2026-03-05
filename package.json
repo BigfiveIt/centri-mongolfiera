@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "countup.js": "^2.9.0",
-    "rellax": "^1.12.1"
+    "gsap": "^3.14.2",
+    "rellax": "^1.12.1",
+    "split-type": "^0.3.4"
   }
 }

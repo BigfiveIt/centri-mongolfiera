@@ -6,17 +6,19 @@ import 'fslightbox';
 import AOS from 'aos';
 import Swipers from "./components/swipers.js";
 import Rellax from 'rellax';
-
+import TextAnimations from "./components/text-animations.js";
+import GridAnimations from "./components/grid-animations.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     Header();
     Common();
     CountUpInit();
     Marquee();
-    if(document.querySelector('.rellax')) {
+    TextAnimations();
+    GridAnimations();
+    if (document.querySelector('.rellax')) {
         new Rellax('.rellax');
     }
+    AOS.init();
+    Swipers();
 });
-
-AOS.init();
-Swipers();

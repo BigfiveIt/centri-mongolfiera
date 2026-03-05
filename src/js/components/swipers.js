@@ -132,7 +132,7 @@ const Swipers = () => {
 			modules: [Pagination],
 			spaceBetween: 24,
 			freeMode: false,
-			slidesPerView: 2,
+			slidesPerView: 2.2,
 			breakpoints: {
 				768: {
 					slidesPerView: 3

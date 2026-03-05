@@ -37,7 +37,7 @@ $link = isset($args['link']) ? $args['link'] : null;
         <?php endif; ?>
 
         <?php if ($titolo) : ?>
-            <h3 class="teaser-promozioni__title font-extrabold text-primary-500 t-5">
+            <h3 class="teaser-promozioni__title font-extrabold text-primary-500 t-5 js-text-anim-off">
                 <a href="<?php echo esc_url($link); ?>" class="no-underline stretched-link teaser-promozioni__title-link"><?php echo esc_html($titolo); ?></a>
             </h3>
         <?php endif; ?>

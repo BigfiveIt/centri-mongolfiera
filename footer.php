@@ -18,7 +18,7 @@ $mostra_social = $socialwall && ( isset( $socialwall['titolo'] ) || isset( $soci
 if ( $mostra_newsletter || $mostra_social ) :
 ?>
     <?php if ( $mostra_newsletter ) : ?>
-    <section class="site-prefooter site-prefooter--newsletter py-16 lg:py-24 newsletter bg-white">
+    <section class="site-prefooter site-prefooter--newsletter py-16 lg:py-24 newsletter bg-white position-relative" >
         <div class="container flex flex-col gap-4 lg:gap-8 justify-center items-center">
             <?php if ( ! empty( $newsletter['titolo'] ) ) : ?>
                 <h3 class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $newsletter['titolo'] ); ?></h3>

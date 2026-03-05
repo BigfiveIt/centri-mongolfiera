@@ -4,9 +4,9 @@
  */
 
 if (have_posts()): ?>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:px-28" data-aos="fade-up">
+    <div class="taxonomy-negozi-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:px-28">
         <?php while (have_posts()): the_post(); ?>
-            <div>
+            <div data-aos="fade-up">
                 <?php get_template_part('template-parts/teaser-negozio', null, [
                     'logo' => get_field('logo'),
                     'title' => get_the_title(),

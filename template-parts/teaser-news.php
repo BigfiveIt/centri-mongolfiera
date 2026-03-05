@@ -30,7 +30,7 @@ $categoria = isset($args['categoria']) ? $args['categoria'] : null;
         
 
         <?php if ($titolo) : ?>
-            <h3 class="teaser-news__title uppercase font-bold t-5 text-primary-500">
+            <h3 class="teaser-news__title uppercase font-bold t-5 text-primary-500 js-text-anim-off">
                 <a href="<?php echo esc_url($link); ?>" class="no-underline stretched-link teaser-news__title-link"><?php echo esc_html($titolo); ?></a>
             </h3>
         <?php endif; ?>

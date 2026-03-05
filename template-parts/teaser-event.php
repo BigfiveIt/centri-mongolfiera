@@ -57,7 +57,7 @@ if ( ! $categoria && $id ) {
 		<?php endif; ?>
 
 		<?php if ( $titolo ) : ?>
-			<h3 class="teaser-event__title font-black text-primary-500 t-5">
+			<h3 class="teaser-event__title font-black text-primary-500 t-5 js-text-anim-off">
 				<a href="<?php echo esc_url( $link ); ?>" class="no-underline teaser-event__title-link"><?php echo esc_html( $titolo ); ?></a>
 			</h3>
 		<?php endif; ?>

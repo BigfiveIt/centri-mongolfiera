@@ -54,14 +54,14 @@ get_header();
     <?php if ( $mostra_infobox_icone ) : ?>
     <section class="my-16 lg:my-24">
         <div class="lg:container mx-auto">
-            <div class="info-box flex flex-col gap-12 overflow-hidden" data-aos="fade-up">
+            <div class="info-box flex flex-col gap-12 overflow-hidden">
 
                 <?php if ( get_field( 'info_box_icone_title' ) ) : ?>
                     <h2 class="t-2 text-primary-500 text-center font-serif px-4 lg:px-0"><?php echo  get_field( 'info_box_icone_title' ); ?></h2>
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'info_box_items' ) ) : ?>
-                <div class="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-4 px-4">
+                <div class="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-4 px-4" data-aos="fade-up">
                     <?php while ( have_rows( 'info_box_items' ) ) : the_row(); ?>
                         <?php $icona = get_sub_field( 'icona' ); ?>
                         <?php $link = get_sub_field( 'link' ); ?>
@@ -89,16 +89,16 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_griglia_wall' ) ) : ?>
-    <section class="my-16" data-aos="fade-up">
+    <section class="my-16">
         <div class="container">
             <div class="page-grid-wall">
-                <?php foreach ( $grid_items as $grid_item ) : ?>
+                <?php foreach ( $grid_items as $index => $grid_item ) : ?>
                     <?php
                     $grid_image = isset( $grid_item['immagine'] ) ? $grid_item['immagine'] : null;
                     $grid_link = isset( $grid_item['link'] ) ? $grid_item['link'] : null;
                     ?>
        
-                    <a href="<?php echo esc_url( $grid_link['url'] ); ?>" target="<?php echo esc_attr( $grid_link['target'] ); ?>" class="page-grid-wall-item block h-36 lg:h-96 overflow-hidden relative">
+                    <a href="<?php echo esc_url( $grid_link['url'] ); ?>" target="<?php echo esc_attr( $grid_link['target'] ); ?>" class="page-grid-wall-item block h-36 lg:h-96 overflow-hidden relative" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( ( $index % 2 ) * 100 ); ?>">
 
                         <figure class="h-full w-full">
                             <?php if ( $grid_image ) : ?>
@@ -157,7 +157,7 @@ get_header();
                 <div class="flex lg:justify-end">
                     <div class="lg:w-1/2">
                         <?php if ( $centro_descrizione ) : ?>
-                            <div class="t-5 text-white"><?php echo wp_kses_post( nl2br( $centro_descrizione ) ); ?></div>
+                            <div class="t-5 text-white" data-aos="fade-up"><?php echo wp_kses_post( nl2br( $centro_descrizione ) ); ?></div>
                         <?php endif; ?>
                         <?php if ( $centro_cta_url ) : ?>
                             <a href="<?php echo esc_url( $centro_cta_url ); ?>" class="btn btn-secondary-outlined px-12 mt-8" target="<?php echo esc_attr( $centro_cta_target ); ?>">
@@ -177,9 +177,9 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_numeri_icone' ) ) : ?>
-    <section class="my-16" data-aos="fade-up">
+    <section class="my-16">
         <div class="container">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 animate-grid">
                 <?php foreach ( $stats_items as $item ) : ?>
                 <?php
                 $stat_icon = isset( $item['icona'] ) ? $item['icona'] : null;
@@ -187,7 +187,7 @@ get_header();
                 $stat_etichetta = isset( $item['etichetta'] ) ? $item['etichetta'] : '';
                 $stat_suffisso= isset( $item['suffisso'] ) ? $item['suffisso'] : '';
                 ?>
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4" data-aos="fade-up">
                     <figure class="w-12 h-12 lg:w-24 lg:h-24 bg-secondary-500 rounded-full p-3 lg:p-5 shrink-0">
                         <?php if ( $stat_icon ) : ?>
                             <img src="<?php echo esc_url( $stat_icon['url'] ); ?>" alt="<?php echo esc_attr( $stat_icon['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
@@ -225,7 +225,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_divertimento' ) ) : ?>
-    <section class="py-16 lg:py-24 overflow-hidden bg-cover bg-center section-divertimento" data-aos="fade-up" style="background-image: url(<?php echo esc_url( $divertimento_sfondo['url'] ); ?>);">
+    <section class="py-16 lg:py-24 overflow-hidden bg-cover bg-center section-divertimento" style="background-image: url(<?php echo esc_url( $divertimento_sfondo['url'] ); ?>);">
         <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
             <div class="w-full lg:w-2/5 self-center">
                 <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
@@ -317,7 +317,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_brand' ) ) : ?>
-    <section class="bg-white py-16 lg:py-24" data-aos="fade-up">
+    <section class="bg-white py-16 lg:py-24">
         <div class="container">
             <?php if ( $brand_titolo ) : ?>
                 <h2 class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $brand_titolo ); ?></h2>
@@ -339,7 +339,7 @@ get_header();
                 </div>
             <?php endif; ?>
             <?php if ( $brand_cta_url ) : ?>
-                <div class="flex justify-center">
+                <div class="flex justify-center" data-aos="fade-up">
                     <a href="<?php echo esc_url( $brand_cta_url ); ?>" class="btn btn-primary-outlined self-center lg:self-start" target="<?php echo esc_attr( $brand_cta_target ); ?>">
                         <span><?php echo esc_html( $brand_cta['title'] ? $brand_cta['title'] : 'Tutti i negozi' ); ?></span>
                     </a>
@@ -364,7 +364,7 @@ get_header();
 
     <?php if ( get_field( 'mostra_social_wall' ) ) : ?>
     <section class="py-16 bg-secondary-500 social-wall">
-        <div class="container" data-aos="fade-up">
+        <div class="container">
             <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
                 <div class="text-center lg:text-left">
                     <?php if ( $social_titolo ) : ?>
@@ -407,12 +407,12 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_fascia_servizi' ) ) : ?>
-    <section class="py-16 lg:py-24" data-aos="fade-up">
+    <section class="py-16 lg:py-24">
         <div class="container">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div class="lg:col-span-4 flex flex-col gap-6 items-center lg:items-start">
                     <?php if ( $servizi_etichetta ) : ?>
-                        <h3 class="inline-flex bg-secondary-500 text-primary-500 text-sm uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></h3>
+                        <span class="inline-flex bg-secondary-500 text-primary-500 text-sm uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></span>
                     <?php endif; ?>
                     <?php if ( $servizi_titolo ) : ?>
                         <h3 class="t-1 font-serif text-primary-500 font-bold text-balance leading-none"><?php echo  $servizi_titolo; ?></h3>
@@ -423,13 +423,13 @@ get_header();
                         </a>
                     <?php endif; ?>
                 </div>
-                <div class="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 animate-grid">
                     <?php foreach ( $servizi_items as $servizio ) : ?>
                         <?php
                         $servizio_image = isset( $servizio['immagine'] ) ? $servizio['immagine'] : null;
                         $servizio_titolo = isset( $servizio['titolo'] ) ? $servizio['titolo'] : '';
                         ?>
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4" data-aos="fade-up">
                             <figure class="shrink-0 w-14 h-14 rounded-full bg-secondary-500 flex items-center justify-center p-2.5">
                                 <?php if ( $servizio_image ) : ?>
                                     <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ?: $servizio_titolo ); ?>" class="w-full h-full object-contain" loading="lazy">
@@ -464,7 +464,7 @@ get_header();
     ?>
 
     <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
-    <section class="py-16 bg-primary-500 section-news-eventi overflow-hidden" data-aos="fade-up">
+    <section class="py-16 bg-primary-500 section-news-eventi overflow-hidden">
         <div class="container">
             <h2 class="t-2 text-secondary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></h2>
             <?php

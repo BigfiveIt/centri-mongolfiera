@@ -54,7 +54,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
         </section>
         <?php endif; ?>
 
-        <section class="single-negozio__content my-16" data-aos="fade-up">
+        <section class="single-negozio__content my-16">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
                 <div class="col-span-1">
