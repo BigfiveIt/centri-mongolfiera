@@ -12,7 +12,7 @@ get_header();
 <?php if ( have_posts() ) : ?>
 	<div class="container mx-auto px-4 mb-16">
 		<header class="page-header py-16">
-			<div class="t-1 text-primary-500 font-black font-serif">
+			<h1 class="t-1 text-primary-500 font-black font-serif">
 				<?php
 				printf(
 					/* translators: %s: search query */
@@ -20,7 +20,7 @@ get_header();
 					'<span>' . esc_html( get_search_query() ) . '</span>'
 				);
 				?>
-			</div>
+			</h1>
 		</header><!-- .page-header -->
 
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -44,7 +44,7 @@ get_header();
 <?php else : ?>
 	<div class="container mx-auto px-4 mb-16">
 		<header class="page-header py-16">
-			<div class="t-1 text-primary-500 font-black font-serif">
+			<h1 class="t-1 text-primary-500 font-black font-serif">
 				<?php
 				printf(
 					/* translators: %s: search query */
@@ -52,7 +52,7 @@ get_header();
 					'<span>' . esc_html( get_search_query() ) . '</span>'
 				);
 				?>
-			</div>
+			</h1>
 		</header><!-- .page-header -->
 
 		<p class="text-center text-gray-500"><?php _e( 'Nessun risultato trovato.', 'mongolfiera' ); ?></p>

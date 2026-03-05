@@ -20,13 +20,13 @@ get_header();
 
 	<div class="container mx-auto px-4">
 		<header class="page-header py-16" data-aos="fade-up">
-			<div class="t-1 text-primary-500 font-black font-serif">
+			<h1 class="t-1 text-primary-500 font-black font-serif">
 				<?php if ( $stato === 'passate' ) : ?>
 					<?php _e('Archivio News & Eventi','mongolfiera'); ?>
 				<?php else : ?>
 					<?php _e('News & Eventi','mongolfiera'); ?>
 				<?php endif; ?>
-			</div>
+				</h1>
 		</header><!-- .page-header -->
 
 		<?php

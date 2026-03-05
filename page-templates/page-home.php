@@ -57,7 +57,7 @@ get_header();
             <div class="info-box flex flex-col gap-12 overflow-hidden" data-aos="fade-up">
 
                 <?php if ( get_field( 'info_box_icone_title' ) ) : ?>
-                    <div class="t-2 text-primary-500 text-center font-serif px-4 lg:px-0"><?php echo  get_field( 'info_box_icone_title' ); ?></div>
+                    <h2 class="t-2 text-primary-500 text-center font-serif px-4 lg:px-0"><?php echo  get_field( 'info_box_icone_title' ); ?></h2>
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'info_box_items' ) ) : ?>
@@ -107,7 +107,7 @@ get_header();
                         </figure>
                         <div class="absolute inset-0 p-4 lg:p-8 flex flex-col justify-end page-grid-wall-item__content z-10">
                             <?php if ( $grid_link['title'] ) : ?>
-                                <div class="t-4 lg:t-2 text-white font-medium font-serif tracking-tight"><?php echo esc_html( $grid_link['title'] ); ?></div>
+                                <h3 class="t-4 lg:t-2 text-white font-medium font-serif tracking-tight"><?php echo esc_html( $grid_link['title'] ); ?></h3>
                             <?php endif; ?>
                         </div>
                     </a>
@@ -229,14 +229,14 @@ get_header();
         <div class="container flex flex-col lg:flex-row gap-8 md:gap-16">
             <div class="w-full lg:w-2/5 self-center">
                 <?php if ( $divertimento_titolo || $divertimento_titolo_enfasi ) : ?>
-                    <div class="t-1 font-serif text-balance text-center lg:text-left text-white">
+                    <h2 class="t-1 font-serif text-balance text-center lg:text-left text-white">
                         <?php if ( $divertimento_titolo_enfasi ) : ?>
                             <b><span class="text-secondary-500"><?php echo esc_html( $divertimento_titolo_enfasi ); ?></span></b>
                         <?php endif; ?>
                         <?php if ( $divertimento_titolo ) : ?>
                             <br><?php echo esc_html( $divertimento_titolo ); ?>
                         <?php endif; ?>
-                    </div>
+                    </h2>
                 <?php endif; ?>
                 <?php if ( $divertimento_cta_url ) : ?>
                     <a href="<?php echo esc_url( $divertimento_cta_url ); ?>" class="btn btn-secondary mt-8 lg:mt-12 hidden lg:inline-flex" target="<?php echo esc_attr( $divertimento_cta_target ); ?>">
@@ -320,7 +320,7 @@ get_header();
     <section class="bg-white py-16 lg:py-24" data-aos="fade-up">
         <div class="container">
             <?php if ( $brand_titolo ) : ?>
-                <div class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $brand_titolo ); ?></div>
+                <h2 class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $brand_titolo ); ?></h2>
             <?php endif; ?>
             <?php if ( ! empty( $brand_logos ) ) : ?>
                 <div class="brand-carousel overflow-hidden my-8 lg:my-16">
@@ -368,7 +368,7 @@ get_header();
             <div class="flex gap-8 flex-col lg:flex-row justify-between items-center mb-8">
                 <div class="text-center lg:text-left">
                     <?php if ( $social_titolo ) : ?>
-                        <div class="t-2 text-primary-500 font-black font-serif"><?php echo esc_html( $social_titolo ); ?></div>
+                        <h2 class="t-2 text-primary-500 font-black font-serif"><?php echo esc_html( $social_titolo ); ?></h2>
                     <?php endif; ?>
                     <?php if ( $social_handle && ! empty( $social_handle['url'] ) ) : ?>
                         <a href="<?php echo esc_url( $social_handle['url'] ); ?>" class="text-primary-400 t-5 block" target="<?php echo esc_attr( ! empty( $social_handle['target'] ) ? $social_handle['target'] : '_self' ); ?>">
@@ -412,10 +412,10 @@ get_header();
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div class="lg:col-span-4 flex flex-col gap-6 items-center lg:items-start">
                     <?php if ( $servizi_etichetta ) : ?>
-                        <span class="inline-flex bg-secondary-500 text-primary-500 text-sm uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></span>
+                        <h3 class="inline-flex bg-secondary-500 text-primary-500 text-sm uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></h3>
                     <?php endif; ?>
                     <?php if ( $servizi_titolo ) : ?>
-                        <h2 class="t-1 font-serif text-primary-500 font-bold text-balance leading-none"><?php echo  $servizi_titolo; ?></h2>
+                        <h3 class="t-1 font-serif text-primary-500 font-bold text-balance leading-none"><?php echo  $servizi_titolo; ?></h3>
                     <?php endif; ?>
                     <?php if ( $servizi_cta_url ) : ?>
                         <a href="<?php echo esc_url( $servizi_cta_url ); ?>" class="btn btn-primary-outlined w-fit lg:mt-24 hidden lg:block" target="<?php echo esc_attr( $servizi_cta_target ); ?>">
@@ -466,7 +466,7 @@ get_header();
     <?php if ( get_field( 'mostra_news_eventi' ) ) : ?>
     <section class="py-16 bg-primary-500 section-news-eventi overflow-hidden" data-aos="fade-up">
         <div class="container">
-            <div class="t-2 text-secondary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></div>
+            <h2 class="t-2 text-secondary-500 text-center font-black font-serif mb-8 lg:mb-12"><?php echo esc_html( $news_title ); ?></h2>
             <?php
             $today = date( 'Ymd' );
             

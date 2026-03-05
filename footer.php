@@ -21,7 +21,7 @@ if ( $mostra_newsletter || $mostra_social ) :
     <section class="site-prefooter site-prefooter--newsletter py-16 lg:py-24 newsletter bg-white">
         <div class="container flex flex-col gap-4 lg:gap-8 justify-center items-center">
             <?php if ( ! empty( $newsletter['titolo'] ) ) : ?>
-                <div class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $newsletter['titolo'] ); ?></div>
+                <h3 class="t-2 text-primary-500 text-center font-black font-serif"><?php echo esc_html( $newsletter['titolo'] ); ?></h3>
             <?php endif; ?>
             <?php if ( ! empty( $newsletter['descrizione'] ) ) : ?>
                 <p class="t-5 text-primary-500 text-center text-balance"><?php echo esc_html( $newsletter['descrizione'] ); ?></p>
@@ -50,7 +50,7 @@ if ( $mostra_newsletter || $mostra_social ) :
                     <a href="<?php echo esc_url( $instagram_link['url'] ); ?>" target="<?php echo esc_attr( $instagram_link['target'] ?? '_self' ); ?>" class="btn btn-primary-outlined font-serif t-5 hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500"><?php echo esc_html( $instagram_link['title'] ?: $instagram_link['url'] ); ?></a>
                 <?php endif; ?>
                 <?php if ( $titolo_sezione ) : ?>
-                    <div class="t-2 text-primary-500 font-medium font-serif"><?php echo esc_html( $titolo_sezione ); ?></div>
+                    <h3 class="t-2 text-primary-500 font-medium font-serif"><?php echo esc_html( $titolo_sezione ); ?></h3>
                 <?php endif; ?>
                 <div class="flex gap-6 social-section__icons">
                     <?php if ( $facebook_url ) : ?>
