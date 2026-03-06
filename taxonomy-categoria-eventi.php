@@ -83,7 +83,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 	<?php if ( have_posts() ) : ?>
 		<div class="animate-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<div>
+	
 					<?php
 					$data_inizio = get_field('data_inizio');
 					$data_fine   = get_field('data_fine');
@@ -103,7 +103,7 @@ $archive_url_eventi = get_post_type_archive_link('eventi');
 						'type'     => '',
 						'categoria' => $categoria_ev,
 					]); ?>
-				</div>
+			
 			<?php endwhile; ?>
 		</div>
 	<?php else : ?>

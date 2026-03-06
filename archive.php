@@ -24,7 +24,7 @@ get_header();
 
 		<div class="animate-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php while ( have_posts() ): the_post(); ?>
-				<div data-aos="fade-up">
+		
 					<?php get_template_part('template-parts/teaser-news', null, [
 						'id' => get_the_ID(),
 						'immagine' => get_the_post_thumbnail_url(get_the_ID(), 'medium_large'),
@@ -33,7 +33,7 @@ get_header();
 						'data' => get_the_date(),
 						'categoria' => get_the_category()
 					]); ?>
-				</div>
+		
 			<?php endwhile; ?>
 		</div>
 

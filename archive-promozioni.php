@@ -21,7 +21,7 @@ $stato = isset( $_GET['stato'] ) ? sanitize_text_field( $_GET['stato'] ) : '';
 	<?php if ( have_posts() ): ?>
 		<div class="animate-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php while ( have_posts() ): the_post(); ?>
-				<div data-aos="fade-up">
+	
 					<?php 
 					$data_inizio = get_field('data_inizio');
 					$data_fine = get_field('data_fine');
@@ -33,7 +33,7 @@ $stato = isset( $_GET['stato'] ) ? sanitize_text_field( $_GET['stato'] ) : '';
 						'data_inizio' => $data_inizio ? $data_inizio : '',
 						'data_fine' => $data_fine ? $data_fine : ''
 					]); ?>
-				</div>
+			
 			<?php endwhile; ?>
 		</div>	
 		<?php mongolfiera_promozioni_pagination(); ?>

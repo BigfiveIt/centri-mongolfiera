@@ -90,7 +90,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-grid">
 			<?php while ( have_posts() ): the_post(); ?>
-				<div data-aos="fade-up">
+			
 					<?php 
 					$data_inizio = get_field('data_inizio');
 					$data_fine = get_field('data_fine');
@@ -116,7 +116,7 @@ get_header();
 						'type' => '',
 						'categoria' => $categoria_ev,
 					]); ?>
-				</div>
+	
 			<?php endwhile; ?>
 		</div>
 		

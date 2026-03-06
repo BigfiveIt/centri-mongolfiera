@@ -9,7 +9,7 @@ $categoria = isset($args['categoria']) ? $args['categoria'] : null;
 
 ?>
 
-<article <?php post_class('teaser-news h-full bg-white flex flex-col rounded-2xl shadow-lg p-4 relative overflow-hidden transition-all duration-300 hover:scale-[0.98] hover:shadow-md h-full'); ?> id="<?php echo esc_attr($id); ?>">
+<article <?php post_class('teaser-news h-full bg-white flex flex-col rounded-2xl shadow-lg p-4 relative overflow-hidden hover:scale-[0.98] hover:shadow-md h-full'); ?> id="<?php echo esc_attr($id); ?>">
     
     <div class="teaser-news__image relative">
         <?php if ($immagine) : ?>

@@ -43,8 +43,6 @@ if( !empty( $block['data']['_is_preview'] ) ): ?>
     <img style="max-width:100%; height:auto" src="<?php echo get_stylesheet_directory_uri(); ?>/blocks/card-servizi/card-servizi-preview.png" alt="Preview Card Servizi">
 </figure>
 <?php else: ?>
-
-<section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>" style="<?php echo $style; ?>">
 <?php
 // Recupera i campi ACF
 $card_servizi = get_field('card_servizi');
@@ -65,10 +63,12 @@ if ($card_servizi) {
         'titolo' => $card_servizi['titolo'] ?? null,
         'testo' => $card_servizi['breve_testo'] ?? null,
         'cta' => $card_servizi['cta'] ?? null,
+        'id' => $id,
+        'classes' => $classes,
+        'style' => $style,
     ];
     get_template_part('template-parts/teaser-servizi', null, $args);
 }
 ?>
-</section>
 
 <?php endif; ?>

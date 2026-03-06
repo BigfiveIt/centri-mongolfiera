@@ -167,7 +167,7 @@ body.menu-open{
                     transition: opacity 0.3s ease, visibility 0.3s ease;
                     
                     padding: 10px;
-                    border-radius: 0 10px 10px 10px;
+                    border-radius: 0 0 10px 10px;
                 }
                 a{
                     @apply no-underline text-primary-500;

@@ -4,8 +4,11 @@ $immagine_alt = isset($args['immagine_alt']) ? $args['immagine_alt'] : null;
 $titolo = isset($args['titolo']) ? $args['titolo'] : null;
 $testo = isset($args['testo']) ? $args['testo'] : null;
 $cta = isset($args['cta']) ? $args['cta'] : null;
+$id = isset($args['id']) ? $args['id'] : null;
+$classes = isset($args['classes']) ? $args['classes'] : null;
+$style = isset($args['style']) ? $args['style'] : null;
 ?>
-<article class="teaser-servizi h-full bg-white flex flex-col gap-4 rounded-2xl border border-secondary-500 p-4 lg:p-8 relative overflow-hidden">
+<article<?php echo $id ? ' id="' . esc_attr($id) . '"' : ''; ?> class="teaser-servizi h-full bg-white flex flex-col gap-4 rounded-2xl border border-secondary-500 p-4 lg:p-8 relative overflow-hidden <?php echo esc_attr($classes); ?>" style="<?php echo esc_attr($style); ?>">
     <?php if ($immagine_url) : ?>
         <figure class="teaser-servizi__image relative">
             <img class="w-full h-full object-contain aspect-video" src="<?php echo esc_url($immagine_url); ?>" alt="<?php echo esc_attr($immagine_alt ?: $titolo); ?>" loading="lazy">
@@ -13,7 +16,7 @@ $cta = isset($args['cta']) ? $args['cta'] : null;
     <?php endif; ?>
     <div class="teaser-servizi__content flex flex-col justify-between gap-12">
         <div class="teaser-servizi__title-container">
-            <h3 class="teaser-servizi__title font-medium t-5 text-primary-500"><?php echo esc_html($titolo); ?></h3>
+            <h3 class="teaser-servizi__title font-medium t-5 text-primary-500 js-text-anim-off"><?php echo esc_html($titolo); ?></h3>
             <?php if ($testo) : ?>
                 <div class="desc-2 text-primary-500"><?php echo esc_html($testo); ?></div>
             <?php endif; ?>

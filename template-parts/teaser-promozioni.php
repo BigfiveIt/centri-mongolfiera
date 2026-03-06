@@ -9,7 +9,7 @@ $link = isset($args['link']) ? $args['link'] : null;
 
 ?>
 
-<article <?php post_class('teaser-promozioni h-full bg-white flex flex-col rounded-2xl shadow-lg relative overflow-hidden transition-all duration-300 hover:scale-[0.98] hover:shadow-md'); ?> id="<?php echo esc_attr($id); ?>">
+<article <?php post_class('teaser-promozioni h-full bg-white flex flex-col rounded-2xl shadow-lg relative overflow-hidden hover:scale-[0.98] hover:shadow-md'); ?> id="<?php echo esc_attr($id); ?>">
     <div class="teaser-promozioni__image relative overflow-hidden">
         <?php if ( $immagine ) : ?>
             <?php

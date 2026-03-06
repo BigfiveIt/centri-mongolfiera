@@ -146,7 +146,7 @@ get_header();
                 <div class="flex">
                     <div class="lg:w-1/2">
                         <?php if ( $centro_etichetta ) : ?>
-                            <span class="inline-flex w-fit rounded-full bg-secondary-500 px-4 py-1.5 text-sm font-bold  mb-6 uppercase tracking-wide text-primary-500"><?php echo esc_html( $centro_etichetta ); ?></span>
+                            <span class="inline-flex w-fit rounded-full text-secondary-500 text-sm font-bold mb-4 uppercase tracking-wide"><?php echo esc_html( $centro_etichetta ); ?></span>
                         <?php endif; ?>
                         <?php if ( $centro_titolo ) : ?>
                             <h2 class="t-1 lg:t-hero font-serif font-black text-white text-balance leading-tight"><?php echo  $centro_titolo; ?></h2>
@@ -187,7 +187,7 @@ get_header();
                 $stat_etichetta = isset( $item['etichetta'] ) ? $item['etichetta'] : '';
                 $stat_suffisso= isset( $item['suffisso'] ) ? $item['suffisso'] : '';
                 ?>
-                <div class="flex items-center gap-4" data-aos="fade-up">
+                <div class="flex items-center gap-4">
                     <figure class="w-12 h-12 lg:w-24 lg:h-24 bg-secondary-500 rounded-full p-3 lg:p-5 shrink-0">
                         <?php if ( $stat_icon ) : ?>
                             <img src="<?php echo esc_url( $stat_icon['url'] ); ?>" alt="<?php echo esc_attr( $stat_icon['alt'] ); ?>" class="w-full h-full object-contain" loading="lazy">
@@ -412,7 +412,7 @@ get_header();
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div class="lg:col-span-4 flex flex-col gap-6 items-center lg:items-start">
                     <?php if ( $servizi_etichetta ) : ?>
-                        <span class="inline-flex bg-secondary-500 text-primary-500 text-sm uppercase rounded-3xl font-serif font-bold px-12 py-2"><?php echo esc_html( $servizi_etichetta ); ?></span>
+                        <span class="inline-flex text-secondary-500 text-sm uppercase font-serif font-bold"><?php echo esc_html( $servizi_etichetta ); ?></span>
                     <?php endif; ?>
                     <?php if ( $servizi_titolo ) : ?>
                         <h3 class="t-1 font-serif text-primary-500 font-bold text-balance leading-none"><?php echo  $servizi_titolo; ?></h3>
@@ -429,7 +429,7 @@ get_header();
                         $servizio_image = isset( $servizio['immagine'] ) ? $servizio['immagine'] : null;
                         $servizio_titolo = isset( $servizio['titolo'] ) ? $servizio['titolo'] : '';
                         ?>
-                        <div class="flex items-center gap-4" data-aos="fade-up">
+                        <div class="flex items-center gap-4">
                             <figure class="shrink-0 w-14 h-14 rounded-full bg-secondary-500 flex items-center justify-center p-2.5">
                                 <?php if ( $servizio_image ) : ?>
                                     <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ?: $servizio_titolo ); ?>" class="w-full h-full object-contain" loading="lazy">

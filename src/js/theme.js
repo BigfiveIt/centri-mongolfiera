@@ -9,16 +9,18 @@ import Rellax from 'rellax';
 import TextAnimations from "./components/text-animations.js";
 import GridAnimations from "./components/grid-animations.js";
 
+GridAnimations();
+
 document.addEventListener("DOMContentLoaded", function() {
     Header();
     Common();
     CountUpInit();
     Marquee();
     TextAnimations();
-    GridAnimations();
     if (document.querySelector('.rellax')) {
         new Rellax('.rellax');
     }
     AOS.init();
+    
     Swipers();
 });

@@ -12,7 +12,7 @@ const CountUpInit = () => {
         const endVal = parseEndVal(el);
         if (endVal === null) return;
 
-        const countUp = new CountUp(el, endVal, {
+        new CountUp(el, endVal, {
             duration: 2,
             useGrouping: true,
             separator: '.',
@@ -20,10 +20,7 @@ const CountUpInit = () => {
             enableScrollSpy: true,
             scrollSpyOnce: true,
         });
-
-        if (!countUp.error) {
-            countUp.handleScroll();
-        }
+        // Con enableScrollSpy l'IntersectionObserver è configurato nel costruttore, nessuna chiamata aggiuntiva necessaria
     });
 };
 
