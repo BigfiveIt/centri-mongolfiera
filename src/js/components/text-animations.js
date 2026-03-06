@@ -63,7 +63,8 @@ const TextAnimations = () => {
                 trigger: heading,
                 start: 'top 80%',
                 end: 'bottom 20%',
-                toggleActions: 'play reverse play reverse',
+                toggleActions: 'play none none none',
+                once: true,
             },
         });
     });
