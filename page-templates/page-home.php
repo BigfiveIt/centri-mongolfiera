@@ -57,7 +57,7 @@ get_header();
             <div class="info-box flex flex-col gap-12 overflow-hidden">
 
                 <?php if ( get_field( 'info_box_icone_title' ) ) : ?>
-                    <h2 class="t-2 text-primary-500 text-center font-serif px-4 lg:px-0"><?php echo  get_field( 'info_box_icone_title' ); ?></h2>
+                    <div class="t-2 text-primary-500 text-center font-serif px-4 lg:px-0"><?php echo  get_field( 'info_box_icone_title' ); ?></div>
                 <?php endif; ?>
 
                 <?php if ( have_rows( 'info_box_items' ) ) : ?>
@@ -107,7 +107,7 @@ get_header();
                         </figure>
                         <div class="absolute inset-0 p-4 lg:p-8 flex flex-col justify-end page-grid-wall-item__content z-10">
                             <?php if ( $grid_link['title'] ) : ?>
-                                <h3 class="t-4 lg:t-2 text-white font-medium font-serif tracking-tight"><?php echo esc_html( $grid_link['title'] ); ?></h3>
+                                <h3 class="t-4 lg:t-2 text-white font-medium font-serif tracking-tight" data-offset-top="100"><?php echo esc_html( $grid_link['title'] ); ?></h3>
                             <?php endif; ?>
                         </div>
                     </a>

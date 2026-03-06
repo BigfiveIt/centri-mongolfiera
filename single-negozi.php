@@ -183,6 +183,7 @@ $terms = get_the_terms( get_the_ID(), 'categoria_negozi' );
                                 'logo' => get_field('logo'),
                                 'title' => get_the_title(),
                                 'link' => get_permalink(),
+                                'title_tag' => 'div',
                             ]); ?>
                         </div>
                     <?php endwhile; ?>

@@ -13,6 +13,8 @@ const TextAnimations = () => {
     headings.forEach((heading) => {
         if (!heading.textContent || !heading.textContent.trim()) return;
 
+        const offsetTop = heading.dataset.offsetTop || 80;
+
         // Opt-out: disattiva l'animazione se il titolo
         // o un suo genitore ha la classe js-text-anim-off
         if (
@@ -61,7 +63,7 @@ const TextAnimations = () => {
             stagger: 0.18,
             scrollTrigger: {
                 trigger: heading,
-                start: 'top 80%',
+                start: 'top '+offsetTop+'%',
                 end: 'bottom 20%',
                 toggleActions: 'play none none none',
                 once: true,
