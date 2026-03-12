@@ -25,3 +25,14 @@ require_once 'functions/utilities.php';
 require_once 'functions/dashboard.php';
 require_once 'functions/custom-breadcrumbs.php';
 require_once 'functions/endpoints.php';
+
+
+add_filter('wp_all_import_is_enabled_stream_filter', 'wpai_wp_all_import_is_enabled_stream_filter', 10, 1);
+function wpai_wp_all_import_is_enabled_stream_filter($enable_strem_filter) {
+    return FALSE;
+}
+
+add_filter('wp_all_import_csv_to_xml_remove_non_ascii_characters', 'wpai_wp_all_import_csv_to_xml_remove_non_ascii_characters', 10, 1);
+function wpai_wp_all_import_csv_to_xml_remove_non_ascii_characters($remove_non_ascii_characters) {
+    return FALSE;
+}
