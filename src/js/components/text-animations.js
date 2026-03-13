@@ -13,7 +13,7 @@ const TextAnimations = () => {
     headings.forEach((heading) => {
         if (!heading.textContent || !heading.textContent.trim()) return;
 
-        const offsetTop = heading.dataset.offsetTop || 80;
+        const offsetTop = heading.dataset.offsetTop || 90;
 
         // Opt-out: disattiva l'animazione se il titolo
         // o un suo genitore ha la classe js-text-anim-off
