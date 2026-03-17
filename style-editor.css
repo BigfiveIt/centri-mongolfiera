@@ -12,10 +12,19 @@
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-    font-family: "Asap", serif;
-    font-weight: 400;
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 800;
     margin: 0;
+    line-height: 1.2;
 }
+
+/* Heading tags -> preset font size (come sistema t-*) */
+.editor-styles-wrapper h1 { font-size: var(--wp--preset--font-size--t-1) !important; }
+.editor-styles-wrapper h2 { font-size: var(--wp--preset--font-size--t-2) !important; }
+.editor-styles-wrapper h3 { font-size: var(--wp--preset--font-size--t-3) !important; }
+.editor-styles-wrapper h4 { font-size: var(--wp--preset--font-size--t-4) !important; }
+.editor-styles-wrapper h5 { font-size: var(--wp--preset--font-size--t-5) !important; }
+.editor-styles-wrapper h6 { font-size: var(--wp--preset--font-size--desc-1) !important; }
 
 /* Forza le dimensioni tipografiche personalizzate sugli heading nell'editor */
 .editor-styles-wrapper h1.t-1,

@@ -46,3 +46,21 @@
 @utility desc-4 {
     font-size: 12px;
 }
+
+
+.wp-block-heading {
+    font-weight: 800;
+    font-family: var(--font-serif);
+}
+h2.wp-block-heading {
+    font-size: var(--wp--preset--font-size--t-2);
+}
+h3.wp-block-heading {
+    font-size: var(--wp--preset--font-size--t-3);
+}
+h4.wp-block-heading {
+    font-size: var(--wp--preset--font-size--t-4);
+}
+h5.wp-block-heading {
+    font-size: var(--wp--preset--font-size--t-5);
+}
