@@ -33,14 +33,14 @@ if ( $mostra_topbar ) :
     <div class="site-topbar bg-secondary-500 text-primary-500">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap items-center justify-between gap-2 py-2">
-                <div class="flex items-center gap-2 shrink-0 desc-3 lg:desc-2">
+                <div class="flex items-center gap-1 lg:gap-2 shrink-0 desc-3 lg:desc-2">
                     <?php if ( $orari_negozi ) : ?>
                         <span class="site-topbar__icon [&_svg]:w-5 [&_svg]:h-5 shrink-0 [&_svg]:fill-primary-500 [&_svg]:stroke-primary-500"><?php get_template_part( 'images/icons/clock' ); ?></span>
-                        <span class="font-bold uppercase tracking-wide"><?php esc_html_e( 'Orari', 'mongolfiera' ); ?></span>
+                        <span class="font-bold uppercase tracking-wide hidden lg:block"><?php esc_html_e( 'Orari', 'mongolfiera' ); ?></span>
                         <span class="site-topbar__orari"><?php echo esc_html( wp_strip_all_tags( $orari_negozi ) ); ?></span>
                     <?php endif; ?>
                 </div>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 lg:gap-3">
                     <?php if ( $facebook_url ) : ?>
                         <a href="<?php echo esc_url( $facebook_url ); ?>" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-400 transition-colors [&_svg]:w-5 [&_svg]:h-5 [&_svg]:fill-current" aria-label="<?php esc_attr_e( 'Facebook', 'mongolfiera' ); ?>"><?php get_template_part( 'images/icons/socials/facebook' ); ?></a>
                     <?php endif; ?>
