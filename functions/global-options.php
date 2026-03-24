@@ -35,7 +35,6 @@ if ( function_exists( 'get_field' ) ) {
         $puntamenti = get_field('puntamenti','option');
         $privacy_policy = isset($puntamenti['privacy_policy']) ? $puntamenti['privacy_policy'] : '';
         $cookie_policy = isset($puntamenti['cookie_policy']) ? $puntamenti['cookie_policy'] : '';
-        $informativa_policy = isset($puntamenti['informativa_policy']) ? $puntamenti['informativa_policy'] : '';
         $virtual_tour = isset($puntamenti['virtual_tour']) ? $puntamenti['virtual_tour'] : '';
         $mappa_negozi = isset($puntamenti['mappa_negozi']) ? $puntamenti['mappa_negozi'] : '';
         $newsletter = isset($puntamenti['newsletter']) ? $puntamenti['newsletter'] : '';
@@ -57,7 +56,6 @@ if ( function_exists( 'get_field' ) ) {
             'indirizzo' => $indirizzo,
             'privacy_policy' => $privacy_policy,
             'cookie_policy' => $cookie_policy,
-            'informativa_policy' => $informativa_policy,
             'orari_negozi' => $orari_negozi,
             'orari_ipermercato' => $orari_ipermercato,
             'virtual_tour' => $virtual_tour,

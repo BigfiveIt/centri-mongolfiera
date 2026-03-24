@@ -92,11 +92,25 @@ if ( $mostra_newsletter || $mostra_social ) :
                             <a href="mailto:<?php echo get_global_option('email'); ?>"><?php echo get_global_option('email'); ?></a>
                         <?php endif; ?>
                     </div>
+                    <?php if (get_global_option('privacy_policy') || get_global_option('cookie_policy')): ?>
+                        <div class="desc-3 mt-5 flex gap-2 justify-center lg:justify-start">
+                            <?php if(get_global_option('privacy_policy')): ?>
+                                <a href="<?php echo get_global_option('privacy_policy'); ?>">Policy</a>
+                            <?php endif; ?>
+                            <span class="text-secondary-500 mx-1">|</span>
+                            <?php if(get_global_option('cookie_policy')): ?>
+                                <a href="<?php echo get_global_option('cookie_policy'); ?>">Cookie Policy</a>
+                            <?php endif; ?>
+                            <span class="text-secondary-500 mx-1">|</span>
+                            <a href='#' class='iubenda-cs-preferences-link'>Preferenze Privacy</a>
+                        </div>
+                    <?php endif; ?>
                     <?php if ($footer && $footer['logo_credits']): ?>
                         <a class="site-footer__copyright flex justify-center lg:justify-start mt-4" href="<?php echo esc_url($footer['logo_credits_link'] ? $footer['logo_credits_link'] : '#'); ?>" <?php echo $footer['logo_credits_link'] ? 'target="_blank"' : ''; ?>>
                             <img src="<?php echo esc_url($footer['logo_credits']['url']); ?>" alt="<?php echo esc_attr($footer['logo_credits']['alt'] ? $footer['logo_credits']['alt'] : 'Credits'); ?>" width="160" height="70">
                         </a>
                     <?php endif; ?>
+
                 </div>
                 <div class="col-span-1 order-1 lg:order-2">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
