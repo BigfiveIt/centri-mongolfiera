@@ -92,3 +92,22 @@ if ( ! function_exists( 'mongolfiera_add_footer_code' ) ) {
 	}
 	add_action( 'wp_footer', 'mongolfiera_add_footer_code', 20 );
 }
+
+if ( ! function_exists( 'mongolfiera_add_getresponse_analytics' ) ) {
+	/**
+	 * Stampa lo script GetResponse Analytics nel tag <head>.
+	 */
+	function mongolfiera_add_getresponse_analytics() {
+		?>
+		<!-- GetResponse Analytics -->
+		<script type="text/javascript">
+			(function(m, o, n, t, e, r, _){
+				m['__GetResponseAnalyticsObject'] = e;m[e] = m[e] || function() {(m[e].q = m[e].q || []).push(arguments)};
+				r = o.createElement(n);_ = o.getElementsByTagName(n)[0];r.async = 1;r.src = t;r.setAttribute('crossorigin', 'use-credentials');_.parentNode .insertBefore(r, _);
+			})(window, document, 'script', 'https://newsletter.digitalsvicom.it/script/51d7bba0-0e7b-46f6-9e81-7c61b500c60d/ga.js', 'GrTracking');
+		</script>
+		<!-- End GetResponse Analytics -->
+		<?php
+	}
+	add_action( 'wp_head', 'mongolfiera_add_getresponse_analytics', 30 );
+}
