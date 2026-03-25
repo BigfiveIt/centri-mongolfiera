@@ -101,6 +101,27 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_69c39ecf07571",
+                    "label": "Nascondi Sezione Newsletter",
+                    "name": "nascondi_sezione_newsletter",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
                     "key": "field_697b6e72ce5f0",
                     "label": "Titolo",
                     "name": "titolo",
@@ -261,5 +282,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772093417
+    "modified": 1774428072
 }

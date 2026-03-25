@@ -13,7 +13,9 @@ defined( 'ABSPATH' ) || exit;
 $socialwall = get_field( 'socialwall', 'option' );
 $newsletter = get_field( 'newsletter', 'option' );
 $footer = get_field( 'footer', 'option' );
+$nascondi_sezione_newsletter = $newsletter && isset( $newsletter['nascondi_sezione_newsletter'] ) ? (bool) $newsletter['nascondi_sezione_newsletter'] : false;
 $mostra_newsletter = $newsletter && ( isset( $newsletter['titolo'] ) || isset( $newsletter['pulsante'] ) );
+$mostra_newsletter = $mostra_newsletter && ! $nascondi_sezione_newsletter;
 $mostra_social = $socialwall && ( isset( $socialwall['titolo'] ) || isset( $socialwall['link_instagram'] ) || isset( $socialwall['foto_social'] ) );
 if ( $mostra_newsletter || $mostra_social ) :
 ?>

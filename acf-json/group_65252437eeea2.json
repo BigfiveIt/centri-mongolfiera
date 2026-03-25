@@ -247,7 +247,8 @@
                     "taxonomy": "",
                     "allow_archives": 0,
                     "multiple": 0,
-                    "allow_null": 0
+                    "allow_null": 1,
+                    "allow_in_bindings": 1
                 },
                 {
                     "key": "field_6980b67fd75c2",
@@ -417,5 +418,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770043053
+    "modified": 1774427759
 }
