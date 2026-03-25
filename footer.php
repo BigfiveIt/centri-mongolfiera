@@ -38,7 +38,7 @@ if ( $mostra_newsletter || $mostra_social ) :
     <?php endif; ?>
 
     <?php if ( $mostra_social ) : ?>
-    <section class="site-prefooter site-prefooter--social social-section bg-secondary-500 pt-16 md:py-0 position-relative <?php echo $mostra_newsletter ? 'mt-16 lg:mt-25' : ''; ?>">
+    <section class="site-prefooter site-prefooter--social social-section bg-secondary-500 pt-16 md:py-0 position-relative <?php echo $mostra_newsletter ? '' : 'mt-16 lg:mt-25'; ?>">
         <?php
         $instagram_link = isset( $socialwall['link_instagram'] ) && ! empty( $socialwall['link_instagram']['url'] ) ? $socialwall['link_instagram'] : null;
         $titolo_sezione = isset( $socialwall['titolo'] ) ? $socialwall['titolo'] : '';
