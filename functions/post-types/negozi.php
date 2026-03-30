@@ -143,6 +143,8 @@ if ( ! function_exists( 'mongolfiera_negozi_archive_show_all' ) ) {
 		}
 		if ( is_post_type_archive( 'negozi' ) || is_tax( 'tag_negozi' ) || is_tax( 'categoria_negozi' ) ) {
 			$query->set( 'posts_per_page', -1 );
+			$query->set( 'orderby', 'title' );
+			$query->set( 'order', 'ASC' );
 		}
 	}
 	add_action( 'pre_get_posts', 'mongolfiera_negozi_archive_show_all' );
