@@ -5,7 +5,7 @@ $link = isset($args['link']) ? $args['link'] : null;
 $title_tag = isset($args['title_tag']) ? $args['title_tag'] : 'h3';
 ?>
 <article class="teaser-negozio group h-full relative">
-    <figure class="teaser-negozio__icon aspect-square rounded-2xl overflow-hidden bg-white border border-secondary-500 p-14 transition-all duration-300 ease-out group-hover:shadow-lg group-hover:translate-y-[-2px]">
+    <figure class="teaser-negozio__icon aspect-square rounded-2xl overflow-hidden bg-white border border-secondary-500 p-[20px] lg:p-[40px] transition-all duration-300 ease-out group-hover:shadow-lg group-hover:translate-y-[-2px]">
         <?php if($logo): ?>
             <img src="<?php echo esc_url($logo['sizes']['large']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" class="w-full h-full object-contain" loading="lazy">
         <?php endif; ?>
