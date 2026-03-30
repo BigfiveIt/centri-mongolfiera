@@ -87,7 +87,7 @@ body.menu-open{
                 }
             }
             
-            @media (max-width: 96rem) {
+            @media (max-width: calc(96rem - 1px)) {
                 /* Bottone chevron per menu con sottomenu */
                 .menu-item__chevron {
                     background: none;
@@ -141,7 +141,7 @@ body.menu-open{
                 min-width: 100%;
                 
                 /* Comportamento accordion su mobile */
-                @media (max-width: 96rem) {
+                @media (max-width: calc(96rem - 1px)) {
                     max-height: 0;
                     gap: 0;
                     overflow: hidden;
@@ -173,7 +173,7 @@ body.menu-open{
                     @apply no-underline text-primary-500;
                     transition: color 0.3s ease;
                     white-space: nowrap;
-                    @media (max-width: 96rem) {
+                    @media (max-width: calc(96rem - 1px)) {
                         padding-top: 10px;
                     }
                     &:hover{
@@ -192,7 +192,7 @@ body.menu-open{
             
         } 
     }
-    @media (max-width: 96rem) {
+    @media (max-width: calc(96rem - 1px)) {
         position: absolute;
         top: var(--site-header-height);
         left: 0;
@@ -229,7 +229,7 @@ body.menu-open{
             opacity: 1;
         }
     }
-    @media (max-width: 96rem) {    
+    @media (max-width: calc(96rem - 1px)) {    
         height: 40px;
         width: 40px;
         svg{
