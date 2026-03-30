@@ -81,6 +81,29 @@ const toggleMenu = () => {
     menu.setAttribute('id', 'site-header-menu');
 }
 
+const initHeaderScrolledClass = () => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const threshold = 10;
+    let ticking = false;
+
+    const update = () => {
+        const shouldBeScrolled = window.scrollY > threshold;
+        header.classList.toggle('scrolled', shouldBeScrolled);
+        ticking = false;
+    };
+
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+};
+
 
 // Gestione accordion per menu mobile
 const initMobileMenuAccordion = () => {
@@ -111,7 +134,7 @@ const initMobileMenuAccordion = () => {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                if (!window.matchMedia('(max-width: 96rem)').matches) return;
+                if (!window.matchMedia('(max-width: calc(96rem - 1px))').matches) return;
                 
                 const isExpanded = menuItem.classList.contains('is-expanded');
                 
@@ -154,6 +177,8 @@ const initMobileMenuAccordion = () => {
 };
 
 const Header = () => {
+    initHeaderScrolledClass();
+
     if(document.querySelector('.site-header__menu-trigger')){
         toggleMenu();
         initMobileMenuAccordion();

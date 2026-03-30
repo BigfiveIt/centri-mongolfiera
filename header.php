@@ -69,7 +69,7 @@ if ( $mostra_topbar ) :
                         $newsletter = get_global_option('newsletter');
                         if ($newsletter) : ?>
                             <div class="site-header__newsletter px-4 lg:px-0">
-                                <a href="<?php echo $newsletter; ?>" class="btn btn-primary 2xl:px-8 w-full lg:w-auto">Newsletter</a>
+                                <a href="<?php echo $newsletter; ?>" class="btn btn-primary 2xl:px-8 w-full lg:w-auto flex">Newsletter</a>
                             </div>
                         <?php endif; ?>
                     </div>
