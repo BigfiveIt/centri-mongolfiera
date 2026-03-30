@@ -42,7 +42,7 @@ body.menu-open{
             font-family: var(--font-serif);
             font-weight: 600;
             position: relative;
-            @apply p-4 2xl:p-[10px];
+            @apply px-4 py-2 2xl:p-[10px];
             background-color: transparent;
             transition: background-color 0.3s ease;
             border-bottom: 1px solid #d2ddd6;
@@ -139,9 +139,9 @@ body.menu-open{
                 align-items: flex-start;
                 flex-direction: column;
                 gap: 10px;
-                font-size: 1rem;
+                font-size: 1.125rem;
                 font-weight: 400;
-                padding: 0 2rem ;
+                padding: 0 1rem ;
                 min-width: 100%;
                 
                 /* Comportamento accordion su mobile */
@@ -178,7 +178,7 @@ body.menu-open{
                     transition: color 0.3s ease;
                     white-space: nowrap;
                     @media (max-width: calc(96rem - 1px)) {
-                        padding-top: 10px;
+                        padding-top: .5rem;
                     }
                     &:hover{
                         color: var(--color-primary-400);
