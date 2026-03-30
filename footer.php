@@ -49,7 +49,7 @@ if ( $mostra_newsletter || $mostra_social ) :
         <div class="container flex md:flex-row flex-col gap-8">
             <div class="flex flex-col gap-8 items-start md:w-2/3 md:py-24">
                 <?php if ( $instagram_link ) : ?>
-                    <a href="<?php echo esc_url( $instagram_link['url'] ); ?>" target="<?php echo esc_attr( $instagram_link['target'] ?? '_self' ); ?>" class="btn btn-primary-outlined font-serif t-5 hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500"><?php echo esc_html( $instagram_link['title'] ?: $instagram_link['url'] ); ?></a>
+                    <a href="<?php echo esc_url( $instagram_link['url'] ); ?>" target="<?php echo esc_attr( $instagram_link['target'] ?? '_self' ); ?>" class="btn btn-primary-outlined font-serif desc-1 hover:bg-primary-500 hover:text-secondary-500 hover:border-primary-500"><?php echo esc_html( $instagram_link['title'] ?: $instagram_link['url'] ); ?></a>
                 <?php endif; ?>
                 <?php if ( $titolo_sezione ) : ?>
                     <h3 class="t-2 text-primary-500 font-medium font-serif"><?php echo esc_html( $titolo_sezione ); ?></h3>
