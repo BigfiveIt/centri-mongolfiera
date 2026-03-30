@@ -429,7 +429,7 @@ get_header();
                         $servizio_image = isset( $servizio['immagine'] ) ? $servizio['immagine'] : null;
                         $servizio_titolo = isset( $servizio['titolo'] ) ? $servizio['titolo'] : '';
                         ?>
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-3 lg:gap-4">
                             <figure class="shrink-0 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-secondary-500 flex items-center justify-center p-2.5">
                                 <?php if ( $servizio_image ) : ?>
                                     <img src="<?php echo esc_url( $servizio_image['url'] ); ?>" alt="<?php echo esc_attr( $servizio_image['alt'] ?: $servizio_titolo ); ?>" class="w-full h-full object-contain" loading="lazy">
