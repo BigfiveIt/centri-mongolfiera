@@ -95,6 +95,7 @@ get_header();
 					$data_inizio = get_field('data_inizio');
 					$data_fine = get_field('data_fine');
 					
+					
 					// Formatta la data per il teaser-event
 					$data_formattata = '';
 					if ( $data_inizio ) {

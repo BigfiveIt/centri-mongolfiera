@@ -16,17 +16,10 @@ if ( ! function_exists( 'mongolfiera_apply_date_archive_meta_query' ) ) {
 		$meta_query = array( 'relation' => 'AND' );
 		if ( $stato_passate ) {
 			$meta_query[] = array(
-				'relation' => 'OR',
-				array(
-					'key'     => 'data_fine',
-					'value'   => $today,
-					'compare' => '<',
-				),
-				array(
-					'relation' => 'AND',
-					array( 'key' => 'data_fine', 'compare' => 'NOT EXISTS' ),
-					array( 'key' => 'data_inizio', 'value' => $today, 'compare' => '<' ),
-				),
+				'relation' => 'AND',
+				array( 'key' => 'data_fine', 'compare' => 'EXISTS' ),
+				array( 'key' => 'data_fine', 'value' => '', 'compare' => '!=' ),
+				array( 'key' => 'data_fine', 'value' => $today, 'compare' => '<' ),
 			);
 			$query->set( 'meta_key', 'data_inizio' );
 			$query->set( 'orderby', 'meta_value' );
@@ -35,14 +28,18 @@ if ( ! function_exists( 'mongolfiera_apply_date_archive_meta_query' ) ) {
 			$meta_query[] = array(
 				'relation' => 'OR',
 				array(
-					'key'     => 'data_fine',
-					'value'   => $today,
-					'compare' => '>=',
+					'relation' => 'AND',
+					array( 'key' => 'data_inizio', 'value' => $today, 'compare' => '<=' ),
+					array( 'key' => 'data_fine', 'value' => $today, 'compare' => '>=' ),
 				),
 				array(
 					'relation' => 'AND',
-					array( 'key' => 'data_fine', 'compare' => 'NOT EXISTS' ),
-					array( 'key' => 'data_inizio', 'value' => $today, 'compare' => '>=' ),
+					array(
+						'relation' => 'OR',
+						array( 'key' => 'data_fine', 'compare' => 'NOT EXISTS' ),
+						array( 'key' => 'data_fine', 'value' => '', 'compare' => '=' ),
+					),
+					array( 'key' => 'data_inizio', 'value' => $today, 'compare' => '<=' ),
 				),
 			);
 			$query->set( 'meta_key', 'data_inizio' );
