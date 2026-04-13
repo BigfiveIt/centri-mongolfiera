@@ -36,3 +36,38 @@ add_filter('wp_all_import_csv_to_xml_remove_non_ascii_characters', 'wpai_wp_all_
 function wpai_wp_all_import_csv_to_xml_remove_non_ascii_characters($remove_non_ascii_characters) {
     return FALSE;
 }
+
+// Aggiungi codice header dalle opzioni ACF
+function add_header_code() {
+    if( function_exists('get_field') ) {
+        $codici = get_field('codici', 'option');
+        if( $codici ) {
+			if( !empty($codici['header']) ) {
+				echo $codici['header'];
+			}
+        }
+    }
+}
+add_action('wp_head', 'add_header_code', 20);
+
+// Aggiungi codice body dalle opzioni ACF
+function add_body_code() {
+    if( function_exists('get_field') ) {
+        $codici = get_field('codici', 'option');
+        if( !empty($codici['body']) ) {
+            echo $codici['body'];
+        }
+    }
+}
+add_action('wp_body_open', 'add_body_code', 20);
+
+// Aggiungi codice footer dalle opzioni ACF 
+function add_footer_code() {
+    if( function_exists('get_field') ) {
+        $codici = get_field('codici', 'option');
+		if( !empty($codici['footer']) ) {
+			echo $codici['footer'];
+		}        
+    }
+}
+add_action('wp_footer', 'add_footer_code', 20);
