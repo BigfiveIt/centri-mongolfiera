@@ -15,27 +15,7 @@ get_header();
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-28" data-aos="fade-up">
 			<div>
 				<figure><?php the_post_thumbnail('full', ['class' => 'w-full h-full object-cover aspect-square']); ?></figure>
-				<div class="social-share border-t border-primary-500 pt-3 mt-5 flex gap-4 justify-between">
-					<span class="t-5 text-primary-500 font-extrabold">Condividi</span>
-					<div class="social-icons flex gap-3 text-white">
-						<?php
-						$post_url = urlencode( get_permalink() );
-						$post_title = urlencode( get_the_title() );
-						?>
-						<a href="mailto:?subject=<?php echo esc_attr( $post_title ); ?>&body=<?php echo esc_url( get_permalink() ); ?>" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-500 transition-colors duration-200" aria-label="Condividi via email">
-							<?php get_template_part('images/icons/socials/email'); ?>
-						</a>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( $post_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-500 transition-colors duration-200" aria-label="Condividi su Facebook">
-							<?php get_template_part('images/icons/socials/facebook'); ?>
-						</a>
-						<a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url( $post_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-500 transition-colors duration-200" aria-label="Condividi su LinkedIn">
-							<?php get_template_part('images/icons/socials/linkedin'); ?>
-						</a>
-						<a href="https://x.com/intent/tweet?url=<?php echo esc_url( $post_url ); ?>&text=<?php echo esc_attr( $post_title ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon w-9 h-9 rounded-full bg-black p-3 flex items-center justify-center hover:bg-secondary-500 transition-colors duration-200" aria-label="Condividi su X">
-							<?php get_template_part('images/icons/socials/x'); ?>
-						</a>
-					</div>
-				</div>
+				<?php get_template_part( 'template-parts/social-share' ); ?>
 			</div>
 			<div class="flex flex-col gap-4">
 				<a href="<?php echo get_post_type_archive_link('eventi'); ?>" class="btn btn-link">
