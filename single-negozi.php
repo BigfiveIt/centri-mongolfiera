@@ -114,11 +114,13 @@ if($logo || $gallery):
     </div>
 </section>
 
-<?php $sfogliabile = get_field('sfogliabile'); ?>
-<?php $shortcode_sfogliabile = $sfogliabile['shortcode_sfogliabile']; ?>
-<?php $colore_sfondo = $sfogliabile['colore_sfondo'] ? $sfogliabile['colore_sfondo'] : '#ffffff'; ?>
+<?php
+$sfogliabile = get_field('sfogliabile');
+$shortcode_sfogliabile = ($sfogliabile && !empty($sfogliabile['shortcode_sfogliabile'])) ? $sfogliabile['shortcode_sfogliabile'] : '';
+$colore_sfondo = ($sfogliabile && !empty($sfogliabile['colore_sfondo'])) ? $sfogliabile['colore_sfondo'] : '#ffffff';
+?>
 
-<?php if($sfogliabile && $shortcode_sfogliabile): ?>
+<?php if($shortcode_sfogliabile): ?>
 <section class="py-6 lg:py-28" data-aos="fade-up" style="background-color: <?php echo $colore_sfondo; ?>">
     <div class="container lg:px-28">
         <div class="sfogliabile__content">
